@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduQuiz — Interactive Quiz for Class 6-10 Students</title>
+    <meta name="description" content="Practice MCQ questions for Maths, Science, and SST for Class 6 to 10. Earn points, track progress, and compete with friends on EduQuiz!">
+    <meta name="keywords" content="quiz, maths, science, sst, class 6, class 7, class 8, class 9, class 10, NCERT, CBSE, MCQ, education, students">
+    <meta name="author" content="EduQuiz">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="EduQuiz — Interactive Quiz for Class 6-10">
+    <meta property="og:description" content="Practice MCQ questions, earn XP, unlock badges, and master your subjects!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://eduquiz.app">
+    <meta property="og:image" content="https://eduquiz.app/assets/og-image.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="EduQuiz — Interactive Quiz for Class 6-10">
+    <meta name="twitter:description" content="Practice MCQ questions, earn XP, unlock badges, and master your subjects!">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+    <!-- Favicon & Meta -->
+    <link rel="icon" type="image/png" href="assets/eduquiz_logo.png">
+    <meta name="theme-color" content="#6c5ce7">
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "EduQuiz",
+        "description": "Interactive educational quiz platform for Class 6-10 students covering Maths, Science, and SST",
+        "url": "https://eduquiz.app",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Web",
+        "audience": {
+            "@type": "EducationalAudience",
+            "educationalRole": "student"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "INR"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- ===== Particle Background Canvas ===== -->
+    <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+    <!-- ===== Navbar ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#/home" class="nav-logo" aria-label="EduQuiz Home">
+                <img src="assets/eduquiz_logo.png" alt="EduQuiz Logo" class="logo-image">
+                <span class="logo-text">Edu<span class="logo-highlight">Quiz</span></span>
+            </a>
+            <div class="nav-links" id="nav-links">
+                <a href="#/home" class="nav-link active" data-route="home">
+                    <i data-feather="home" class="nav-icon"></i> Home
+                </a>
+                <a href="#/class" class="nav-link" data-route="class">
+                    <i data-feather="book" class="nav-icon"></i> Quizzes
+                </a>
+                <a href="#/leaderboard" class="nav-link" data-route="leaderboard">
+                    <i data-feather="award" class="nav-icon"></i> Leaderboard
+                </a>
+                <a href="#/profile" class="nav-link" data-route="profile">
+                    <span id="nav-profile-avatar" class="nav-icon" style="display:inline-flex; align-items:center; justify-content:center; width:20px; height:20px;"><i data-feather="user"></i></span> Profile
+                </a>
+                <a href="#/about" class="nav-link" data-route="about">
+                    <i data-feather="info" class="nav-icon"></i> About
+                </a>
+            </div>
+            <div class="nav-actions">
+                <button class="sound-toggle" id="sound-toggle" aria-label="Toggle Sound" title="Toggle Sound">
+                    <span class="sound-on"><i data-feather="volume-2"></i></span>
+                    <span class="sound-off" style="display:none"><i data-feather="volume-x"></i></span>
+                </button>
+                <div class="nav-xp" id="nav-xp" title="Your XP">
+                    <span class="xp-icon">XP</span>
+                    <span class="xp-value" id="nav-xp-value">0</span>
+                </div>
+                <div class="nav-streak" id="nav-streak" title="Daily Streak">
+                    <span class="streak-icon"><i data-feather="activity"></i></span>
+                    <span class="streak-value" id="nav-streak-value">0</span>
+                </div>
+                <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== Ad Slot: Header Banner ===== -->
+    <div class="ad-slot ad-header" id="ad-header" aria-hidden="true">
+        <!-- Google AdSense header banner placeholder -->
+    </div>
+
+    <!-- ===== Main App Container ===== -->
+    <main id="app" class="app-container" role="main">
+        <!-- SPA pages are rendered here by the router -->
+        <div class="page-loading" id="initial-loader">
+            <div class="spinner"></div>
+            <p>Loading EduQuiz...</p>
+        </div>
+    </main>
+
+    <!-- ===== Ad Slot: Footer Banner ===== -->
+    <div class="ad-slot ad-footer" id="ad-footer" aria-hidden="true">
+        <!-- Google AdSense footer banner placeholder -->
+    </div>
+
+    <!-- ===== Footer ===== -->
+    <footer class="footer" id="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-section" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+                    <h3 class="footer-brand" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+                        <img src="assets/eduquiz_logo.png" alt="EduQuiz Logo" class="logo-image">
+                        <span class="logo-text">Edu<span class="logo-highlight">Quiz</span></span>
+                    </h3>
+                    <p class="footer-desc">Making learning fun, interactive, and rewarding for students across India. Practice quizzes, earn XP, and climb the leaderboard!</p>
+                    <div class="footer-social" style="display: none;"></div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="#/home">Home</a>
+                    <a href="#/class">Start Quiz</a>
+                    <a href="#/leaderboard">Leaderboard</a>
+                    <a href="#/profile">My Profile</a>
+                    <a href="#/about">About Us</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Classes</h4>
+                    <a href="#/subjects/class6">Class 6</a>
+                    <a href="#/subjects/class7">Class 7</a>
+                    <a href="#/subjects/class8">Class 8</a>
+                    <a href="#/subjects/class9">Class 9</a>
+                    <a href="#/subjects/class10">Class 10</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Subjects</h4>
+                    <a href="#/subjects/class8">Mathematics</a>
+                    <a href="#/subjects/class8">Science</a>
+                    <a href="#/subjects/class8">Social Science</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 EduQuiz. Made with <i data-feather="heart" style="width: 14px; height: 14px; vertical-align: middle; color: var(--error);"></i> for students of India.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== Toast Notification Container ===== -->
+    <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+    <!-- ===== Welcome Modal (first visit) ===== -->
+    <div class="modal-overlay" id="welcome-modal" style="display:none" role="dialog" aria-labelledby="welcome-title">
+        <div class="modal glass-card">
+            <div class="modal-header">
+                <span class="modal-emoji">🔐</span>
+                <h2 style="margin-bottom: var(--space-sm);" id="welcome-title">Welcome to EduQuiz!</h2>
+                <p class="modal-subtitle">Sign in or create an account to track your progress</p>
+            </div>
+            <div class="modal-form">
+                <!-- Auth Tabs -->
+                <div class="auth-tabs" style="display: flex; gap: 10px; margin-bottom: 20px;">
+                    <button id="tab-login" class="btn btn-outline" style="flex: 1; border: 2px solid var(--primary); background: rgba(108, 92, 231, 0.1);">Login</button>
+                    <button id="tab-signup" class="btn btn-outline" style="flex: 1; border: 2px solid transparent;">Create Account</button>
+                </div>
+
+                <!-- Email/Password Form -->
+                <form id="email-auth-form" style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 20px;">
+                    <div class="input-group">
+                        <label for="auth-email">Email Address</label>
+                        <input type="email" id="auth-email" placeholder="Enter your email" class="input-field" required autocomplete="email">
+                    </div>
+                    <div class="input-group">
+                        <label for="auth-password">Password</label>
+                        <input type="password" id="auth-password" placeholder="Enter your password" class="input-field" required autocomplete="current-password">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg btn-glow" id="email-submit-btn">Sign In</button>
+                </form>
+
+                <div style="display: flex; align-items: center; margin: 15px 0; color: #888;">
+                    <hr style="flex: 1; border: none; border-top: 1px solid #ddd;">
+                    <span style="padding: 0 10px; font-size: 0.9rem;">OR</span>
+                    <hr style="flex: 1; border: none; border-top: 1px solid #ddd;">
+                </div>
+
+                <button class="btn btn-primary btn-lg" id="google-signin-btn" type="button" style="display: flex; align-items: center; justify-content: center; gap: 10px; background: #fff; color: #333; border: 1px solid #ddd; width: 100%; margin: 0 auto;">
+                    <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google Logo" style="width: 24px; height: 24px;">
+                    Sign in with Google
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Profile Setup Modal ===== -->
+    <div class="modal-overlay" id="profile-setup-modal" style="display:none" role="dialog" aria-labelledby="setup-title">
+        <div class="modal glass-card">
+            <div class="modal-header">
+                <span class="modal-emoji" id="setup-avatar-preview">👤</span>
+                <h2 style="margin-bottom: var(--space-sm);" id="setup-title">Complete Your Profile</h2>
+                <p class="modal-subtitle">Just a few more details to get started</p>
+            </div>
+            <div class="modal-form">
+                <div class="input-group">
+                    <label for="setup-username-input">Your Name</label>
+                    <input type="text" id="setup-username-input" placeholder="Enter your name..." maxlength="20" class="input-field" autocomplete="off">
+                </div>
+                <div class="input-group">
+                    <label>Choose Your Avatar</label>
+                    <div class="avatar-selector" id="setup-avatar-selector">
+                        <button class="avatar-option selected" data-avatar="google" type="button" id="google-avatar-btn" title="Use Google Photo">G</button>
+                        <button class="avatar-option" data-avatar="🦁" type="button">🦁</button>
+                        <button class="avatar-option" data-avatar="🦊" type="button">🦊</button>
+                        <button class="avatar-option" data-avatar="🦉" type="button">🦉</button>
+                        <button class="avatar-option" data-avatar="🐼" type="button">🐼</button>
+                        <button class="avatar-option" data-avatar="🐯" type="button">🐯</button>
+                        <button class="avatar-option" data-avatar="🦅" type="button">🦅</button>
+                        <button class="avatar-option" data-avatar="🚀" type="button">🚀</button>
+                        <button class="avatar-option" data-avatar="💎" type="button">💎</button>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="setup-class-select">Select Your Class</label>
+                    <select id="setup-class-select" class="input-field">
+                        <option value="6">Class 6</option>
+                        <option value="7">Class 7</option>
+                        <option value="8" selected>Class 8</option>
+                        <option value="9">Class 9</option>
+                        <option value="10">Class 10</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary btn-lg btn-glow" id="setup-start-btn" type="button">
+                    Let's Go!
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Confetti Canvas ===== -->
+    <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+    <!-- ===== Firebase Compat Libraries ===== -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+    <!-- ===== JavaScript Scripts (order matters for dependencies) ===== -->
+    <script src="js/firebase-config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/firebase-db.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/ui-utils.js"></script>
+    <script src="js/gamification.js"></script>
+    <script src="js/quiz-engine.js"></script>
+    <script src="js/share.js"></script>
+    <script src="js/router.js"></script>
+    <script src="js/pages/home.js"></script>
+    <script src="js/pages/class-select.js"></script>
+    <script src="js/pages/subject-select.js"></script>
+    <script src="js/pages/quiz.js"></script>
+    <script src="js/pages/result.js"></script>
+    <script src="js/pages/leaderboard.js"></script>
+    <script src="js/pages/profile.js"></script>
+    <script src="js/pages/about.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

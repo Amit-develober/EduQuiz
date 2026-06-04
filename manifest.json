@@ -1,0 +1,17 @@
+{
+    "name": "EduQuiz",
+    "short_name": "EduQuiz",
+    "description": "Interactive educational quiz platform for Class 6-10 students",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#f0f8ff",
+    "theme_color": "#2563eb",
+    "orientation": "portrait-primary",
+    "categories": ["education", "games"],
+    "icons": [
+            "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>E</text></svg>",
+            "type": "image/svg+xml",
+            "purpose": "any"
+        }
+    ]
+}
