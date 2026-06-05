@@ -6,10 +6,23 @@
 
 const Share = (() => {
     /**
+     * Load an image from a URL safely with CORS.
+     */
+    function loadImage(src) {
+        return new Promise((resolve) => {
+            const img = new Image();
+            img.crossOrigin = 'anonymous';
+            img.onload = () => resolve(img);
+            img.onerror = () => resolve(null);
+            img.src = src;
+        });
+    }
+
+    /**
      * Generate a beautiful score card image on canvas.
      * Returns a data URL.
      */
-    function generateScoreCard(result) {
+    async function generateScoreCard(result) {
         const canvas = document.createElement('canvas');
         canvas.width = 600;
         canvas.height = 400;
@@ -66,15 +79,57 @@ const Share = (() => {
         ctx.lineTo(500, 95);
         ctx.stroke();
 
-        // Username
+        // Username and Avatar
         const profile = Storage.getProfile();
+        ctx.save();
         ctx.font = '700 28px "Outfit", sans-serif';
         ctx.fillStyle = '#ffffff';
-        ctx.fillText(
-            `${profile.avatar} ${profile.username || 'Student'}`,
-            300,
-            140
-        );
+        ctx.textBaseline = 'middle';
+
+        const username = profile.username || 'Student';
+        const isUrlAvatar = profile.avatar && profile.avatar.startsWith('http');
+
+        if (isUrlAvatar) {
+            const img = await loadImage(profile.avatar);
+            if (img) {
+                const textWidth = ctx.measureText(username).width;
+                const avatarRadius = 18;
+                const gap = 10;
+                const totalW = avatarRadius * 2 + gap + textWidth;
+                const startX = 300 - totalW / 2;
+
+                // Draw circular avatar
+                ctx.save();
+                ctx.beginPath();
+                ctx.arc(startX + avatarRadius, 130, avatarRadius, 0, Math.PI * 2);
+                ctx.clip();
+                ctx.drawImage(
+                    img,
+                    startX,
+                    130 - avatarRadius,
+                    avatarRadius * 2,
+                    avatarRadius * 2
+                );
+                ctx.restore();
+
+                // Draw username text
+                ctx.textAlign = 'left';
+                ctx.fillText(username, startX + avatarRadius * 2 + gap, 130);
+            } else {
+                // Fallback to default user emoji if image fails to load
+                ctx.textAlign = 'center';
+                ctx.fillText(`👤 ${username}`, 300, 130);
+            }
+        } else {
+            // Normal emoji or letter avatar
+            ctx.textAlign = 'center';
+            ctx.fillText(
+                `${profile.avatar || '👤'} ${username}`,
+                300,
+                130
+            );
+        }
+        ctx.restore();
 
         // Score circle area
         const scoreColor = result.percentage >= 80
@@ -157,8 +212,9 @@ const Share = (() => {
     /**
      * Download score card as image.
      */
-    function downloadScoreCard(result) {
-        const dataUrl = generateScoreCard(result);
+    async function downloadScoreCard(result) {
+        UIUtils.showToast('Generating score card...', 'info', 2000);
+        const dataUrl = await generateScoreCard(result);
         const link = document.createElement('a');
         link.download = `EduQuiz_Score_Class${result.classNum}_${result.subject}.png`;
         link.href = dataUrl;
