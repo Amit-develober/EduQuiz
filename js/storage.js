@@ -79,14 +79,24 @@ const Storage = (() => {
 
     const defaultSettings = {
         soundEnabled: true,
-        timerEnabled: false,
+        timerEnabled: true,
         timerDuration: 30, // seconds per question
-        penaltyEnabled: false, // -1 for wrong answers
+        penaltyEnabled: true, // -1 for wrong answers
         showExplanations: true,
     };
 
     function getSettings() {
-        return { ...defaultSettings, ...get(KEYS.SETTINGS, {}) };
+        let settings = { ...defaultSettings, ...get(KEYS.SETTINGS, {}) };
+        
+        // Migrate existing users to have timer and penalty active by default once
+        if (!settings.defaultsUpdatedV2) {
+            settings.timerEnabled = true;
+            settings.penaltyEnabled = true;
+            settings.defaultsUpdatedV2 = true;
+            saveSettings(settings);
+        }
+        
+        return settings;
     }
 
     function saveSettings(settings) {

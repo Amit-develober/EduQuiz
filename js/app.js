@@ -302,7 +302,7 @@
                 if (window.signInWithGoogle) {
                     window.signInWithGoogle().catch((error) => {
                         console.error("Sign in failed:", error);
-                        UIUtils.showToast('Login failed. Please try again.', 'error');
+                        UIUtils.showToast(error.message || 'Login failed. Please try again.', 'error');
                     });
                 } else {
                     UIUtils.showToast('Firebase not configured. Please add your config in js/auth.js', 'warning');
