@@ -31,49 +31,83 @@
                     
                     // If first visit or profile incomplete, initialize profile
                     if (Storage.isFirstVisit() || !Storage.getProfile().username) {
-                        const isNewUser = user.metadata && user.metadata.creationTime === user.metadata.lastSignInTime;
                         const appEl = document.getElementById('app');
                         const navEl = document.getElementById('navbar');
                         
-                        if (isNewUser) {
-                            if (appEl) appEl.style.display = 'none';
-                            if (navEl) navEl.style.display = 'none';
-                            showProfileSetupModal(user);
-                        } else {
-                            // Existing user logging in (e.g. cleared cookies or new device)
+                        // First, attempt to retrieve the user's profile from Firestore
+                        let dbProfile = null;
+                        if (typeof FirebaseDB !== 'undefined' && FirebaseDB.getUserProfile) {
+                            // Show loader while fetching profile
+                            const loader = document.getElementById('initial-loader');
+                            if (loader) loader.style.display = 'flex';
+                            
+                            try {
+                                dbProfile = await FirebaseDB.getUserProfile(user.uid);
+                            } catch (error) {
+                                console.error("Error fetching user profile from database:", error);
+                            } finally {
+                                if (loader) loader.style.display = 'none';
+                            }
+                        }
+
+                        if (dbProfile && dbProfile.username) {
+                            // Profile exists in database, restore it locally
                             const emailName = user.email ? user.email.split('@')[0] : 'Student';
                             let profileData = {
-                                username: user.displayName || emailName,
-                                avatar: user.photoURL || '🦁',
-                                classNum: 8,
-                                xp: 0,
+                                username: dbProfile.username,
+                                avatar: dbProfile.avatar || user.photoURL || '🦁',
+                                classNum: dbProfile.classNum || 8,
+                                xp: dbProfile.xp || 0,
                                 level: 1,
-                                totalQuizzes: 0,
+                                totalQuizzes: dbProfile.quizzes || 0,
                                 totalCorrect: 0,
                                 totalQuestions: 0,
-                                badges: [],
-                                createdAt: new Date().toISOString(),
+                                badges: dbProfile.badges || [],
+                                createdAt: dbProfile.createdAt || new Date().toISOString(),
                             };
 
-                            if (typeof FirebaseDB !== 'undefined' && FirebaseDB.getUserProfile) {
-                                const dbProfile = await FirebaseDB.getUserProfile(user.uid);
-                                if (dbProfile) {
-                                    profileData.username = dbProfile.username || profileData.username;
-                                    profileData.avatar = dbProfile.avatar || profileData.avatar;
-                                    profileData.classNum = dbProfile.classNum || profileData.classNum;
-                                    profileData.xp = dbProfile.xp || 0;
-                                    profileData.totalQuizzes = dbProfile.quizzes || 0;
-                                    
-                                    // Estimate questions to maintain accuracy locally
-                                    profileData.totalQuestions = profileData.totalQuizzes * 10;
-                                    profileData.totalCorrect = Math.round((dbProfile.accuracy || 0) * profileData.totalQuestions / 100);
-                                }
+                            if (typeof Gamification !== 'undefined' && Gamification.getLevelFromXP) {
+                                const levelInfo = Gamification.getLevelFromXP(profileData.xp);
+                                profileData.level = levelInfo ? levelInfo.level : 1;
                             }
+
+                            // Estimate questions to maintain accuracy locally
+                            profileData.totalQuestions = profileData.totalQuizzes * 10;
+                            profileData.totalCorrect = Math.round((dbProfile.accuracy || 0) * profileData.totalQuestions / 100);
 
                             Storage.saveProfile(profileData);
                             if (appEl) appEl.style.display = '';
                             if (navEl) navEl.style.display = '';
                             updateNavProfile();
+                        } else {
+                            // No profile exists in database. Check if they are a new user
+                            const isNewUser = user.metadata && user.metadata.creationTime === user.metadata.lastSignInTime;
+                            
+                            // If they are a new user, or if we have no profile anywhere, force them to set it up
+                            if (isNewUser || !dbProfile || !dbProfile.username) {
+                                if (appEl) appEl.style.display = 'none';
+                                if (navEl) navEl.style.display = 'none';
+                                showProfileSetupModal(user);
+                            } else {
+                                // Fallback: Create a default profile
+                                const emailName = user.email ? user.email.split('@')[0] : 'Student';
+                                let profileData = {
+                                    username: user.displayName || emailName,
+                                    avatar: user.photoURL || '🦁',
+                                    classNum: 8,
+                                    xp: 0,
+                                    level: 1,
+                                    totalQuizzes: 0,
+                                    totalCorrect: 0,
+                                    totalQuestions: 0,
+                                    badges: [],
+                                    createdAt: new Date().toISOString(),
+                                };
+                                Storage.saveProfile(profileData);
+                                if (appEl) appEl.style.display = '';
+                                if (navEl) navEl.style.display = '';
+                                updateNavProfile();
+                            }
                         }
                     } else {
                         const appEl = document.getElementById('app');
