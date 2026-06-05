@@ -135,9 +135,6 @@ const ResultPage = (() => {
                 <div class="share-section">
                     <h3><i data-feather="share"></i> Share Your Score</h3>
                     <div class="share-buttons">
-                        <button class="share-btn copy-link" onclick="ResultPage.copyLink()" id="share-copy">
-                            <i data-feather="clipboard"></i> Copy Text
-                        </button>
                         <button class="share-btn download" onclick="ResultPage.downloadCard()" id="share-download">
                             <i data-feather="download"></i> Download Card
                         </button>
@@ -233,11 +230,6 @@ const ResultPage = (() => {
         return raw ? JSON.parse(raw) : null;
     }
 
-    function copyLink() {
-        const result = getResult();
-        if (result) Share.copyToClipboard(result);
-    }
-
     function downloadCard() {
         const result = getResult();
         if (result) Share.downloadScoreCard(result);
@@ -251,7 +243,6 @@ const ResultPage = (() => {
     });
 
     return {
-        copyLink,
         downloadCard,
     };
 })();
