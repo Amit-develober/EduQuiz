@@ -112,8 +112,8 @@ const ResultPage = (() => {
 
                 <!-- XP Earned -->
                 <div class="xp-earned-section">
-                    <div class="xp-earned-title">XP XP Earned</div>
-                    <div class="xp-earned-value" id="xp-earned">+0</div>
+                    <div class="xp-earned-title">${result.xpEarned < 0 ? 'XP Lost' : 'XP Earned'}</div>
+                    <div class="xp-earned-value" id="xp-earned" style="color: ${result.xpEarned < 0 ? '#ff6b6b' : 'var(--primary-light)'}">+0</div>
                     ${result.leveledUp
                         ? `<div style="margin-top: 8px; font-size: var(--fs-sm); color: var(--success-light);">
                                 Level Up! ${result.newLevel.emoji} ${result.newLevel.name}
@@ -203,12 +203,21 @@ const ResultPage = (() => {
             if (xpEl) {
                 let current = 0;
                 const target = result.xpEarned;
-                const step = Math.ceil(target / 30);
-                const interval = setInterval(() => {
-                    current = Math.min(current + step, target);
-                    xpEl.textContent = `+${current}`;
-                    if (current >= target) clearInterval(interval);
-                }, 30);
+                if (target < 0) {
+                    const step = Math.floor(target / 30) || -1;
+                    const interval = setInterval(() => {
+                        current = Math.max(current + step, target);
+                        xpEl.textContent = `${current}`;
+                        if (current <= target) clearInterval(interval);
+                    }, 30);
+                } else {
+                    const step = Math.ceil(target / 30) || 1;
+                    const interval = setInterval(() => {
+                        current = Math.min(current + step, target);
+                        xpEl.textContent = `+${current}`;
+                        if (current >= target) clearInterval(interval);
+                    }, 30);
+                }
             }
         }, 1000);
 

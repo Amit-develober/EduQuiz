@@ -5,7 +5,7 @@
 
 const Gamification = (() => {
     // ── XP Constants ──
-    const XP_PER_CORRECT = 10;
+    const XP_PER_CORRECT = 5;
     const XP_PER_QUIZ = 5;
     const XP_PERFECT_BONUS = 20;
     const XP_STREAK_BONUS = 15;
@@ -199,16 +199,56 @@ const Gamification = (() => {
         let xp = 0;
         const breakdown = [];
 
-        // XP per correct answer
-        xp += result.correct * XP_PER_CORRECT;
-        breakdown.push(`${result.correct} correct × ${XP_PER_CORRECT} XP = ${result.correct * XP_PER_CORRECT}`);
+        let correctNormalCount = 0;
+        let correctFastCount = 0;
+        let wrongCount = 0;
 
-        // Quiz completion bonus
-        xp += XP_PER_QUIZ;
-        breakdown.push(`Quiz completed: +${XP_PER_QUIZ} XP`);
+        if (result.answers && Array.isArray(result.answers)) {
+            result.answers.forEach((ans) => {
+                if (ans.isSkipped) {
+                    return; // Skipped answers do not add or subtract XP
+                }
+                if (ans.isCorrect) {
+                    // Correct in less than 5 seconds
+                    if (ans.timeTaken !== null && ans.timeTaken !== undefined && ans.timeTaken < 5) {
+                        correctFastCount++;
+                    } else {
+                        correctNormalCount++;
+                    }
+                } else {
+                    wrongCount++;
+                }
+            });
+        }
+
+        // Calculate XP based on correct/wrong answers
+        const correctNormalXP = correctNormalCount * 5;
+        const correctFastXP = correctFastCount * 7;
+        const wrongXP = wrongCount * -1;
+
+        xp += correctNormalXP + correctFastXP + wrongXP;
+
+        if (correctNormalCount > 0) {
+            breakdown.push(`${correctNormalCount} correct × 5 XP = +${correctNormalXP} XP`);
+        }
+        if (correctFastCount > 0) {
+            breakdown.push(`${correctFastCount} fast correct (<5s) × 7 XP = +${correctFastXP} XP`);
+        }
+        if (wrongCount > 0) {
+            breakdown.push(`${wrongCount} wrong × -1 XP = ${wrongXP} XP`);
+        }
+
+        // Quiz completion vs Timeout
+        if (result.timedOut) {
+            xp -= 10;
+            breakdown.push(`Quiz timed out: -10 XP`);
+        } else {
+            xp += XP_PER_QUIZ;
+            breakdown.push(`Quiz completed: +${XP_PER_QUIZ} XP`);
+        }
 
         // Perfect score bonus
-        if (result.percentage === 100) {
+        if (result.percentage === 100 && !result.timedOut) {
             xp += XP_PERFECT_BONUS;
             breakdown.push(`Perfect score! +${XP_PERFECT_BONUS} XP`);
         }
@@ -220,7 +260,6 @@ const Gamification = (() => {
             breakdown.push(`Streak bonus (${streak.current} days): +${XP_STREAK_BONUS} XP`);
         }
 
-
         return { xp, breakdown };
     }
 
@@ -231,7 +270,7 @@ const Gamification = (() => {
     function awardXP(xpAmount) {
         const profile = Storage.getProfile();
         const oldLevel = getLevelFromXP(profile.xp);
-        profile.xp += xpAmount;
+        profile.xp = Math.max(0, profile.xp + xpAmount); // Safeguard: XP cannot go below 0
         const newLevel = getLevelFromXP(profile.xp);
         profile.level = newLevel.level;
         Storage.saveProfile(profile);

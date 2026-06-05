@@ -16,6 +16,9 @@ const QuizEngine = (() => {
     let classNum = null;
     let subject = null;
     let isCompleted = false;
+    let currentQuestionStartTime = null;
+    let timerEnabled = false;
+    let timedOut = false;
 
     // ── Question Loading ──
 
@@ -68,10 +71,13 @@ const QuizEngine = (() => {
         answers = new Array(questions.length).fill(null);
         score = 0;
         startTime = Date.now();
+        currentQuestionStartTime = Date.now();
         isCompleted = false;
+        timedOut = false;
 
         // Timer setup
-        if (options.timerEnabled) {
+        timerEnabled = !!options.timerEnabled;
+        if (timerEnabled) {
             timeRemaining = (options.timerDuration || 30) * questions.length;
         }
 
@@ -98,6 +104,7 @@ const QuizEngine = (() => {
     function goToNext() {
         if (currentIndex < questions.length - 1) {
             currentIndex++;
+            currentQuestionStartTime = Date.now();
             return getCurrentQuestion();
         }
         return null;
@@ -106,6 +113,7 @@ const QuizEngine = (() => {
     function goToPrevious() {
         if (currentIndex > 0) {
             currentIndex--;
+            currentQuestionStartTime = Date.now();
             return getCurrentQuestion();
         }
         return null;
@@ -114,6 +122,7 @@ const QuizEngine = (() => {
     function goToQuestion(index) {
         if (index >= 0 && index < questions.length) {
             currentIndex = index;
+            currentQuestionStartTime = Date.now();
             return getCurrentQuestion();
         }
         return null;
@@ -141,11 +150,17 @@ const QuizEngine = (() => {
             score = Math.max(0, score - 1);
         }
 
+        // Calculate time taken for this answer in seconds
+        const timeTaken = currentQuestionStartTime
+            ? (Date.now() - currentQuestionStartTime) / 1000
+            : 0;
+
         answers[currentIndex] = {
             selectedIndex: selectedOptionIndex,
             selectedOption,
             isCorrect,
             isSkipped: false,
+            timeTaken,
         };
 
         return {
@@ -181,6 +196,7 @@ const QuizEngine = (() => {
             if (onTick) onTick(timeRemaining);
 
             if (timeRemaining <= 0) {
+                timedOut = true;
                 clearInterval(timerInterval);
                 if (onTimeUp) onTimeUp();
             }
@@ -226,8 +242,13 @@ const QuizEngine = (() => {
             skipped,
             percentage,
             timeTaken,
+            timedOut,
             answers: answers.map((a, i) => ({
-                ...a,
+                selectedIndex: a ? a.selectedIndex : -1,
+                selectedOption: a ? a.selectedOption : null,
+                isCorrect: a ? a.isCorrect : false,
+                isSkipped: a ? a.isSkipped : true,
+                timeTaken: a ? a.timeTaken : null,
                 question: questions[i]?.question,
                 correctAnswer: questions[i]?.answer,
                 explanation: questions[i]?.explanation,
@@ -260,7 +281,10 @@ const QuizEngine = (() => {
         answers = [];
         score = 0;
         startTime = null;
+        currentQuestionStartTime = null;
         isCompleted = false;
+        timerEnabled = false;
+        timedOut = false;
         stopTimer();
     }
 
