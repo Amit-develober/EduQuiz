@@ -18,6 +18,47 @@
         }
     }
 
+    let sessionListenerUnsubscribe = null;
+
+    function setupSessionListener(user) {
+        if (sessionListenerUnsubscribe) {
+            sessionListenerUnsubscribe();
+            sessionListenerUnsubscribe = null;
+        }
+
+        if (typeof FirebaseDB !== 'undefined' && window.firebase && window.firebase.firestore) {
+            const db = window.firebase.firestore();
+            const localSessionId = Storage.getSessionId();
+            
+            sessionListenerUnsubscribe = db.collection("users").doc(user.uid).onSnapshot((doc) => {
+                if (doc.exists) {
+                    const data = doc.data();
+                    if (data.sessionId && data.sessionId !== localSessionId) {
+                        console.warn("Session mismatch detected. Logging out.");
+                        UIUtils.showToast("Logged out: Your account has been signed in on another device.", "warning", 6000);
+                        
+                        if (sessionListenerUnsubscribe) {
+                            sessionListenerUnsubscribe();
+                            sessionListenerUnsubscribe = null;
+                        }
+                        
+                        if (window.firebaseAuth) {
+                            window.firebaseAuth.signOut().then(() => {
+                                Storage.clearAll();
+                                window.location.hash = '#/';
+                                window.location.reload();
+                            }).catch(e => {
+                                console.error("Signout failed during session conflict:", e);
+                            });
+                        }
+                    }
+                }
+            }, (error) => {
+                console.error("Session listener error:", error);
+            });
+        }
+    }
+
     // ── Initialize on DOM Ready ──
     document.addEventListener('DOMContentLoaded', () => {
         // Particle background removed for performance and cleaner UI
@@ -91,6 +132,7 @@
                             if (navEl) navEl.style.display = '';
                             updateNavProfile();
                             showDailyChallengeToast();
+                            setupSessionListener(user);
                         } else {
                             // No profile exists in database. Check if they are a new user
                             const isNewUser = user.metadata && user.metadata.creationTime === user.metadata.lastSignInTime;
@@ -120,6 +162,7 @@
                                 if (navEl) navEl.style.display = '';
                                 updateNavProfile();
                                 showDailyChallengeToast();
+                                setupSessionListener(user);
                             }
                         }
                     } else {
@@ -129,6 +172,10 @@
                         if (navEl) navEl.style.display = '';
                         updateNavProfile();
                         showDailyChallengeToast();
+                        if (typeof FirebaseDB !== 'undefined') {
+                            FirebaseDB.syncUserProfile(Storage.getProfile());
+                        }
+                        setupSessionListener(user);
                     }
                 } else {
                     // User is signed out.
@@ -137,6 +184,10 @@
                     if (appEl) appEl.style.display = 'none';
                     if (navEl) navEl.style.display = 'none';
                     showWelcomeModal();
+                    if (sessionListenerUnsubscribe) {
+                        sessionListenerUnsubscribe();
+                        sessionListenerUnsubscribe = null;
+                    }
                 }
             });
         } else {
@@ -412,6 +463,7 @@
                 UIUtils.showToast(`Welcome, ${username}!  Let's start learning!`, 'success', 4000);
                 UIUtils.playSound('levelup');
                 showDailyChallengeToast();
+                setupSessionListener(user);
             });
 
             // Enter key on input

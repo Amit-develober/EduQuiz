@@ -14,6 +14,7 @@ const Storage = (() => {
         LEADERBOARD: 'mm_leaderboard',
         DAILY_CHALLENGE: 'mm_daily_challenge',
         VERSION: 'mm_version',
+        SESSION_ID: 'mm_session_id',
     };
 
     const CURRENT_VERSION = 1;
@@ -69,6 +70,15 @@ const Storage = (() => {
         Object.assign(profile, updates);
         saveProfile(profile);
         return profile;
+    }
+
+    function getSessionId() {
+        let sessId = localStorage.getItem(KEYS.SESSION_ID);
+        if (!sessId) {
+            sessId = 'sess_' + Math.random().toString(36).substring(2, 15) + '_' + Date.now();
+            localStorage.setItem(KEYS.SESSION_ID, sessId);
+        }
+        return sessId;
     }
 
     function isFirstVisit() {
@@ -283,5 +293,6 @@ const Storage = (() => {
         updateChallengeProgress,
         getGlobalStats,
         clearAll,
+        getSessionId,
     };
 })();

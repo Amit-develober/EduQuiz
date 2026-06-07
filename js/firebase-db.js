@@ -35,6 +35,7 @@ const FirebaseDB = (() => {
                 accuracy: accuracy,
                 quizzes: profile.totalQuizzes || 0,
                 classNum: profile.classNum || 8,
+                sessionId: Storage.getSessionId(),
                 lastActive: window.firebase.firestore.FieldValue.serverTimestamp()
             }, { merge: true });
         } catch (error) {
