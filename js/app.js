@@ -7,6 +7,17 @@
 (function () {
     'use strict';
 
+    let dailyChallengeToastShown = false;
+
+    function showDailyChallengeToast() {
+        if (!dailyChallengeToastShown) {
+            dailyChallengeToastShown = true;
+            setTimeout(() => {
+                UIUtils.showToast('Complete the Daily Challenge to get Reward', 'info', 5000);
+            }, 1000);
+        }
+    }
+
     // ── Initialize on DOM Ready ──
     document.addEventListener('DOMContentLoaded', () => {
         // Particle background removed for performance and cleaner UI
@@ -79,6 +90,7 @@
                             if (appEl) appEl.style.display = '';
                             if (navEl) navEl.style.display = '';
                             updateNavProfile();
+                            showDailyChallengeToast();
                         } else {
                             // No profile exists in database. Check if they are a new user
                             const isNewUser = user.metadata && user.metadata.creationTime === user.metadata.lastSignInTime;
@@ -107,6 +119,7 @@
                                 if (appEl) appEl.style.display = '';
                                 if (navEl) navEl.style.display = '';
                                 updateNavProfile();
+                                showDailyChallengeToast();
                             }
                         }
                     } else {
@@ -115,6 +128,7 @@
                         if (appEl) appEl.style.display = '';
                         if (navEl) navEl.style.display = '';
                         updateNavProfile();
+                        showDailyChallengeToast();
                     }
                 } else {
                     // User is signed out.
@@ -146,10 +160,7 @@
             feather.replace();
         }
 
-        // Show Daily Challenge notification
-        setTimeout(() => {
-            UIUtils.showToast('Complete the Daily Challenge to get Reward', 'info', 5000);
-        }, 1000);
+        // Daily Challenge notification is now triggered upon successful login / session initialization.
     });
 
     // ── Navbar ──
@@ -400,6 +411,7 @@
                 // Welcome toast
                 UIUtils.showToast(`Welcome, ${username}!  Let's start learning!`, 'success', 4000);
                 UIUtils.playSound('levelup');
+                showDailyChallengeToast();
             });
 
             // Enter key on input

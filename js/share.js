@@ -14,7 +14,13 @@ const Share = (() => {
             img.crossOrigin = 'anonymous';
             img.onload = () => resolve(img);
             img.onerror = () => resolve(null);
-            img.src = src;
+            // Append cache buster to bypass browser cached non-CORS response
+            if (src && src.startsWith('http')) {
+                const separator = src.includes('?') ? '&' : '?';
+                img.src = src + separator + 'cors=' + Date.now();
+            } else {
+                img.src = src;
+            }
         });
     }
 
@@ -79,55 +85,25 @@ const Share = (() => {
         ctx.lineTo(500, 95);
         ctx.stroke();
 
-        // Username and Avatar
+        // Username and Email (Avatar removed)
         const profile = Storage.getProfile();
         ctx.save();
-        ctx.font = '700 28px "Outfit", sans-serif';
-        ctx.fillStyle = '#ffffff';
+        ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
 
+        // Draw username
+        ctx.font = '700 28px "Outfit", sans-serif';
+        ctx.fillStyle = '#ffffff';
         const username = profile.username || 'Student';
-        const isUrlAvatar = profile.avatar && profile.avatar.startsWith('http');
+        ctx.fillText(username, 300, 120);
 
-        if (isUrlAvatar) {
-            const img = await loadImage(profile.avatar);
-            if (img) {
-                const textWidth = ctx.measureText(username).width;
-                const avatarRadius = 18;
-                const gap = 10;
-                const totalW = avatarRadius * 2 + gap + textWidth;
-                const startX = 300 - totalW / 2;
-
-                // Draw circular avatar
-                ctx.save();
-                ctx.beginPath();
-                ctx.arc(startX + avatarRadius, 130, avatarRadius, 0, Math.PI * 2);
-                ctx.clip();
-                ctx.drawImage(
-                    img,
-                    startX,
-                    130 - avatarRadius,
-                    avatarRadius * 2,
-                    avatarRadius * 2
-                );
-                ctx.restore();
-
-                // Draw username text
-                ctx.textAlign = 'left';
-                ctx.fillText(username, startX + avatarRadius * 2 + gap, 130);
-            } else {
-                // Fallback to default user emoji if image fails to load
-                ctx.textAlign = 'center';
-                ctx.fillText(`👤 ${username}`, 300, 130);
-            }
-        } else {
-            // Normal emoji or letter avatar
-            ctx.textAlign = 'center';
-            ctx.fillText(
-                `${profile.avatar || '👤'} ${username}`,
-                300,
-                130
-            );
+        // Draw email ID if available
+        const currentUser = window.firebaseAuth ? window.firebaseAuth.currentUser : null;
+        const email = currentUser ? currentUser.email : '';
+        if (email) {
+            ctx.font = '500 14px "Inter", sans-serif';
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+            ctx.fillText(email, 300, 148);
         }
         ctx.restore();
 

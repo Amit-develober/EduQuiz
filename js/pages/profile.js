@@ -78,7 +78,7 @@ const ProfilePage = (() => {
                     </div>
                 `;
             }).join('')
-            : '<p class="text-secondary text-center" style="padding: var(--space-xl);">No quizzes taken yet. Start your first quiz!</p>';
+            : '<p class="text-secondary text-center" style="padding: var(--space-xl);">No quizzes taken yet. Start your first quiz! ( After Logout It is Remove Recent Quiz )</p>';
 
         return `
             <div class="profile-page">
@@ -102,7 +102,7 @@ const ProfilePage = (() => {
                 <div class="profile-stats">
                     <div class="profile-stat glass-card">
                         <div class="profile-stat-value">${profile.xp}</div>
-                        <div class="profile-stat-label">Total XP</div>
+                        <div class="profile-stat-label">Lifetime XP</div>
                     </div>
                     <div class="profile-stat glass-card">
                         <div class="profile-stat-value">${profile.totalQuizzes}</div>
