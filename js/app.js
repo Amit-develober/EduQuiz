@@ -178,12 +178,12 @@
                         setupSessionListener(user);
                     }
                 } else {
-                    // User is signed out.
+                    // User is signed out (Guest Mode).
                     const appEl = document.getElementById('app');
                     const navEl = document.getElementById('navbar');
-                    if (appEl) appEl.style.display = 'none';
-                    if (navEl) navEl.style.display = 'none';
-                    showWelcomeModal();
+                    if (appEl) appEl.style.display = '';
+                    if (navEl) navEl.style.display = '';
+                    updateNavProfile();
                     if (sessionListenerUnsubscribe) {
                         sessionListenerUnsubscribe();
                         sessionListenerUnsubscribe = null;
@@ -372,6 +372,9 @@
             });
         }
     }
+
+    // Expose welcome modal globally so pages can prompt guest login
+    window.showWelcomeModal = showWelcomeModal;
 
     function showProfileSetupModal(user) {
         const modal = document.getElementById('profile-setup-modal');

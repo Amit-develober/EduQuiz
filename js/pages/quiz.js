@@ -8,6 +8,8 @@ const QuizPage = (() => {
     let currentResult = null;
     let quizActive = false;
     let isSubmitting = false;
+    let autoAdvanceTimeout = null;
+    let isTransitioning = false;
 
     function render(params) {
         // Show loading state — init() will start the quiz
@@ -39,6 +41,7 @@ const QuizPage = (() => {
 
             quizActive = true;
             isSubmitting = false;
+            isTransitioning = false;
             renderQuestion(container, classNum, subject, subjectMeta, settings);
 
             // Keyboard support
@@ -65,6 +68,7 @@ const QuizPage = (() => {
     }
 
     function renderQuestion(container, classNum, subject, subjectMeta, settings) {
+        isTransitioning = false;
         const question = QuizEngine.getCurrentQuestion();
         if (!question) return;
 
@@ -114,15 +118,14 @@ const QuizPage = (() => {
                 <div class="options-grid" id="options-grid">
                     ${question.options.map((opt, i) => {
                         let stateClass = '';
-                        if (question.answered) {
-                            if (question.answer.selectedIndex === i) {
-                                stateClass = question.answer.isCorrect ? 'correct' : 'wrong';
+                        if (question.answered && question.userAnswer) {
+                            if (question.userAnswer.selectedIndex === i) {
+                                stateClass = question.userAnswer.isCorrect ? 'correct' : 'wrong';
                             }
-                            if (opt === QuizEngine.getCurrentQuestion().answer
-                                && !question.answer.isCorrect
-                                && question.answer.selectedIndex !== i) {
-                                // Highlight correct answer if user was wrong
-                                // We need to find the correct answer option
+                            if (opt === question.answer
+                                && !question.userAnswer.isCorrect
+                                && question.userAnswer.selectedIndex !== i) {
+                                stateClass = 'correct';
                             }
                             stateClass += ' disabled';
                         }
@@ -156,10 +159,10 @@ const QuizPage = (() => {
                         Skip ⏭️
                     </button>
                     ${question.index < question.total - 1
-                        ? `<button class="btn btn-primary btn-sm" onclick="QuizPage.nextQuestion()" id="next-btn">
+                        ? `<button class="btn btn-primary btn-sm" onclick="QuizPage.nextQuestion()" id="next-btn" ${!question.answered ? 'disabled' : ''}>
                                Next →
                            </button>`
-                        : `<button class="btn btn-success btn-sm" onclick="QuizPage.finishQuiz()" id="finish-btn">
+                        : `<button class="btn btn-success btn-sm" onclick="QuizPage.finishQuiz()" id="finish-btn" ${!question.answered ? 'disabled' : ''}>
                                Finish Quiz <i data-feather="check-circle"></i>
                            </button>`
                     }
@@ -168,7 +171,7 @@ const QuizPage = (() => {
         `;
 
         // If already answered, show feedback
-        if (question.answered && !question.answer.isSkipped) {
+        if (question.answered && question.userAnswer && !question.userAnswer.isSkipped) {
             showAnswerFeedback(question);
         }
 
@@ -176,6 +179,7 @@ const QuizPage = (() => {
     }
 
     function selectOption(optionIndex) {
+        if (isTransitioning) return;
         const result = QuizEngine.submitAnswer(optionIndex);
         if (!result) return;
 
@@ -206,12 +210,22 @@ const QuizPage = (() => {
         const question = QuizEngine.getCurrentQuestion();
         showAnswerFeedback(question);
 
+        // Enable next/finish navigation buttons, disable skip button
+        const nextBtn = document.getElementById('next-btn');
+        if (nextBtn) nextBtn.removeAttribute('disabled');
+        const finishBtn = document.getElementById('finish-btn');
+        if (finishBtn) finishBtn.removeAttribute('disabled');
+        const skipBtn = document.getElementById('skip-btn');
+        if (skipBtn) skipBtn.setAttribute('disabled', 'true');
+
         // Auto-advance after delay for correct answers
         if (result.isCorrect) {
-            setTimeout(() => {
+            if (autoAdvanceTimeout) clearTimeout(autoAdvanceTimeout);
+            autoAdvanceTimeout = setTimeout(() => {
                 if (question.index < question.total - 1) {
                     QuizPage.nextQuestion();
                 }
+                autoAdvanceTimeout = null;
             }, 1500);
         }
     }
@@ -220,7 +234,7 @@ const QuizPage = (() => {
         const feedbackArea = document.getElementById('feedback-area');
         if (!feedbackArea) return;
 
-        const isCorrect = question.answer.isCorrect;
+        const isCorrect = question.userAnswer ? question.userAnswer.isCorrect : false;
         const motivation = UIUtils.getMotivation(isCorrect ? 'correct' : 'wrong');
         const settings = Storage.getSettings();
 
@@ -244,6 +258,17 @@ const QuizPage = (() => {
     }
 
     function nextQuestion() {
+        if (isTransitioning) return;
+        const nextBtn = document.getElementById('next-btn');
+        if (nextBtn && nextBtn.hasAttribute('disabled')) return; // Prevent double trigger
+        if (nextBtn) nextBtn.setAttribute('disabled', 'true');
+
+        if (autoAdvanceTimeout) {
+            clearTimeout(autoAdvanceTimeout);
+            autoAdvanceTimeout = null;
+        }
+
+        isTransitioning = true;
         UIUtils.playSound('click');
         const question = QuizEngine.goToNext();
         if (question) {
@@ -252,6 +277,17 @@ const QuizPage = (() => {
     }
 
     function prevQuestion() {
+        if (isTransitioning) return;
+        const prevBtn = document.getElementById('prev-btn');
+        if (prevBtn && prevBtn.hasAttribute('disabled')) return;
+        if (prevBtn) prevBtn.setAttribute('disabled', 'true');
+
+        if (autoAdvanceTimeout) {
+            clearTimeout(autoAdvanceTimeout);
+            autoAdvanceTimeout = null;
+        }
+
+        isTransitioning = true;
         UIUtils.playSound('click');
         const question = QuizEngine.goToPrevious();
         if (question) {
@@ -260,6 +296,17 @@ const QuizPage = (() => {
     }
 
     function skip() {
+        if (isTransitioning) return;
+        const skipBtn = document.getElementById('skip-btn');
+        if (skipBtn && skipBtn.hasAttribute('disabled')) return;
+        if (skipBtn) skipBtn.setAttribute('disabled', 'true');
+
+        if (autoAdvanceTimeout) {
+            clearTimeout(autoAdvanceTimeout);
+            autoAdvanceTimeout = null;
+        }
+
+        isTransitioning = true;
         UIUtils.playSound('click');
         QuizEngine.skipQuestion();
         const next = QuizEngine.goToNext();
@@ -288,9 +335,15 @@ const QuizPage = (() => {
     }
 
     function finishQuiz() {
-        if (isSubmitting) return;
+        if (isSubmitting || isTransitioning) return;
         isSubmitting = true;
+        isTransitioning = true;
         
+        if (autoAdvanceTimeout) {
+            clearTimeout(autoAdvanceTimeout);
+            autoAdvanceTimeout = null;
+        }
+
         QuizEngine.stopTimer();
         const results = QuizEngine.getResults();
 
@@ -370,6 +423,10 @@ const QuizPage = (() => {
     window.confirmQuit = function () {
         if (confirm('Are you sure you want to quit? Your progress will be lost.')) {
             quizActive = false;
+            if (autoAdvanceTimeout) {
+                clearTimeout(autoAdvanceTimeout);
+                autoAdvanceTimeout = null;
+            }
             document.removeEventListener('keydown', handleKeyboard);
             QuizEngine.stopTimer();
             QuizEngine.reset();

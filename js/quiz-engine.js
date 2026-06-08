@@ -97,7 +97,7 @@ const QuizEngine = (() => {
             index: currentIndex,
             total: questions.length,
             answered: answers[currentIndex] !== null,
-            answer: answers[currentIndex],
+            userAnswer: answers[currentIndex],
         };
     }
 

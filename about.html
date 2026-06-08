@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us — EduQuiz</title>
+    <meta name="description" content="Learn more about EduQuiz, our educational mission, app features, and contact information.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="assets/eduquiz_logo.png">
+    
+    <script src="https://unpkg.com/feather-icons"></script>
+    
+    <style>
+        .about-container {
+            padding: var(--space-4xl) 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .about-content {
+            margin-top: var(--space-xl);
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+        .about-hero {
+            text-align: center;
+            margin-bottom: var(--space-2xl);
+            padding: var(--space-xl) 0;
+        }
+        .about-hero-emoji {
+            font-size: var(--fs-5xl);
+            margin-bottom: var(--space-md);
+            display: inline-block;
+        }
+        .about-hero h1 {
+            font-size: var(--fs-4xl);
+            margin-bottom: var(--space-md);
+        }
+        .about-hero p {
+            font-size: var(--fs-lg);
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        .about-section {
+            margin-bottom: var(--space-2xl);
+        }
+        .about-section h2 {
+            font-size: var(--fs-xl);
+            color: var(--text-primary);
+            margin-bottom: var(--space-md);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid var(--bg-glass-border);
+            padding-bottom: 8px;
+        }
+        .about-section p {
+            margin-bottom: var(--space-md);
+            font-size: var(--fs-base);
+        }
+        
+        /* Features Grid */
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-md);
+            padding: var(--space-md);
+            background: var(--bg-primary);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--bg-glass-border);
+        }
+        .feature-icon-wrapper {
+            background: rgba(108, 92, 231, 0.1);
+            border-radius: var(--radius-sm);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--primary);
+            font-weight: 700;
+        }
+        .feature-text strong {
+            display: block;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+            font-size: var(--fs-base);
+        }
+        .feature-text span {
+            font-size: var(--fs-sm);
+            color: var(--text-secondary);
+            line-height: 1.4;
+            display: block;
+        }
+
+        /* Contact Details */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            padding: var(--space-md) var(--space-lg);
+            background: var(--bg-primary);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--bg-glass-border);
+        }
+        .contact-icon-wrapper {
+            color: var(--info);
+            background: rgba(6, 182, 212, 0.1);
+            border-radius: var(--radius-sm);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+        }
+        .contact-label {
+            font-size: var(--fs-xs);
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .contact-value {
+            font-size: var(--fs-base);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: var(--space-xl);
+        }
+        .back-link:hover {
+            color: var(--primary-light);
+        }
+
+        @media (max-width: 768px) {
+            .features-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html#/home" class="nav-logo" aria-label="EduQuiz Home">
+                <img src="assets/eduquiz_logo.png" alt="EduQuiz Logo" class="logo-image">
+                <span class="logo-text">Edu<span class="logo-highlight">Quiz</span></span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html#/home" class="nav-link"><i data-feather="home" class="nav-icon"></i> Home</a>
+                <a href="about.html" class="nav-link active"><i data-feather="info" class="nav-icon"></i> About</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="about-container">
+            <a href="index.html#/home" class="back-link">
+                <i data-feather="arrow-left"></i> Back to EduQuiz
+            </a>
+            
+            <div class="glass-card-static">
+                <div class="about-hero">
+                    <span class="about-hero-emoji"><i data-feather="book-open" style="width: 48px; height: 48px;"></i></span>
+                    <h1>About <span class="text-gradient">EduQuiz</span></h1>
+                    <p>EduQuiz is a free, interactive educational quiz platform designed to help students from Class 6 to 10 practice and master their subjects through engaging MCQ quizzes, gamification, and instant feedback.</p>
+                </div>
+                
+                <div class="about-content">
+                    <div class="about-section">
+                        <h2><i data-feather="target"></i> Our Mission</h2>
+                        <p>We believe learning should be fun, engaging, and accessible to every student. EduQuiz combines the excitement of gaming with the power of education, making exam preparation feel less like a chore and more like an adventure.</p>
+                    </div>
+
+                    <div class="about-section">
+                        <h2><i data-feather="star"></i> App Features</h2>
+                        <div class="features-list">
+                            <div class="feature-item">
+                                <div class="feature-icon-wrapper">
+                                    <i data-feather="pen-tool" style="width: 20px; height: 20px;"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <strong>3 Core Subjects</strong>
+                                    <span>Maths, Science, and Social Science aligned with NCERT/CBSE curriculum.</span>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon-wrapper" style="font-family: var(--font-heading);">
+                                    6-10
+                                </div>
+                                <div class="feature-text">
+                                    <strong>5 Classes</strong>
+                                    <span>Comprehensive question bank covering Class 6 to Class 10.</span>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon-wrapper">
+                                    XP
+                                </div>
+                                <div class="feature-text">
+                                    <strong>XP & Levels</strong>
+                                    <span>Earn experience points (XP) for correct answers and level up your rank.</span>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon-wrapper">
+                                    <i data-feather="award" style="width: 20px; height: 20px;"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <strong>Leaderboard</strong>
+                                    <span>Compete with other students in real time and claim the top spot.</span>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon-wrapper">
+                                    🏅
+                                </div>
+                                <div class="feature-text">
+                                    <strong>12 Badges</strong>
+                                    <span>Unlock unique achievements as you hit milestones and master topics.</span>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon-wrapper">
+                                    <i data-feather="activity" style="width: 20px; height: 20px;"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <strong>Daily Streaks</strong>
+                                    <span>Build a strong daily study habit with streak reward bonuses.</span>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon-wrapper">
+                                    <i data-feather="zap" style="width: 20px; height: 20px;"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <strong>Instant Feedback</strong>
+                                    <span>Learn actively with immediate answer validations and detailed explanations.</span>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon-wrapper">
+                                    <i data-feather="smartphone" style="width: 20px; height: 20px;"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <strong>Mobile Friendly</strong>
+                                    <span>Installable PWA that works seamlessly across all devices and screen sizes.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-section">
+                        <h2><i data-feather="shield"></i> Privacy & Data</h2>
+                        <p>EduQuiz respects your privacy. All your local quiz data (scores, progress, and settings) is stored locally on your device using your browser's <code>localStorage</code>. For registered accounts, we sync your progress securely to our Firebase database. We do not sell or share your personal information with external parties.</p>
+                    </div>
+
+                    <div class="about-section">
+                        <h2><i data-feather="mail"></i> Contact Us</h2>
+                        <div class="contact-grid">
+                            <div class="contact-card">
+                                <div class="contact-icon-wrapper">
+                                    <i data-feather="mail" style="width: 20px; height: 20px;"></i>
+                                </div>
+                                <div class="contact-info">
+                                    <span class="contact-label">Email</span>
+                                    <span class="contact-value">hello@eduquiz.app</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+                <p>&copy; 2026 EduQuiz. Made with <i data-feather="heart" style="width: 14px; height: 14px; vertical-align: middle; color: var(--error);"></i> for students of India.</p>
+                <div style="margin-top: 15px; display: flex; gap: 20px; justify-content: center; font-size: 0.9rem;">
+                    <a href="privacy.html" style="text-decoration: underline;">Privacy Policy</a>
+                    <a href="terms.html" style="text-decoration: underline;">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        if (typeof feather !== 'undefined') {
+            feather.replace();
+        }
+    </script>
+</body>
+</html>

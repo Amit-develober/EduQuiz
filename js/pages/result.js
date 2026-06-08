@@ -19,6 +19,24 @@ const ResultPage = (() => {
 
         const result = JSON.parse(raw);
         const subjectMeta = UIUtils.getSubjectMeta(result.subject);
+        
+        const isLoggedIn = !!(window.firebaseAuth && window.firebaseAuth.currentUser);
+        let guestPromptHTML = '';
+        if (!isLoggedIn) {
+            guestPromptHTML = `
+                <div class="guest-result-prompt glass-card-static" style="margin: var(--space-lg) 0; border: 1px dashed var(--primary); background: rgba(108, 92, 231, 0.03); text-align: center; padding: var(--space-lg); border-radius: var(--br-lg);">
+                    <h3 style="margin-bottom: var(--space-xs); color: var(--primary-light); display: flex; align-items: center; justify-content: center; gap: 8px;">
+                        <i data-feather="lock" style="width: 18px; height: 18px;"></i> Save Your Progress!
+                    </h3>
+                    <p class="text-secondary" style="font-size: var(--fs-sm); margin-bottom: var(--space-md);">
+                        You are playing as a guest. Your score of <strong>${result.percentage}%</strong> won't be saved to the database, and you won't earn permanent XP or climb the leaderboard.
+                    </p>
+                    <button class="btn btn-primary" onclick="window.showWelcomeModal()" id="result-signin-btn">
+                        Sign In & Claim XP
+                    </button>
+                </div>
+            `;
+        }
 
         // Determine performance tier
         let emoji, title, message;
@@ -127,6 +145,9 @@ const ResultPage = (() => {
                     <h3>${emoji} ${title}</h3>
                     <p>${message}</p>
                 </div>
+
+                <!-- Guest Mode Prompt -->
+                ${guestPromptHTML}
 
                 <!-- Badges -->
                 ${badgesHTML}

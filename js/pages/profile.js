@@ -5,11 +5,77 @@
 
 const ProfilePage = (() => {
     async function render() {
+        const settings = Storage.getSettings();
+        const isLoggedIn = !!(window.firebaseAuth && window.firebaseAuth.currentUser);
+
+        if (!isLoggedIn) {
+            return `
+                <div class="profile-page">
+                    <!-- Profile Header (Guest Mode) -->
+                    <div class="profile-header glass-card-static" style="border: 1px dashed var(--primary); background: rgba(108, 92, 231, 0.03);">
+                        <span class="profile-avatar" style="font-size: 48px;">👤</span>
+                        <h1 class="profile-name">Guest Learner</h1>
+                        <div class="profile-level">🔒 Playing in Guest Mode</div>
+                        <p class="text-secondary" style="margin: var(--space-md) auto; max-width: 400px; font-size: var(--fs-sm); line-height: 1.5;">
+                            Create a free account to track your daily streak, earn levels, unlock badges, and compete with other students on the leaderboard!
+                        </p>
+                        <div style="margin-top: var(--space-md);">
+                            <button class="btn btn-primary btn-lg btn-glow" onclick="window.showWelcomeModal()" id="profile-signin-btn">
+                                Sign In / Create Account
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Settings -->
+                    <div class="settings-section" style="margin-top: var(--space-xl);">
+                        <h3 style="margin-bottom: var(--space-lg);"><i data-feather="settings"></i>️ Settings</h3>
+                        <div class="settings-list">
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4><i data-feather="volume-2"></i> Sound Effects</h4>
+                                    <p>Play sounds for correct/wrong answers</p>
+                                </div>
+                                <button class="toggle-switch ${settings.soundEnabled ? 'active' : ''}"
+                                        onclick="ProfilePage.toggleSetting('soundEnabled')"
+                                        id="toggle-sound"></button>
+                            </div>
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4><i data-feather="clock"></i> Timer Mode</h4>
+                                    <p>Add a countdown timer to quizzes</p>
+                                </div>
+                                <button class="toggle-switch ${settings.timerEnabled ? 'active' : ''}"
+                                        onclick="ProfilePage.toggleSetting('timerEnabled')"
+                                        id="toggle-timer"></button>
+                            </div>
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4><i data-feather="x-circle"></i> Wrong Answer Penalty</h4>
+                                    <p>Deduct 1 point for wrong answers</p>
+                                </div>
+                                <button class="toggle-switch ${settings.penaltyEnabled ? 'active' : ''}"
+                                        onclick="ProfilePage.toggleSetting('penaltyEnabled')"
+                                        id="toggle-penalty"></button>
+                            </div>
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4><i data-feather="zap"></i> Show Explanations</h4>
+                                    <p>Display explanations after each answer</p>
+                                </div>
+                                <button class="toggle-switch ${settings.showExplanations ? 'active' : ''}"
+                                        onclick="ProfilePage.toggleSetting('showExplanations')"
+                                        id="toggle-explanations"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
         const profile = Storage.getProfile();
         const streak = Storage.getStreak();
         const history = Storage.getHistory().slice(0, 10); // Last 10
         const allBadges = Gamification.getAllBadges();
-        const settings = Storage.getSettings();
         const level = Gamification.getLevelFromXP(profile.xp);
         const nextLevelXP = Gamification.getNextLevelXP(profile.xp);
         const levelProgress = Gamification.getLevelProgress(profile.xp);

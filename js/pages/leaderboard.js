@@ -5,6 +5,7 @@
 
 const LeaderboardPage = (() => {
     async function render() {
+        const isLoggedIn = !!(window.firebaseAuth && window.firebaseAuth.currentUser);
         let leaderboard = [];
         if (typeof FirebaseDB !== 'undefined') {
             leaderboard = await FirebaseDB.getTopUsers();
@@ -90,12 +91,20 @@ const LeaderboardPage = (() => {
                     ${listHTML}
                 </div>
 
-                ${!userInTop3 && !userInRest ? `
+                ${!isLoggedIn ? `
+                    <div style="text-align: center; margin-top: var(--space-2xl); background: rgba(108, 92, 231, 0.05); padding: var(--space-xl); border-radius: var(--br-lg); border: 1px dashed var(--primary-light);">
+                        <p class="text-secondary" style="margin-bottom: var(--space-md);">Sign in to track your scores, earn XP, and climb the leaderboard!</p>
+                        <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;">
+                            <button class="btn btn-outline" onclick="window.showWelcomeModal()" id="lb-signin-btn">Sign In / Create Account</button>
+                            <button class="btn btn-primary" onclick="Router.navigate('/class')" id="lb-start-btn">Browse Quizzes</button>
+                        </div>
+                    </div>
+                ` : (!userInTop3 && !userInRest ? `
                     <div style="text-align: center; margin-top: var(--space-2xl);">
                         <p class="text-secondary" style="margin-bottom: var(--space-md);">Take quizzes to appear on the leaderboard!</p>
                         <button class="btn btn-primary" onclick="Router.navigate('/class')" id="lb-start-btn">Start a Quiz</button>
                     </div>
-                ` : ''}
+                ` : '')}
             </div>
         `;
     }
