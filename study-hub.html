@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic of the Week — EduQuiz Study Hub</title>
+    <meta name="description" content="Weekly rotating educational topics for Class 6 to 10. Learn Science, Maths, and Social Science concepts effectively.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="assets/eduquiz_logo.png">
+    
+    <script src="https://unpkg.com/feather-icons"></script>
+    
+    <!-- Google AdSense / AdMob COPPA Compliance -->
+    <script>
+        window.adsbygoogle = window.adsbygoogle || [];
+        window.adsbygoogle.push({
+            params: {
+                // google_ad_client: "ca-pub-XXXXXXXXXXXXXXXX",
+                coppa: "true" 
+            }
+        });
+    </script>
+    
+    <style>
+        .study-container {
+            padding: var(--space-4xl) 0;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .study-header {
+            text-align: center;
+            margin-bottom: var(--space-3xl);
+        }
+        .study-header-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: var(--space-md);
+            display: inline-block;
+        }
+        .chapter-box {
+            background: var(--bg-card);
+            border: 1px solid var(--bg-glass-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-2xl);
+            margin-bottom: var(--space-2xl);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+        }
+        .chapter-box::before {
+            content: 'TOPIC OF THE WEEK';
+            position: absolute;
+            top: 12px;
+            right: -30px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+            font-size: 0.7rem;
+            font-weight: bold;
+            padding: 4px 30px;
+            transform: rotate(45deg);
+            letter-spacing: 1px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .chapter-box h2 {
+            font-family: var(--font-heading);
+            color: var(--text-primary);
+            font-size: var(--fs-2xl);
+            margin-bottom: var(--space-md);
+            border-bottom: 2px solid rgba(108, 92, 231, 0.2);
+            padding-bottom: 10px;
+        }
+        .chapter-box h3 {
+            color: var(--text-primary);
+            font-size: var(--fs-lg);
+            margin-top: var(--space-xl);
+            margin-bottom: var(--space-sm);
+        }
+        .chapter-box p {
+            margin-bottom: var(--space-md);
+            font-size: var(--fs-base);
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        .chapter-box ul {
+            margin-bottom: var(--space-md);
+            padding-left: var(--space-xl);
+            list-style-type: disc;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        .chapter-box li {
+            margin-bottom: var(--space-xs);
+        }
+        .formula-box {
+            background: rgba(108, 92, 231, 0.1);
+            border-left: 4px solid var(--primary);
+            padding: var(--space-md);
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            margin: var(--space-md) 0;
+            font-family: monospace;
+            font-size: 1.1rem;
+            color: var(--primary-light);
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: var(--space-xl);
+            transition: color 0.3s;
+        }
+        .back-link:hover {
+            color: var(--primary-light);
+        }
+        .ad-slot-article {
+            margin: var(--space-2xl) 0;
+            padding: var(--space-md);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px dashed rgba(255, 255, 255, 0.2);
+            text-align: center;
+            border-radius: var(--radius-md);
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: var(--fs-sm);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html#/home" class="nav-logo" aria-label="EduQuiz Home">
+                <img src="assets/eduquiz_logo.png" alt="EduQuiz Logo" class="logo-image">
+                <span class="logo-text">Edu<span class="logo-highlight">Quiz</span></span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html#/home" class="nav-link"><i data-feather="home" class="nav-icon"></i> Home</a>
+                <a href="study-hub.html" class="nav-link active"><i data-feather="book-open" class="nav-icon"></i> Study Hub</a>
+                <a href="about.html" class="nav-link"><i data-feather="info" class="nav-icon"></i> About</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="study-container">
+            <a href="index.html#/home" class="back-link">
+                <i data-feather="arrow-left"></i> Back to Quizzes
+            </a>
+            
+            <div class="study-header">
+                <span class="study-header-icon"><i data-feather="calendar"></i></span>
+                <h1>Topics of <span class="text-gradient">The Week</span></h1>
+                <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto; margin-top: 10px; font-size: 1.1rem;">
+                    Every week, we unlock a fresh, detailed topic for your class. Read these notes carefully to master your subjects and ace the quizzes!
+                </p>
+                <div style="margin-top: 15px; font-weight: bold; color: var(--primary-light);" id="week-display"></div>
+            </div>
+            
+            <!-- Ad Slot: Header Banner -->
+            <div class="ad-slot ad-header" aria-hidden="true">
+                [ AdSense Header Ad Placeholder ]
+            </div>
+            
+            <div class="study-content" id="dynamic-content">
+                <div class="page-loading" style="text-align: center; padding: 40px;">
+                    <div class="spinner" style="margin: 0 auto;"></div>
+                    <p style="margin-top: 15px;">Loading this week's topics...</p>
+                </div>
+            </div>
+            
+            <!-- Ad Slot: Footer Banner -->
+            <div class="ad-slot ad-footer" aria-hidden="true">
+                [ AdSense Footer Ad Placeholder ]
+            </div>
+            
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-section" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+                    <h3 class="footer-brand" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+                        <img src="assets/eduquiz_logo.png" alt="EduQuiz Logo" class="logo-image" style="width: 24px; height: 24px;">
+                        <span class="logo-text">Edu<span class="logo-highlight">Quiz</span></span>
+                    </h3>
+                    <p class="footer-desc">Making learning fun, interactive, and rewarding for students across India. Practice quizzes, earn XP, and climb the leaderboard!</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="index.html#/home">Home</a>
+                    <a href="study-hub.html">Study Hub</a>
+                    <a href="index.html#/class">Start Quiz</a>
+                    <a href="index.html#/leaderboard">Leaderboard</a>
+                    <a href="about.html">About Us</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Classes</h4>
+                    <a href="index.html#/subjects/class6">Class 6</a>
+                    <a href="index.html#/subjects/class7">Class 7</a>
+                    <a href="index.html#/subjects/class8">Class 8</a>
+                    <a href="index.html#/subjects/class9">Class 9</a>
+                    <a href="index.html#/subjects/class10">Class 10</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 EduQuiz. Made with <i data-feather="heart" style="width: 14px; height: 14px; vertical-align: middle; color: var(--error);"></i> for students of India.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Topic Generator Script -->
+    <script>
+        // Database of topics for each class
+        const topicDatabase = {
+            "6": [
+                {
+                    title: "Class 6 Science: The Solar System",
+                    content: `
+                        <p>The solar system consists of the Sun and all the objects that orbit it, including eight planets, their moons, and various smaller bodies like asteroids and comets.</p>
+                        <h3>The Sun</h3>
+                        <p>The Sun is a star at the center of our solar system. It provides the heat and light necessary for life on Earth. Its massive gravity keeps everything in the solar system in orbit.</p>
+                        <h3>The Planets</h3>
+                        <ul>
+                            <li><strong>Terrestrial Planets:</strong> Mercury, Venus, Earth, and Mars. These are rocky planets closest to the Sun.</li>
+                            <li><strong>Gas Giants:</strong> Jupiter and Saturn. Made mostly of hydrogen and helium.</li>
+                            <li><strong>Ice Giants:</strong> Uranus and Neptune. They contain heavier elements and have extremely cold atmospheres.</li>
+                        </ul>
+                    `
+                },
+                {
+                    title: "Class 6 Maths: Basic Fractions",
+                    content: `
+                        <p>A fraction represents a part of a whole. It tells us how many parts of a certain size we have. When a whole is divided into equal parts, each part is a fraction of the whole.</p>
+                        <h3>Parts of a Fraction</h3>
+                        <p>Every fraction has two main parts separated by a horizontal line:</p>
+                        <ul>
+                            <li><strong>Numerator:</strong> The top number. It shows how many equal parts we have taken.</li>
+                            <li><strong>Denominator:</strong> The bottom number. It shows the total number of equal parts the whole is divided into.</li>
+                        </ul>
+                        <div class="formula-box">Example: In 3/4, 3 is the numerator and 4 is the denominator.</div>
+                        <h3>Types of Fractions</h3>
+                        <p><strong>Proper Fractions:</strong> Numerator is smaller than the denominator (e.g., 1/2).<br>
+                        <strong>Improper Fractions:</strong> Numerator is equal to or greater than the denominator (e.g., 5/4).</p>
+                    `
+                }
+            ],
+            "7": [
+                {
+                    title: "Class 7 Science: Acids, Bases and Salts",
+                    content: `
+                        <p>Chemical substances can be broadly classified into acids, bases, and salts based on their properties and how they react with other substances.</p>
+                        <h3>Acids</h3>
+                        <p>Acids are sour in taste. Examples include citric acid (in lemons) and acetic acid (in vinegar). They turn blue litmus paper red.</p>
+                        <h3>Bases</h3>
+                        <p>Bases are bitter in taste and feel soapy to the touch. Examples include baking soda and soap. They turn red litmus paper blue.</p>
+                        <h3>Indicators</h3>
+                        <p>Special substances used to test whether a substance is acidic or basic. Natural indicators include Turmeric, Litmus, and China rose petals.</p>
+                        <div class="formula-box">Neutralization: Acid + Base → Salt + Water + Heat</div>
+                    `
+                },
+                {
+                    title: "Class 7 History: The Delhi Sultans",
+                    content: `
+                        <p>Delhi first became the capital of a kingdom under the Tomara Rajputs, who were defeated by Chauhan kings in the 12th century. The transformation of Delhi into an imperial capital began with the foundation of the Delhi Sultanate in the 13th century.</p>
+                        <h3>Major Dynasties</h3>
+                        <ul>
+                            <li><strong>Slave Dynasty:</strong> Founded by Qutb-ud-din Aibak. Famous rulers include Iltutmish and Razia Sultana.</li>
+                            <li><strong>Khalji Dynasty:</strong> Known for Alauddin Khalji's strict market control policies and military campaigns in the south.</li>
+                            <li><strong>Tughlaq Dynasty:</strong> Muhammad bin Tughlaq is famous for his controversial administrative experiments, like shifting the capital to Daulatabad.</li>
+                        </ul>
+                        <p>The Sultans built magnificent mosques, such as the Qutb Minar complex, blending Islamic and indigenous architectural styles.</p>
+                    `
+                }
+            ],
+            "8": [
+                {
+                    title: "Class 8 Science: Cell Structure and Functions",
+                    content: `
+                        <p>A cell is the fundamental structural and functional unit of all living organisms. Every living thing, from microscopic bacteria to gigantic whales, is made of cells.</p>
+                        <h3>Key Parts of a Cell</h3>
+                        <ul>
+                            <li><strong>Cell Membrane:</strong> The outer boundary that controls what enters and exits the cell. Plant cells have an additional rigid layer called the Cell Wall.</li>
+                            <li><strong>Cytoplasm:</strong> A jelly-like substance where all cellular activities take place. It contains organelles like mitochondria (powerhouse) and ribosomes.</li>
+                            <li><strong>Nucleus:</strong> The control center of the cell. It contains genetic material (DNA) organized into chromosomes, which dictate inherited traits.</li>
+                        </ul>
+                        <p><strong>Unicellular vs Multicellular:</strong> Organisms made of a single cell (like Amoeba) are unicellular, while humans and trees are multicellular.</p>
+                    `
+                },
+                {
+                    title: "Class 8 Maths: Linear Equations in One Variable",
+                    content: `
+                        <p>An equation is a mathematical statement asserting equality between two expressions. A linear equation in one variable is an equation which can be written in the form ax + b = 0, where a and b are constants and a ≠ 0.</p>
+                        <h3>Solving Linear Equations</h3>
+                        <p>The goal is to isolate the variable (usually x) on one side of the equal sign. Whatever operation you perform on one side, you must perform on the other to maintain balance.</p>
+                        <div class="formula-box">
+                            Solve: 2x - 3 = 7<br>
+                            1. Add 3 to both sides: 2x = 10<br>
+                            2. Divide by 2: x = 5
+                        </div>
+                        <h3>Applications</h3>
+                        <p>Linear equations are powerful tools for solving real-world word problems involving ages, numbers, perimeters, and currency. Translating English sentences into algebra is the key step.</p>
+                    `
+                }
+            ],
+            "9": [
+                {
+                    title: "Class 9 Social Science: The French Revolution",
+                    content: `
+                        <p>The French Revolution (1789) is a watershed event in modern European history. It marked the decline of absolute monarchies and the rise of democratic ideals, heavily influencing the course of history worldwide.</p>
+                        <h3>Causes of the Revolution:</h3>
+                        <ul>
+                            <li><strong>Social Inequality:</strong> French society was divided into three estates. Only the Third Estate (commoners) paid taxes, while the First (clergy) and Second (nobility) enjoyed privileges.</li>
+                            <li><strong>Economic Crisis:</strong> Years of war, lavish spending by King Louis XVI, and severe crop failures led to a massive national debt and food shortages.</li>
+                            <li><strong>Political Autocracy:</strong> The absolute power of the monarch caused widespread resentment.</li>
+                        </ul>
+                        <h3>The Reign of Terror (1793-1794)</h3>
+                        <p>The period under Maximilien Robespierre was known as the Reign of Terror. The government adopted a policy of severe control and punishment. Anyone considered an enemy of the republic was executed via the guillotine.</p>
+                    `
+                },
+                {
+                    title: "Class 9 Science: Laws of Motion",
+                    content: `
+                        <p>Sir Isaac Newton formulated three fundamental laws that describe the relationship between the motion of an object and the forces acting on it.</p>
+                        <h3>Newton's Three Laws</h3>
+                        <ul>
+                            <li><strong>First Law (Law of Inertia):</strong> An object at rest stays at rest, and an object in motion stays in motion with the same speed and in the same direction unless acted upon by an unbalanced force.</li>
+                            <li><strong>Second Law:</strong> The acceleration of an object depends on the mass of the object and the amount of force applied.</li>
+                            <li><strong>Third Law:</strong> For every action, there is an equal and opposite reaction.</li>
+                        </ul>
+                        <div class="formula-box">Second Law Formula: F = ma (Force = mass × acceleration)</div>
+                        <p>Inertia is the natural tendency of objects to resist changes in their state of motion. A heavier object has more inertia than a lighter one.</p>
+                    `
+                }
+            ],
+            "10": [
+                {
+                    title: "Class 10 Science: Chemical Reactions and Equations",
+                    content: `
+                        <p>A chemical reaction is a process where substances undergo a chemical change to form new substances. The original substances are called reactants, and the new ones are called products.</p>
+                        <h3>Types of Chemical Reactions:</h3>
+                        <ul>
+                            <li><strong>Combination Reaction:</strong> Two or more reactants combine to form a single product.</li>
+                            <li><strong>Decomposition Reaction:</strong> A single reactant breaks down into multiple products, often requiring energy (heat, light, or electricity).</li>
+                            <li><strong>Displacement Reaction:</strong> A more reactive element displaces a less reactive element from its compound.</li>
+                            <li><strong>Double Displacement Reaction:</strong> An exchange of ions occurs between two compounds.</li>
+                        </ul>
+                        <div class="formula-box">
+                            Combination: C (s) + O₂ (g) → CO₂ (g)<br>
+                            Decomposition: CaCO₃ (s) → CaO (s) + CO₂ (g)
+                        </div>
+                        <p><strong>Corrosion and Rancidity:</strong> Corrosion is the gradual degradation of metals due to moisture and air. Rancidity refers to the oxidation of fats and oils in food, leading to a foul smell and taste.</p>
+                    `
+                },
+                {
+                    title: "Class 10 Mathematics: Real Numbers",
+                    content: `
+                        <p>The study of real numbers is fundamental in Mathematics. Real numbers include all rational and irrational numbers. They can be represented on a number line, and their properties form the basis for algebra.</p>
+                        <h3>Euclid's Division Lemma</h3>
+                        <p>Euclid's Division Lemma states that for any two positive integers <em>a</em> and <em>b</em>, there exist unique integers <em>q</em> and <em>r</em> satisfying:</p>
+                        <div class="formula-box">
+                            a = bq + r, where 0 ≤ r < b
+                        </div>
+                        <h3>Fundamental Theorem of Arithmetic</h3>
+                        <p>This theorem states that every composite number can be expressed (factorized) as a product of primes, and this factorization is unique, apart from the order in which the prime factors occur.</p>
+                        <div class="formula-box">
+                            For any two positive integers a and b:<br>
+                            HCF(a, b) × LCM(a, b) = a × b
+                        </div>
+                        <p><strong>Revisiting Irrational Numbers:</strong> Numbers like √2, √3, and √5 are irrational because their decimal expansions are non-terminating and non-recurring.</p>
+                    `
+                }
+            ]
+        };
+
+        // Calculate Week Number
+        function getWeekNumber() {
+            const now = new Date();
+            const start = new Date(now.getFullYear(), 0, 1);
+            const diff = now - start;
+            const oneWeek = 1000 * 60 * 60 * 24 * 7;
+            return Math.floor(diff / oneWeek);
+        }
+
+        // Render Topics
+        document.addEventListener('DOMContentLoaded', () => {
+            const weekNumber = getWeekNumber();
+            
+            // Format Week Range for Display
+            const curr = new Date(); // get current date
+            const first = curr.getDate() - curr.getDay() + 1; // First day is Monday
+            const last = first + 6; // last day is Sunday
+            const firstDay = new Date(curr.setDate(first)).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+            const lastDay = new Date(curr.setDate(last)).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+            
+            document.getElementById('week-display').textContent = `Week of ${firstDay} — ${lastDay}`;
+
+            const container = document.getElementById('dynamic-content');
+            let html = '';
+
+            const classes = ["6", "7", "8", "9", "10"];
+            
+            classes.forEach((classNum, index) => {
+                const classTopics = topicDatabase[classNum];
+                const selectedTopic = classTopics[weekNumber % classTopics.length];
+                
+                html += `
+                    <article class="chapter-box">
+                        <h2>${selectedTopic.title}</h2>
+                        ${selectedTopic.content}
+                    </article>
+                `;
+
+                // Add an ad slot after class 7 and class 9
+                if (classNum === "7" || classNum === "9") {
+                    html += `
+                        <div class="ad-slot-article" aria-hidden="true">
+                            [ AdSense In-Article Ad Placeholder ]
+                        </div>
+                    `;
+                }
+            });
+
+            container.innerHTML = html;
+            
+            if (typeof feather !== 'undefined') {
+                feather.replace();
+            }
+        });
+    </script>
+</body>
+</html>

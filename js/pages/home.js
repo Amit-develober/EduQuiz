@@ -166,9 +166,14 @@ const HomePage = (() => {
                 <div class="cta-card glass-card-static">
                     <h2>Ready to <span class="text-gradient">Begin</span>?</h2>
                     <p>Join thousands of students mastering their subjects every day</p>
-                    <button class="btn btn-primary btn-lg btn-glow" onclick="Router.navigate('/class')" id="cta-start-btn">
-                        Start Your Journey
-                    </button>
+                    <div style="display: flex; gap: 15px; justify-content: center; margin-top: 20px; flex-wrap: wrap;">
+                        <button class="btn btn-primary btn-lg btn-glow" onclick="Router.navigate('/class')" id="cta-start-btn">
+                            Start Your Journey
+                        </button>
+                        <a href="study-hub.html" class="btn btn-primary btn-lg btn-glow" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+                            <i data-feather="book-open"></i> Read Study Notes
+                        </a>
+                    </div>
                 </div>
             </section>
 

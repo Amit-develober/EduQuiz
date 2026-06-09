@@ -1,72 +1,772 @@
 [
-    {"question":"When did India gain independence?","options":["1947","1950","1942","1930"],"answer":"1947","explanation":"India gained independence from British rule on August 15, 1947."},
-    {"question":"What is the Indian Constitution also known as?","options":["Supreme law of the land","Rule book","Citizen's charter","Legal document"],"answer":"Supreme law of the land","explanation":"The Constitution is the supreme law, and all other laws must conform to it."},
-    {"question":"Which Indian leader is known as 'Iron Man of India'?","options":["Sardar Vallabhbhai Patel","Jawaharlal Nehru","Subhash Chandra Bose","Bhagat Singh"],"answer":"Sardar Vallabhbhai Patel","explanation":"Sardar Patel unified 565 princely states into the Indian Union, earning the title 'Iron Man of India'."},
-    {"question":"What is the judiciary's main function?","options":["Interpreting laws","Making laws","Implementing laws","Collecting taxes"],"answer":"Interpreting laws","explanation":"The judiciary interprets the Constitution and laws, and ensures justice is delivered."},
-    {"question":"Which resource is classified as abiotic?","options":["Minerals","Forests","Animals","Fisheries"],"answer":"Minerals","explanation":"Abiotic resources are non-living things like minerals, water, and air."},
-    {"question":"What is secularism?","options":["Separation of religion from state","Rule by religion","Single religion state","No religion allowed"],"answer":"Separation of religion from state","explanation":"Secularism means the state treats all religions equally and doesn't favor any religion."},
-    {"question":"Which industry is called the backbone of modern industry?","options":["Iron and Steel","Textile","IT","Agriculture"],"answer":"Iron and Steel","explanation":"Iron and steel provide raw materials for many industries, making it the backbone of industrialization."},
-    {"question":"What is the Right to Information (RTI)?","options":["Citizens' right to access government information","Right to education","Right to free speech","Right to property"],"answer":"Citizens' right to access government information","explanation":"RTI Act (2005) empowers citizens to request information from public authorities."},
-    {"question":"Which revolution is associated with increased food grain production?","options":["Green Revolution","White Revolution","Blue Revolution","Industrial Revolution"],"answer":"Green Revolution","explanation":"The Green Revolution (1960s-70s) introduced HYV seeds and modern farming, boosting food production."},
-    {"question":"What is the United Nations (UN)?","options":["An international organization for peace and cooperation","A military alliance","A trade agreement","A continental union"],"answer":"An international organization for peace and cooperation","explanation":"The UN was founded in 1945 to maintain international peace, security, and cooperation."},
-    {"question":"Which Act abolished the practice of Sati?","options":["Bengal Sati Regulation, 1829","Indian Penal Code, 1860","Hindu Marriage Act","Widow Remarriage Act"],"answer":"Bengal Sati Regulation, 1829","explanation":"Lord William Bentinck banned Sati in 1829, supported by Raja Ram Mohan Roy's campaign."},
-    {"question":"What is the Lok Sabha?","options":["Lower house of Parliament","Upper house of Parliament","State legislature","Supreme Court"],"answer":"Lower house of Parliament","explanation":"Lok Sabha (House of the People) is the lower house, with members directly elected by citizens."},
-    {"question":"Which soil is formed by volcanic activity?","options":["Black soil","Red soil","Alluvial soil","Sandy soil"],"answer":"Black soil","explanation":"Black (regur) soil is formed from the weathering of volcanic basalt rocks in the Deccan Plateau."},
-    {"question":"What was the Dandi March?","options":["A protest against salt tax by Gandhi","A military march","A religious procession","An independence parade"],"answer":"A protest against salt tax by Gandhi","explanation":"In 1930, Gandhi marched 385 km to Dandi to make salt, protesting British salt tax."},
-    {"question":"Which is India's largest state by area?","options":["Rajasthan","Madhya Pradesh","Maharashtra","Uttar Pradesh"],"answer":"Rajasthan","explanation":"Rajasthan is the largest Indian state by area, covering 342,239 km²."},
-    {"question":"What is the tenure of the President of India?","options":["5 years","4 years","6 years","Lifetime"],"answer":"5 years","explanation":"The President of India serves a 5-year term and can be re-elected."},
-    {"question":"Which was the first newspaper published in India?","options":["Bengal Gazette","The Hindu","Times of India","Amrita Bazar Patrika"],"answer":"Bengal Gazette","explanation":"Bengal Gazette (Hicky's Gazette) was India's first newspaper, published in 1780 by James Hicky."},
-    {"question":"What is the meaning of 'Adivasi'?","options":["Original inhabitants","Farmers","Traders","Warriors"],"answer":"Original inhabitants","explanation":"Adivasi literally means 'original inhabitants', referring to India's indigenous tribal communities."},
-    {"question":"Which amendment is called the Mini Constitution?","options":["42nd Amendment","44th Amendment","1st Amendment","73rd Amendment"],"answer":"42nd Amendment","explanation":"The 42nd Amendment (1976) made extensive changes, earning the nickname 'Mini Constitution'."},
-    {"question":"What is the main cause of deforestation?","options":["Agriculture expansion and logging","Rainfall","Earthquakes","Urbanization only"],"answer":"Agriculture expansion and logging","explanation":"Clearing forests for farming and commercial logging are the primary drivers of deforestation."},
-    {"question":"Who introduced the Subsidiary Alliance system in India?","options":["Lord Cornwallis","Lord Wellesley","Lord Dalhousie","Lord Curzon"],"answer":"Lord Wellesley"},
-    {"question":"Which revolt is known as the First War of Indian Independence?","options":["Non-Cooperation Movement","Quit India Movement","Revolt of 1857","Civil Disobedience Movement"],"answer":"Revolt of 1857"},
-    {"question":"Which type of resources are created by humans using natural resources?","options":["Natural Resources","Human-made Resources","Renewable Resources","Biotic Resources"],"answer":"Human-made Resources"},
-    {"question":"Which soil is formed by river deposits?","options":["Black Soil","Red Soil","Alluvial Soil","Laterite Soil"],"answer":"Alluvial Soil"},
-    {"question":"Who founded the Brahmo Samaj?","options":["Swami Vivekananda","Raja Ram Mohan Roy","Dayanand Saraswati","Ishwar Chandra Vidyasagar"],"answer":"Raja Ram Mohan Roy"},
-    {"question":"What is the primary function of a legislature?","options":["To enforce laws","To make laws","To interpret laws","To conduct elections"],"answer":"To make laws"},
-    {"question":"Which industry converts raw materials into finished products?","options":["Agriculture","Manufacturing","Transport","Mining"],"answer":"Manufacturing"},
-    {"question":"Who was the last Mughal emperor of India?","options":["Akbar II","Bahadur Shah Zafar","Shah Alam II","Aurangzeb"],"answer":"Bahadur Shah Zafar"},
-    {"question":"Which resource can be replenished naturally over time?","options":["Coal","Petroleum","Natural Gas","Solar Energy"],"answer":"Solar Energy"},
-    {"question":"Which Fundamental Right protects citizens from discrimination?","options":["Right to Freedom","Right to Equality","Right to Education","Cultural Rights"],"answer":"Right to Equality"},
-    {"question":"Why did the British preserve official letters and documents?","options":["They believed writing was important for administration","To sell them in markets","To hide their failures","To show them to local kings"],"answer":"They believed writing was important for administration","explanation":"The British believed that the act of writing was crucial. Every instruction, plan, policy decision, agreement, and investigation had to be clearly written down and preserved."},
-    {"question":"In which year was the Battle of Plassey fought between Sirajuddaulah and Robert Clive?","options":["1757","1764","1782","1803"],"answer":"1757","explanation":"The Battle of Plassey was fought in 1757, when the English East India Company under Robert Clive defeated Sirajuddaulah, the Nawab of Bengal."},
-    {"question":"Which battle fought in 1764 established the East India Company's direct control over Bengal's administration?","options":["Battle of Buxar","Battle of Plassey","Third Battle of Panipat","Battle of Seringapatam"],"answer":"Battle of Buxar","explanation":"After the defeat at the Battle of Buxar in 1764, the Mughal Emperor appointed the Company as the Diwan of the provinces of Bengal in 1765."},
-    {"question":"Which Governor-General introduced the imperialist policy of 'Doctrine of Lapse'?","options":["Lord Dalhousie","Lord Warren Hastings","Lord Cornwallis","Lord William Bentinck"],"answer":"Lord Dalhousie","explanation":"Lord Dalhousie devised the Doctrine of Lapse, which declared that if an Indian ruler died without a male heir, his kingdom would 'lapse' and become part of Company territory."},
-    {"question":"Who introduced the Permanent Settlement system of land revenue in Bengal in 1793?","options":["Lord Cornwallis","Thomas Munro","Holt Mackenzie","Warren Hastings"],"answer":"Lord Cornwallis","explanation":"The Permanent Settlement was introduced by Lord Cornwallis in 1793. The rajas and taluqdars were recognized as zamindars and were asked to collect rent from peasants."},
-    {"question":"In the Mahalwari revenue system, what did the term 'Mahal' refer to?","options":["A village or group of villages","A royal palace","A district","A single farmer's plot"],"answer":"A village or group of villages","explanation":"Devised by Holt Mackenzie in 1822, the Mahalwari system collected revenue from the 'Mahal', which was a unit consisting of a village or a group of villages."},
-    {"question":"In which year did the Blue Rebellion (Indigo Revolt) break out in Bengal, where ryots refused to grow indigo?","options":["1859","1831","1875","1917"],"answer":"1859","explanation":"In March 1859, thousands of ryots in Bengal refused to grow indigo, starting the Blue Rebellion, protesting against the oppressive planting system."},
-    {"question":"What was shifting cultivation, practiced by tribal communities, locally known as in India?","options":["Jhum cultivation","Step farming","Commercial farming","Intensive farming"],"answer":"Jhum cultivation","explanation":"Shifting cultivation is known as Jhum cultivation in North-East India. It involves clearing patches of forest land, burning the vegetation, and sowing seeds."},
-    {"question":"Which tribal leader led a major rebellion against British authorities in the Chhotanagpur region in the late 1890s?","options":["Birsa Munda","Sidhu Murmu","Kanhu Murmu","Alluri Sitarama Raju"],"answer":"Birsa Munda","explanation":"Birsa Munda led a powerful movement of tribal people in Bihar/Jharkhand region against the British, missionaries, and Hindu landlords (dikus)."},
-    {"question":"What was the immediate cause of the Revolt of 1857?","options":["Greased cartridges containing cow and pig fat","Annexation of Awadh","Introduction of western education","Heavy taxes on farmers"],"answer":"Greased cartridges containing cow and pig fat","explanation":"The rumors that the cartridges of the new Enfield rifles were greased with fat of cows and pigs outraged both Hindu and Muslim sepoys, triggering the mutiny."},
-    {"question":"Who was declared the leader of the 1857 revolt by the rebelling sepoys?","options":["Bahadur Shah Zafar","Nana Saheb","Tantia Tope","Rani Lakshmibai"],"answer":"Bahadur Shah Zafar","explanation":"The sepoys marched to Delhi and declared the elderly Mughal Emperor Bahadur Shah Zafar as their leader."},
-    {"question":"Who founded the Satyashodhak Samaj to fight for the rights of low-caste people in Maharashtra?","options":["Jyotirao Phule","Dr. B.R. Ambedkar","Sri Narayana Guru","E.V. Ramasamy Periyar"],"answer":"Jyotirao Phule","explanation":"Jyotirao Phule founded the Satyashodhak Samaj (Truth-Seekers Society) in 1873 to propagate caste equality. He wrote 'Gulamgiri' in 1873."},
-    {"question":"Who started the Self-Respect Movement in South India to challenge Brahmanical dominance?","options":["E.V. Ramasamy Periyar","Sri Narayana Guru","Dr. B.R. Ambedkar","Kandukuri Veeresalingam"],"answer":"E.V. Ramasamy Periyar","explanation":"E.V. Ramasamy, known as Periyar, founded the Self-Respect Movement in Tamil Nadu to campaign against caste inequalities."},
-    {"question":"In which year did Viceroy Curzon partition Bengal, leading to the Swadeshi Movement?","options":["1905","1911","1919","1929"],"answer":"1905","explanation":"Viceroy Curzon partitioned Bengal in 1905, claiming it was for administrative convenience, but it aimed to curb Bengali nationalist influence."},
-    {"question":"On which auspicious festival day did the Jallianwala Bagh massacre occur in Amritsar?","options":["Baisakhi","Diwali","Holi","Lohri"],"answer":"Baisakhi","explanation":"The massacre occurred on 13 April 1919, which was Baisakhi day, when people had gathered peacefully at Jallianwala Bagh."},
-    {"question":"The Poona Pact of 1932 was signed between Mahatma Gandhi and which other leader?","options":["Dr. B.R. Ambedkar","Jawaharlal Nehru","Muhammad Ali Jinnah","Subhas Chandra Bose"],"answer":"Dr. B.R. Ambedkar","explanation":"Signed in September 1932, the Poona Pact gave reserved seats in provincial and central legislatures to Depressed Classes instead of separate electorates."},
-    {"question":"What is using resources carefully and giving them time to get renewed called?","options":["Resource conservation","Sustainable development","Resource planning","Resource optimization"],"answer":"Resource conservation","explanation":"Using resources carefully and giving them time to get renewed is called resource conservation."},
-    {"question":"What is the organic matter formed by decomposition of dead plants and animals in soil called?","options":["Humus","Bedrock","Silt","Parent rock"],"answer":"Humus","explanation":"Humus is the organic substance formed in soil by the decomposition of plant and animal matter by microorganisms."},
-    {"question":"What is the process of collecting rainwater from rooftops and directing it to an appropriate location for future use called?","options":["Rainwater harvesting","Drip irrigation","Watershed management","Sprinkler irrigation"],"answer":"Rainwater harvesting","explanation":"Rainwater harvesting is the technique of gathering and storing rainwater from catchment surfaces, primarily rooftops, for recharge or reuse."},
-    {"question":"Which type of farming uses low levels of technology and family labor to meet household needs?","options":["Subsistence farming","Commercial farming","Plantation agriculture","Intensive farming"],"answer":"Subsistence farming","explanation":"Subsistence farming is practiced to meet the needs of the farmer's family, using low levels of technology and family labor."},
-    {"question":"Which of the following is a major plantation crop grown in India?","options":["Tea","Wheat","Maize","Millet"],"answer":"Tea","explanation":"Plantations are a type of commercial farming where a single crop of tea, coffee, sugarcane, cashew, rubber, banana, or cotton is grown."},
-    {"question":"Which of the following is a primary locational factor for the iron and steel industry?","options":["Proximity to raw materials like iron ore and coal","High rainfall","Availability of mountain slopes","Access to tourist centers"],"answer":"Proximity to raw materials like iron ore and coal","explanation":"The iron and steel industry is raw-material-heavy and weight-losing, making proximity to raw materials (coal, iron ore) the most important location factor."},
-    {"question":"Where is the Silicon Valley of the USA located?","options":["California","New York","Texas","Florida"],"answer":"California","explanation":"The Silicon Valley is located in the Santa Clara Valley, California, and is the global hub for high technology and innovation."},
-    {"question":"What is the term for the way in which people are spread across the Earth's surface?","options":["Pattern of population distribution","Density of population","Population growth","Population composition"],"answer":"Pattern of population distribution","explanation":"The pattern of population distribution refers to the way in which people are spread across the earth's surface."},
-    {"question":"Why does a democratic country need a Constitution?","options":["To lay down the rules and principles that govern the society","To make it easy for kings to rule","To restrict citizens from traveling","To establish single-party rule"],"answer":"To lay down the rules and principles that govern the society","explanation":"A Constitution serves several purposes, primarily laying down the fundamental principles and rules that define the nature of our society and government."},
-    {"question":"How does Indian secularism differ from American secularism?","options":["Indian state can intervene in religious affairs to enforce equality","Indian state is completely separated from religion","India has a state-established religion","Indian state does not recognize religious holidays"],"answer":"Indian state can intervene in religious affairs to enforce equality","explanation":"In American secularism, there is a strict separation between religion and state. In Indian secularism, the state can intervene in religious matters (e.g. banning untouchability) to protect fundamental rights."},
-    {"question":"Who is the head of the executive branch in India's parliamentary system?","options":["Prime Minister","President","Chief Justice of India","Speaker of Lok Sabha"],"answer":"Prime Minister","explanation":"While the President is the nominal head of state, the Prime Minister is the real head of the government and leads the executive branch."},
-    {"question":"How many members are nominated by the President to the Rajya Sabha for their contributions to art, literature, and science?","options":["12 members","2 members","10 members","15 members"],"answer":"12 members","explanation":"The President of India nominates 12 members to the Rajya Sabha (Upper House) who have special knowledge or practical experience in literature, science, art, and social service."},
-    {"question":"What is the power of the judiciary to strike down laws passed by Parliament if they violate the basic structure of the Constitution called?","options":["Judicial Review","Public Interest Litigation","Original Jurisdiction","Appellate Jurisdiction"],"answer":"Judicial Review","explanation":"Judicial Review is the power of the Supreme Court and High Courts to review and strike down laws passed by the legislature if they violate the Constitution."},
-    {"question":"Which Article of the Indian Constitution guarantees the Right to Life, which the Supreme Court interpreted to include the Right to Food and Clean Water?","options":["Article 21","Article 14","Article 19","Article 32"],"answer":"Article 21","explanation":"Article 21 guarantees the protection of life and personal liberty, which has been interpreted by the courts to include the right to livelihood, food, water, and health."},
-    {"question":"What is the document registered by the police before starting an investigation into a cognizable offense called?","options":["First Information Report (FIR)","Charge Sheet","Warrant","Summons"],"answer":"First Information Report (FIR)","explanation":"An FIR is the written document prepared by the police when they receive information about the commission of a cognizable offense."},
-    {"question":"Under which Act is the employment of manual scavengers banned and criminalized in India?","options":["Employment of Manual Scavengers and Construction of Dry Latrines (Prohibition) Act, 1993","Scheduled Castes and Scheduled Tribes (Prevention of Atrocities) Act, 1989","Civil Rights Protection Act, 1955","Bonded Labour System (Abolition) Act, 1976"],"answer":"Employment of Manual Scavengers and Construction of Dry Latrines (Prohibition) Act, 1993","explanation":"The 1993 Act bans the employment of manual scavengers and construction of dry latrines. In 2013, a stronger Act was passed for their rehabilitation."},
-    {"question":"Which of the following is considered a 'public facility' that must be provided by the government to all citizens?","options":["Water supply and sanitation","Private luxury cars","Air travel tickets","Electronic gadgets"],"answer":"Water supply and sanitation","explanation":"Public facilities are essential facilities like water, sanitation, healthcare, electricity, public transport, and schools that are necessary for survival and decency."},
-    {"question":"Which famous sword, belonging to an Indian ruler, was made of high-carbon Wootz steel that could easily tear through armor?","options":["Tipu Sultan's Sword","Maharana Pratap's Sword","Shivaji Maharaj's Sword","Akbar's Sword"],"answer":"Tipu Sultan's Sword","explanation":"Tipu Sultan's sword was made of Wootz steel, which was produced in South India and possessed a sharp, wavy pattern from small carbon crystals."},
-    {"question":"What was the educational dispatch sent by the Court of Directors of the East India Company in 1854 called?","options":["Wood's Despatch","Macaulay's Minute","Hunter Commission Report","Sargent Scheme"],"answer":"Wood's Despatch","explanation":"Wood's Despatch of 1854, outline by Charles Wood, served as the blueprint for English education in India, promoting European learning."},
-    {"question":"Who founded the educational institution 'Shantiniketan' in 1901 to promote education in a natural environment?","options":["Rabindranath Tagore","Mahatma Gandhi","Swami Vivekananda","Raja Ram Mohan Roy"],"answer":"Rabindranath Tagore","explanation":"Rabindranath Tagore started Shantiniketan in 1901, about 100 km from Calcutta, to teach children in peace and harmony with nature."},
-    {"question":"Which reformer used ancient Sanskrit texts to argue that widows could remarry, leading to the Widow Remarriage Act of 1856?","options":["Ishwar Chandra Vidyasagar","Raja Ram Mohan Roy","Swami Dayanand Saraswati","Keshab Chandra Sen"],"answer":"Ishwar Chandra Vidyasagar","explanation":"Vidyasagar used ancient texts to suggest widow remarriage. British officials accepted this and passed the Hindu Widows' Remarriage Act in 1856."},
-    {"question":"In coastal and dry regions, what is the method of planting rows of trees to check wind movement and protect soil cover called?","options":["Shelter belts","Contour ploughing","Terrace farming","Rock dam"],"answer":"Shelter belts","explanation":"In coastal and dry regions, rows of trees are planted to check wind movement and protect soil cover. These are called shelter belts."},
-    {"question":"What is the agricultural practice of growing crops and rearing livestock on the same land called?","options":["Mixed farming","Plantation agriculture","Subsistence farming","Nomadic herding"],"answer":"Mixed farming","explanation":"In mixed farming, the land is used for growing food and fodder crops and rearing livestock, common in Europe and parts of India."},
-    {"question":"According to census data, approximately what percentage of India's population is tribal (Adivasi)?","options":["8%","15%","25%","2%"],"answer":"8%","explanation":"Adivasis constitute about 8% of India's population. Many of India's most important mining and industrial centers are located in Adivasi areas."}
+    {
+        "question": "When did India gain independence?",
+        "options": [
+            "1947",
+            "1950",
+            "1942",
+            "1930"
+        ],
+        "answer": "1947",
+        "explanation": "India gained independence from British rule on August 15, 1947."
+    },
+    {
+        "question": "What is the Indian Constitution also known as?",
+        "options": [
+            "Supreme law of the land",
+            "Rule book",
+            "Citizen's charter",
+            "Legal document"
+        ],
+        "answer": "Supreme law of the land",
+        "explanation": "The Constitution is the supreme law, and all other laws must conform to it."
+    },
+    {
+        "question": "Which Indian leader is known as 'Iron Man of India'?",
+        "options": [
+            "Sardar Vallabhbhai Patel",
+            "Jawaharlal Nehru",
+            "Subhash Chandra Bose",
+            "Bhagat Singh"
+        ],
+        "answer": "Sardar Vallabhbhai Patel",
+        "explanation": "Sardar Patel unified 565 princely states into the Indian Union, earning the title 'Iron Man of India'."
+    },
+    {
+        "question": "What is the judiciary's main function?",
+        "options": [
+            "Interpreting laws",
+            "Making laws",
+            "Implementing laws",
+            "Collecting taxes"
+        ],
+        "answer": "Interpreting laws",
+        "explanation": "The judiciary interprets the Constitution and laws, and ensures justice is delivered."
+    },
+    {
+        "question": "Which resource is classified as abiotic?",
+        "options": [
+            "Minerals",
+            "Forests",
+            "Animals",
+            "Fisheries"
+        ],
+        "answer": "Minerals",
+        "explanation": "Abiotic resources are non-living things like minerals, water, and air."
+    },
+    {
+        "question": "What is secularism?",
+        "options": [
+            "Separation of religion from state",
+            "Rule by religion",
+            "Single religion state",
+            "No religion allowed"
+        ],
+        "answer": "Separation of religion from state",
+        "explanation": "Secularism means the state treats all religions equally and doesn't favor any religion."
+    },
+    {
+        "question": "Which industry is called the backbone of modern industry?",
+        "options": [
+            "Iron and Steel",
+            "Textile",
+            "IT",
+            "Agriculture"
+        ],
+        "answer": "Iron and Steel",
+        "explanation": "Iron and steel provide raw materials for many industries, making it the backbone of industrialization."
+    },
+    {
+        "question": "What is the Right to Information (RTI)?",
+        "options": [
+            "Citizens' right to access government information",
+            "Right to education",
+            "Right to free speech",
+            "Right to property"
+        ],
+        "answer": "Citizens' right to access government information",
+        "explanation": "RTI Act (2005) empowers citizens to request information from public authorities."
+    },
+    {
+        "question": "Which revolution is associated with increased food grain production?",
+        "options": [
+            "Green Revolution",
+            "White Revolution",
+            "Blue Revolution",
+            "Industrial Revolution"
+        ],
+        "answer": "Green Revolution",
+        "explanation": "The Green Revolution (1960s-70s) introduced HYV seeds and modern farming, boosting food production."
+    },
+    {
+        "question": "What is the United Nations (UN)?",
+        "options": [
+            "An international organization for peace and cooperation",
+            "A military alliance",
+            "A trade agreement",
+            "A continental union"
+        ],
+        "answer": "An international organization for peace and cooperation",
+        "explanation": "The UN was founded in 1945 to maintain international peace, security, and cooperation."
+    },
+    {
+        "question": "Which Act abolished the practice of Sati?",
+        "options": [
+            "Bengal Sati Regulation, 1829",
+            "Indian Penal Code, 1860",
+            "Hindu Marriage Act",
+            "Widow Remarriage Act"
+        ],
+        "answer": "Bengal Sati Regulation, 1829",
+        "explanation": "Lord William Bentinck banned Sati in 1829, supported by Raja Ram Mohan Roy's campaign."
+    },
+    {
+        "question": "What is the Lok Sabha?",
+        "options": [
+            "Lower house of Parliament",
+            "Upper house of Parliament",
+            "State legislature",
+            "Supreme Court"
+        ],
+        "answer": "Lower house of Parliament",
+        "explanation": "Lok Sabha (House of the People) is the lower house, with members directly elected by citizens."
+    },
+    {
+        "question": "Which soil is formed by volcanic activity?",
+        "options": [
+            "Black soil",
+            "Red soil",
+            "Alluvial soil",
+            "Sandy soil"
+        ],
+        "answer": "Black soil",
+        "explanation": "Black (regur) soil is formed from the weathering of volcanic basalt rocks in the Deccan Plateau."
+    },
+    {
+        "question": "What was the Dandi March?",
+        "options": [
+            "A protest against salt tax by Gandhi",
+            "A military march",
+            "A religious procession",
+            "An independence parade"
+        ],
+        "answer": "A protest against salt tax by Gandhi",
+        "explanation": "In 1930, Gandhi marched 385 km to Dandi to make salt, protesting British salt tax."
+    },
+    {
+        "question": "Which is India's largest state by area?",
+        "options": [
+            "Rajasthan",
+            "Madhya Pradesh",
+            "Maharashtra",
+            "Uttar Pradesh"
+        ],
+        "answer": "Rajasthan",
+        "explanation": "Rajasthan is the largest Indian state by area, covering 342,239 km²."
+    },
+    {
+        "question": "What is the tenure of the President of India?",
+        "options": [
+            "5 years",
+            "4 years",
+            "6 years",
+            "Lifetime"
+        ],
+        "answer": "5 years",
+        "explanation": "The President of India serves a 5-year term and can be re-elected."
+    },
+    {
+        "question": "Which was the first newspaper published in India?",
+        "options": [
+            "Bengal Gazette",
+            "The Hindu",
+            "Times of India",
+            "Amrita Bazar Patrika"
+        ],
+        "answer": "Bengal Gazette",
+        "explanation": "Bengal Gazette (Hicky's Gazette) was India's first newspaper, published in 1780 by James Hicky."
+    },
+    {
+        "question": "What is the meaning of 'Adivasi'?",
+        "options": [
+            "Original inhabitants",
+            "Farmers",
+            "Traders",
+            "Warriors"
+        ],
+        "answer": "Original inhabitants",
+        "explanation": "Adivasi literally means 'original inhabitants', referring to India's indigenous tribal communities."
+    },
+    {
+        "question": "Which amendment is called the Mini Constitution?",
+        "options": [
+            "42nd Amendment",
+            "44th Amendment",
+            "1st Amendment",
+            "73rd Amendment"
+        ],
+        "answer": "42nd Amendment",
+        "explanation": "The 42nd Amendment (1976) made extensive changes, earning the nickname 'Mini Constitution'."
+    },
+    {
+        "question": "What is the main cause of deforestation?",
+        "options": [
+            "Agriculture expansion and logging",
+            "Rainfall",
+            "Earthquakes",
+            "Urbanization only"
+        ],
+        "answer": "Agriculture expansion and logging",
+        "explanation": "Clearing forests for farming and commercial logging are the primary drivers of deforestation."
+    },
+    {
+        "question": "Who introduced the Subsidiary Alliance system in India?",
+        "options": [
+            "Lord Cornwallis",
+            "Lord Wellesley",
+            "Lord Dalhousie",
+            "Lord Curzon"
+        ],
+        "answer": "Lord Wellesley",
+        "explanation": "According to historical and geographical records, 'Lord Wellesley' is the correct answer. Understanding this is key to mastering the Social Science syllabus."
+    },
+    {
+        "question": "Which revolt is known as the First War of Indian Independence?",
+        "options": [
+            "Non-Cooperation Movement",
+            "Quit India Movement",
+            "Revolt of 1857",
+            "Civil Disobedience Movement"
+        ],
+        "answer": "Revolt of 1857",
+        "explanation": "The correct answer is 'Revolt of 1857'. This is a fundamental concept in the NCERT curriculum for this class."
+    },
+    {
+        "question": "Which type of resources are created by humans using natural resources?",
+        "options": [
+            "Natural Resources",
+            "Human-made Resources",
+            "Renewable Resources",
+            "Biotic Resources"
+        ],
+        "answer": "Human-made Resources",
+        "explanation": "The correct answer is 'Human-made Resources'. This is a fundamental concept in the NCERT curriculum for this class."
+    },
+    {
+        "question": "Which soil is formed by river deposits?",
+        "options": [
+            "Black Soil",
+            "Red Soil",
+            "Alluvial Soil",
+            "Laterite Soil"
+        ],
+        "answer": "Alluvial Soil",
+        "explanation": "According to historical and geographical records, 'Alluvial Soil' is the correct answer. Understanding this is key to mastering the Social Science syllabus."
+    },
+    {
+        "question": "Who founded the Brahmo Samaj?",
+        "options": [
+            "Swami Vivekananda",
+            "Raja Ram Mohan Roy",
+            "Dayanand Saraswati",
+            "Ishwar Chandra Vidyasagar"
+        ],
+        "answer": "Raja Ram Mohan Roy",
+        "explanation": "According to historical and geographical records, 'Raja Ram Mohan Roy' is the correct answer. Understanding this is key to mastering the Social Science syllabus."
+    },
+    {
+        "question": "What is the primary function of a legislature?",
+        "options": [
+            "To enforce laws",
+            "To make laws",
+            "To interpret laws",
+            "To conduct elections"
+        ],
+        "answer": "To make laws",
+        "explanation": "The correct answer is 'To make laws'. This is a fundamental concept in the NCERT curriculum for this class."
+    },
+    {
+        "question": "Which industry converts raw materials into finished products?",
+        "options": [
+            "Agriculture",
+            "Manufacturing",
+            "Transport",
+            "Mining"
+        ],
+        "answer": "Manufacturing",
+        "explanation": "The correct answer is 'Manufacturing'. This is a fundamental concept in the NCERT curriculum for this class."
+    },
+    {
+        "question": "Who was the last Mughal emperor of India?",
+        "options": [
+            "Akbar II",
+            "Bahadur Shah Zafar",
+            "Shah Alam II",
+            "Aurangzeb"
+        ],
+        "answer": "Bahadur Shah Zafar",
+        "explanation": "According to historical and geographical records, 'Bahadur Shah Zafar' is the correct answer. Understanding this is key to mastering the Social Science syllabus."
+    },
+    {
+        "question": "Which resource can be replenished naturally over time?",
+        "options": [
+            "Coal",
+            "Petroleum",
+            "Natural Gas",
+            "Solar Energy"
+        ],
+        "answer": "Solar Energy",
+        "explanation": "The correct answer is 'Solar Energy'. This is a fundamental concept in the NCERT curriculum for this class."
+    },
+    {
+        "question": "Which Fundamental Right protects citizens from discrimination?",
+        "options": [
+            "Right to Freedom",
+            "Right to Equality",
+            "Right to Education",
+            "Cultural Rights"
+        ],
+        "answer": "Right to Equality",
+        "explanation": "The correct answer is 'Right to Equality'. This is a fundamental concept in the NCERT curriculum for this class."
+    },
+    {
+        "question": "Why did the British preserve official letters and documents?",
+        "options": [
+            "They believed writing was important for administration",
+            "To sell them in markets",
+            "To hide their failures",
+            "To show them to local kings"
+        ],
+        "answer": "They believed writing was important for administration",
+        "explanation": "The British believed that the act of writing was crucial. Every instruction, plan, policy decision, agreement, and investigation had to be clearly written down and preserved."
+    },
+    {
+        "question": "In which year was the Battle of Plassey fought between Sirajuddaulah and Robert Clive?",
+        "options": [
+            "1757",
+            "1764",
+            "1782",
+            "1803"
+        ],
+        "answer": "1757",
+        "explanation": "The Battle of Plassey was fought in 1757, when the English East India Company under Robert Clive defeated Sirajuddaulah, the Nawab of Bengal."
+    },
+    {
+        "question": "Which battle fought in 1764 established the East India Company's direct control over Bengal's administration?",
+        "options": [
+            "Battle of Buxar",
+            "Battle of Plassey",
+            "Third Battle of Panipat",
+            "Battle of Seringapatam"
+        ],
+        "answer": "Battle of Buxar",
+        "explanation": "After the defeat at the Battle of Buxar in 1764, the Mughal Emperor appointed the Company as the Diwan of the provinces of Bengal in 1765."
+    },
+    {
+        "question": "Which Governor-General introduced the imperialist policy of 'Doctrine of Lapse'?",
+        "options": [
+            "Lord Dalhousie",
+            "Lord Warren Hastings",
+            "Lord Cornwallis",
+            "Lord William Bentinck"
+        ],
+        "answer": "Lord Dalhousie",
+        "explanation": "Lord Dalhousie devised the Doctrine of Lapse, which declared that if an Indian ruler died without a male heir, his kingdom would 'lapse' and become part of Company territory."
+    },
+    {
+        "question": "Who introduced the Permanent Settlement system of land revenue in Bengal in 1793?",
+        "options": [
+            "Lord Cornwallis",
+            "Thomas Munro",
+            "Holt Mackenzie",
+            "Warren Hastings"
+        ],
+        "answer": "Lord Cornwallis",
+        "explanation": "The Permanent Settlement was introduced by Lord Cornwallis in 1793. The rajas and taluqdars were recognized as zamindars and were asked to collect rent from peasants."
+    },
+    {
+        "question": "In the Mahalwari revenue system, what did the term 'Mahal' refer to?",
+        "options": [
+            "A village or group of villages",
+            "A royal palace",
+            "A district",
+            "A single farmer's plot"
+        ],
+        "answer": "A village or group of villages",
+        "explanation": "Devised by Holt Mackenzie in 1822, the Mahalwari system collected revenue from the 'Mahal', which was a unit consisting of a village or a group of villages."
+    },
+    {
+        "question": "In which year did the Blue Rebellion (Indigo Revolt) break out in Bengal, where ryots refused to grow indigo?",
+        "options": [
+            "1859",
+            "1831",
+            "1875",
+            "1917"
+        ],
+        "answer": "1859",
+        "explanation": "In March 1859, thousands of ryots in Bengal refused to grow indigo, starting the Blue Rebellion, protesting against the oppressive planting system."
+    },
+    {
+        "question": "What was shifting cultivation, practiced by tribal communities, locally known as in India?",
+        "options": [
+            "Jhum cultivation",
+            "Step farming",
+            "Commercial farming",
+            "Intensive farming"
+        ],
+        "answer": "Jhum cultivation",
+        "explanation": "Shifting cultivation is known as Jhum cultivation in North-East India. It involves clearing patches of forest land, burning the vegetation, and sowing seeds."
+    },
+    {
+        "question": "Which tribal leader led a major rebellion against British authorities in the Chhotanagpur region in the late 1890s?",
+        "options": [
+            "Birsa Munda",
+            "Sidhu Murmu",
+            "Kanhu Murmu",
+            "Alluri Sitarama Raju"
+        ],
+        "answer": "Birsa Munda",
+        "explanation": "Birsa Munda led a powerful movement of tribal people in Bihar/Jharkhand region against the British, missionaries, and Hindu landlords (dikus)."
+    },
+    {
+        "question": "What was the immediate cause of the Revolt of 1857?",
+        "options": [
+            "Greased cartridges containing cow and pig fat",
+            "Annexation of Awadh",
+            "Introduction of western education",
+            "Heavy taxes on farmers"
+        ],
+        "answer": "Greased cartridges containing cow and pig fat",
+        "explanation": "The rumors that the cartridges of the new Enfield rifles were greased with fat of cows and pigs outraged both Hindu and Muslim sepoys, triggering the mutiny."
+    },
+    {
+        "question": "Who was declared the leader of the 1857 revolt by the rebelling sepoys?",
+        "options": [
+            "Bahadur Shah Zafar",
+            "Nana Saheb",
+            "Tantia Tope",
+            "Rani Lakshmibai"
+        ],
+        "answer": "Bahadur Shah Zafar",
+        "explanation": "The sepoys marched to Delhi and declared the elderly Mughal Emperor Bahadur Shah Zafar as their leader."
+    },
+    {
+        "question": "Who founded the Satyashodhak Samaj to fight for the rights of low-caste people in Maharashtra?",
+        "options": [
+            "Jyotirao Phule",
+            "Dr. B.R. Ambedkar",
+            "Sri Narayana Guru",
+            "E.V. Ramasamy Periyar"
+        ],
+        "answer": "Jyotirao Phule",
+        "explanation": "Jyotirao Phule founded the Satyashodhak Samaj (Truth-Seekers Society) in 1873 to propagate caste equality. He wrote 'Gulamgiri' in 1873."
+    },
+    {
+        "question": "Who started the Self-Respect Movement in South India to challenge Brahmanical dominance?",
+        "options": [
+            "E.V. Ramasamy Periyar",
+            "Sri Narayana Guru",
+            "Dr. B.R. Ambedkar",
+            "Kandukuri Veeresalingam"
+        ],
+        "answer": "E.V. Ramasamy Periyar",
+        "explanation": "E.V. Ramasamy, known as Periyar, founded the Self-Respect Movement in Tamil Nadu to campaign against caste inequalities."
+    },
+    {
+        "question": "In which year did Viceroy Curzon partition Bengal, leading to the Swadeshi Movement?",
+        "options": [
+            "1905",
+            "1911",
+            "1919",
+            "1929"
+        ],
+        "answer": "1905",
+        "explanation": "Viceroy Curzon partitioned Bengal in 1905, claiming it was for administrative convenience, but it aimed to curb Bengali nationalist influence."
+    },
+    {
+        "question": "On which auspicious festival day did the Jallianwala Bagh massacre occur in Amritsar?",
+        "options": [
+            "Baisakhi",
+            "Diwali",
+            "Holi",
+            "Lohri"
+        ],
+        "answer": "Baisakhi",
+        "explanation": "The massacre occurred on 13 April 1919, which was Baisakhi day, when people had gathered peacefully at Jallianwala Bagh."
+    },
+    {
+        "question": "The Poona Pact of 1932 was signed between Mahatma Gandhi and which other leader?",
+        "options": [
+            "Dr. B.R. Ambedkar",
+            "Jawaharlal Nehru",
+            "Muhammad Ali Jinnah",
+            "Subhas Chandra Bose"
+        ],
+        "answer": "Dr. B.R. Ambedkar",
+        "explanation": "Signed in September 1932, the Poona Pact gave reserved seats in provincial and central legislatures to Depressed Classes instead of separate electorates."
+    },
+    {
+        "question": "What is using resources carefully and giving them time to get renewed called?",
+        "options": [
+            "Resource conservation",
+            "Sustainable development",
+            "Resource planning",
+            "Resource optimization"
+        ],
+        "answer": "Resource conservation",
+        "explanation": "Using resources carefully and giving them time to get renewed is called resource conservation."
+    },
+    {
+        "question": "What is the organic matter formed by decomposition of dead plants and animals in soil called?",
+        "options": [
+            "Humus",
+            "Bedrock",
+            "Silt",
+            "Parent rock"
+        ],
+        "answer": "Humus",
+        "explanation": "Humus is the organic substance formed in soil by the decomposition of plant and animal matter by microorganisms."
+    },
+    {
+        "question": "What is the process of collecting rainwater from rooftops and directing it to an appropriate location for future use called?",
+        "options": [
+            "Rainwater harvesting",
+            "Drip irrigation",
+            "Watershed management",
+            "Sprinkler irrigation"
+        ],
+        "answer": "Rainwater harvesting",
+        "explanation": "Rainwater harvesting is the technique of gathering and storing rainwater from catchment surfaces, primarily rooftops, for recharge or reuse."
+    },
+    {
+        "question": "Which type of farming uses low levels of technology and family labor to meet household needs?",
+        "options": [
+            "Subsistence farming",
+            "Commercial farming",
+            "Plantation agriculture",
+            "Intensive farming"
+        ],
+        "answer": "Subsistence farming",
+        "explanation": "Subsistence farming is practiced to meet the needs of the farmer's family, using low levels of technology and family labor."
+    },
+    {
+        "question": "Which of the following is a major plantation crop grown in India?",
+        "options": [
+            "Tea",
+            "Wheat",
+            "Maize",
+            "Millet"
+        ],
+        "answer": "Tea",
+        "explanation": "Plantations are a type of commercial farming where a single crop of tea, coffee, sugarcane, cashew, rubber, banana, or cotton is grown."
+    },
+    {
+        "question": "Which of the following is a primary locational factor for the iron and steel industry?",
+        "options": [
+            "Proximity to raw materials like iron ore and coal",
+            "High rainfall",
+            "Availability of mountain slopes",
+            "Access to tourist centers"
+        ],
+        "answer": "Proximity to raw materials like iron ore and coal",
+        "explanation": "The iron and steel industry is raw-material-heavy and weight-losing, making proximity to raw materials (coal, iron ore) the most important location factor."
+    },
+    {
+        "question": "Where is the Silicon Valley of the USA located?",
+        "options": [
+            "California",
+            "New York",
+            "Texas",
+            "Florida"
+        ],
+        "answer": "California",
+        "explanation": "The Silicon Valley is located in the Santa Clara Valley, California, and is the global hub for high technology and innovation."
+    },
+    {
+        "question": "What is the term for the way in which people are spread across the Earth's surface?",
+        "options": [
+            "Pattern of population distribution",
+            "Density of population",
+            "Population growth",
+            "Population composition"
+        ],
+        "answer": "Pattern of population distribution",
+        "explanation": "The pattern of population distribution refers to the way in which people are spread across the earth's surface."
+    },
+    {
+        "question": "Why does a democratic country need a Constitution?",
+        "options": [
+            "To lay down the rules and principles that govern the society",
+            "To make it easy for kings to rule",
+            "To restrict citizens from traveling",
+            "To establish single-party rule"
+        ],
+        "answer": "To lay down the rules and principles that govern the society",
+        "explanation": "A Constitution serves several purposes, primarily laying down the fundamental principles and rules that define the nature of our society and government."
+    },
+    {
+        "question": "How does Indian secularism differ from American secularism?",
+        "options": [
+            "Indian state can intervene in religious affairs to enforce equality",
+            "Indian state is completely separated from religion",
+            "India has a state-established religion",
+            "Indian state does not recognize religious holidays"
+        ],
+        "answer": "Indian state can intervene in religious affairs to enforce equality",
+        "explanation": "In American secularism, there is a strict separation between religion and state. In Indian secularism, the state can intervene in religious matters (e.g. banning untouchability) to protect fundamental rights."
+    },
+    {
+        "question": "Who is the head of the executive branch in India's parliamentary system?",
+        "options": [
+            "Prime Minister",
+            "President",
+            "Chief Justice of India",
+            "Speaker of Lok Sabha"
+        ],
+        "answer": "Prime Minister",
+        "explanation": "While the President is the nominal head of state, the Prime Minister is the real head of the government and leads the executive branch."
+    },
+    {
+        "question": "How many members are nominated by the President to the Rajya Sabha for their contributions to art, literature, and science?",
+        "options": [
+            "12 members",
+            "2 members",
+            "10 members",
+            "15 members"
+        ],
+        "answer": "12 members",
+        "explanation": "The President of India nominates 12 members to the Rajya Sabha (Upper House) who have special knowledge or practical experience in literature, science, art, and social service."
+    },
+    {
+        "question": "What is the power of the judiciary to strike down laws passed by Parliament if they violate the basic structure of the Constitution called?",
+        "options": [
+            "Judicial Review",
+            "Public Interest Litigation",
+            "Original Jurisdiction",
+            "Appellate Jurisdiction"
+        ],
+        "answer": "Judicial Review",
+        "explanation": "Judicial Review is the power of the Supreme Court and High Courts to review and strike down laws passed by the legislature if they violate the Constitution."
+    },
+    {
+        "question": "Which Article of the Indian Constitution guarantees the Right to Life, which the Supreme Court interpreted to include the Right to Food and Clean Water?",
+        "options": [
+            "Article 21",
+            "Article 14",
+            "Article 19",
+            "Article 32"
+        ],
+        "answer": "Article 21",
+        "explanation": "Article 21 guarantees the protection of life and personal liberty, which has been interpreted by the courts to include the right to livelihood, food, water, and health."
+    },
+    {
+        "question": "What is the document registered by the police before starting an investigation into a cognizable offense called?",
+        "options": [
+            "First Information Report (FIR)",
+            "Charge Sheet",
+            "Warrant",
+            "Summons"
+        ],
+        "answer": "First Information Report (FIR)",
+        "explanation": "An FIR is the written document prepared by the police when they receive information about the commission of a cognizable offense."
+    },
+    {
+        "question": "Under which Act is the employment of manual scavengers banned and criminalized in India?",
+        "options": [
+            "Employment of Manual Scavengers and Construction of Dry Latrines (Prohibition) Act, 1993",
+            "Scheduled Castes and Scheduled Tribes (Prevention of Atrocities) Act, 1989",
+            "Civil Rights Protection Act, 1955",
+            "Bonded Labour System (Abolition) Act, 1976"
+        ],
+        "answer": "Employment of Manual Scavengers and Construction of Dry Latrines (Prohibition) Act, 1993",
+        "explanation": "The 1993 Act bans the employment of manual scavengers and construction of dry latrines. In 2013, a stronger Act was passed for their rehabilitation."
+    },
+    {
+        "question": "Which of the following is considered a 'public facility' that must be provided by the government to all citizens?",
+        "options": [
+            "Water supply and sanitation",
+            "Private luxury cars",
+            "Air travel tickets",
+            "Electronic gadgets"
+        ],
+        "answer": "Water supply and sanitation",
+        "explanation": "Public facilities are essential facilities like water, sanitation, healthcare, electricity, public transport, and schools that are necessary for survival and decency."
+    },
+    {
+        "question": "Which famous sword, belonging to an Indian ruler, was made of high-carbon Wootz steel that could easily tear through armor?",
+        "options": [
+            "Tipu Sultan's Sword",
+            "Maharana Pratap's Sword",
+            "Shivaji Maharaj's Sword",
+            "Akbar's Sword"
+        ],
+        "answer": "Tipu Sultan's Sword",
+        "explanation": "Tipu Sultan's sword was made of Wootz steel, which was produced in South India and possessed a sharp, wavy pattern from small carbon crystals."
+    },
+    {
+        "question": "What was the educational dispatch sent by the Court of Directors of the East India Company in 1854 called?",
+        "options": [
+            "Wood's Despatch",
+            "Macaulay's Minute",
+            "Hunter Commission Report",
+            "Sargent Scheme"
+        ],
+        "answer": "Wood's Despatch",
+        "explanation": "Wood's Despatch of 1854, outline by Charles Wood, served as the blueprint for English education in India, promoting European learning."
+    },
+    {
+        "question": "Who founded the educational institution 'Shantiniketan' in 1901 to promote education in a natural environment?",
+        "options": [
+            "Rabindranath Tagore",
+            "Mahatma Gandhi",
+            "Swami Vivekananda",
+            "Raja Ram Mohan Roy"
+        ],
+        "answer": "Rabindranath Tagore",
+        "explanation": "Rabindranath Tagore started Shantiniketan in 1901, about 100 km from Calcutta, to teach children in peace and harmony with nature."
+    },
+    {
+        "question": "Which reformer used ancient Sanskrit texts to argue that widows could remarry, leading to the Widow Remarriage Act of 1856?",
+        "options": [
+            "Ishwar Chandra Vidyasagar",
+            "Raja Ram Mohan Roy",
+            "Swami Dayanand Saraswati",
+            "Keshab Chandra Sen"
+        ],
+        "answer": "Ishwar Chandra Vidyasagar",
+        "explanation": "Vidyasagar used ancient texts to suggest widow remarriage. British officials accepted this and passed the Hindu Widows' Remarriage Act in 1856."
+    },
+    {
+        "question": "In coastal and dry regions, what is the method of planting rows of trees to check wind movement and protect soil cover called?",
+        "options": [
+            "Shelter belts",
+            "Contour ploughing",
+            "Terrace farming",
+            "Rock dam"
+        ],
+        "answer": "Shelter belts",
+        "explanation": "In coastal and dry regions, rows of trees are planted to check wind movement and protect soil cover. These are called shelter belts."
+    },
+    {
+        "question": "What is the agricultural practice of growing crops and rearing livestock on the same land called?",
+        "options": [
+            "Mixed farming",
+            "Plantation agriculture",
+            "Subsistence farming",
+            "Nomadic herding"
+        ],
+        "answer": "Mixed farming",
+        "explanation": "In mixed farming, the land is used for growing food and fodder crops and rearing livestock, common in Europe and parts of India."
+    },
+    {
+        "question": "According to census data, approximately what percentage of India's population is tribal (Adivasi)?",
+        "options": [
+            "8%",
+            "15%",
+            "25%",
+            "2%"
+        ],
+        "answer": "8%",
+        "explanation": "Adivasis constitute about 8% of India's population. Many of India's most important mining and industrial centers are located in Adivasi areas."
+    }
 ]

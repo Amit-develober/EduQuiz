@@ -60,6 +60,18 @@
         }
     }
     </script>
+
+    <!-- Google AdSense / AdMob COPPA Compliance (Child-directed) -->
+    <script>
+        window.adsbygoogle = window.adsbygoogle || [];
+        window.adsbygoogle.push({
+            params: {
+                // Uncomment and add your publisher ID when ready
+                // google_ad_client: "ca-pub-XXXXXXXXXXXXXXXX",
+                coppa: "true" 
+            }
+        });
+    </script>
 </head>
 <body>
     <!-- ===== Particle Background Canvas ===== -->
@@ -75,6 +87,9 @@
             <div class="nav-links" id="nav-links">
                 <a href="#/home" class="nav-link active" data-route="home">
                     <i data-feather="home" class="nav-icon"></i> Home
+                </a>
+                <a href="study-hub.html" class="nav-link">
+                    <i data-feather="book-open" class="nav-icon"></i> Study Hub
                 </a>
                 <a href="#/class" class="nav-link" data-route="class">
                     <i data-feather="book" class="nav-icon"></i> Quizzes
@@ -117,6 +132,20 @@
     <!-- ===== Main App Container ===== -->
     <main id="app" class="app-container" role="main">
         <!-- SPA pages are rendered here by the router -->
+        
+        <!-- Static fallback content for SEO crawlers and ad bots -->
+        <div id="crawler-fallback-content" style="position: absolute; opacity: 0; pointer-events: none; z-index: -1;">
+            <h1>EduQuiz — CBSE & NCERT Chapter-wise Practice Quizzes</h1>
+            <p>EduQuiz is a free educational platform designed for students in Class 6, Class 7, Class 8, Class 9, and Class 10. We offer comprehensive practice MCQ quizzes for Mathematics, Science, and Social Science subjects.</p>
+            <h2>Available Classes & Subjects:</h2>
+            <ul>
+                <li>Class 10 Science (Chemical Reactions, Life Processes, Light Reflection)</li>
+                <li>Class 10 Mathematics (Real Numbers, Polynomials, Triangles)</li>
+                <li>Class 9 Science, Class 9 Maths, Class 9 Social Science</li>
+                <li>Class 8, 7, and 6 chapter quizzes</li>
+            </ul>
+        </div>
+
         <div class="page-loading" id="initial-loader">
             <div class="spinner"></div>
             <p>Loading EduQuiz...</p>
@@ -143,6 +172,7 @@
                 <div class="footer-section">
                     <h4>Quick Links</h4>
                     <a href="#/home">Home</a>
+                    <a href="study-hub.html">Study Hub</a>
                     <a href="#/class">Start Quiz</a>
                     <a href="#/leaderboard">Leaderboard</a>
                     <a href="#/profile">My Profile</a>

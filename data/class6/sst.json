@@ -1,72 +1,772 @@
 [
-    {"question":"What is the study of the Earth's physical features called?","options":["Geography","History","Civics","Economics"],"answer":"Geography","explanation":"Geography is the study of Earth's landscapes, environments, and the relationships between people and their environments."},
-    {"question":"Which is the longest river in India?","options":["Ganga","Yamuna","Godavari","Brahmaputra"],"answer":"Ganga","explanation":"The Ganga (Ganges) is the longest river in India, flowing about 2,525 km."},
-    {"question":"Who is known as the Father of the Nation in India?","options":["Mahatma Gandhi","Jawaharlal Nehru","Subhas Chandra Bose","B.R. Ambedkar"],"answer":"Mahatma Gandhi","explanation":"Mahatma Gandhi is called the Father of the Nation for his role in India's independence movement."},
-    {"question":"What are the three levels of government in India?","options":["Central, State, Local","Central, Provincial, District","Federal, State, City","National, Regional, Block"],"answer":"Central, State, Local","explanation":"India has a three-tier government system: Central (Union), State, and Local (Panchayat/Municipality)."},
-    {"question":"Which continent is the largest by area?","options":["Asia","Africa","North America","Europe"],"answer":"Asia","explanation":"Asia is the largest continent, covering about 44.58 million km²."},
-    {"question":"What is the national emblem of India?","options":["Lion Capital of Ashoka","Lotus","Peacock","Tiger"],"answer":"Lion Capital of Ashoka","explanation":"The Lion Capital of Ashoka at Sarnath is India's national emblem, adopted in 1950."},
-    {"question":"What are the imaginary lines running from North to South Pole called?","options":["Longitudes","Latitudes","Meridians","Tropics"],"answer":"Longitudes","explanation":"Longitudes (meridians) are imaginary vertical lines running from pole to pole."},
-    {"question":"Which Indian movement started in 1942 with the slogan 'Do or Die'?","options":["Quit India Movement","Non-Cooperation Movement","Civil Disobedience Movement","Swadeshi Movement"],"answer":"Quit India Movement","explanation":"Gandhi launched the Quit India Movement in 1942 with the slogan 'Do or Die' demanding British withdrawal."},
-    {"question":"What is the capital of Rajasthan?","options":["Jaipur","Jodhpur","Udaipur","Jaisalmer"],"answer":"Jaipur","explanation":"Jaipur, also known as the Pink City, is the capital of Rajasthan."},
-    {"question":"Which ocean is the largest?","options":["Pacific Ocean","Atlantic Ocean","Indian Ocean","Arctic Ocean"],"answer":"Pacific Ocean","explanation":"The Pacific Ocean is the largest and deepest ocean, covering about 165.25 million km²."},
-    {"question":"What does the wheel in the Indian national flag represent?","options":["Dharma Chakra (Law of Righteousness)","Sun","Progress","Unity"],"answer":"Dharma Chakra (Law of Righteousness)","explanation":"The 24-spoke Ashoka Chakra represents the Dharma Chakra, symbolizing truth and righteousness."},
-    {"question":"Which soil type is best for growing cotton?","options":["Black soil","Red soil","Alluvial soil","Laterite soil"],"answer":"Black soil","explanation":"Black soil (regur soil) retains moisture well and is ideal for cotton cultivation."},
-    {"question":"When is Republic Day celebrated in India?","options":["26th January","15th August","2nd October","14th November"],"answer":"26th January","explanation":"Republic Day is celebrated on January 26 to mark the day India's Constitution came into effect in 1950."},
-    {"question":"What is the Tropic of Cancer?","options":["A latitude line at 23.5° North","A longitude line","The equator","A latitude at 66.5° North"],"answer":"A latitude line at 23.5° North","explanation":"The Tropic of Cancer is at 23.5°N latitude, passing through 8 Indian states."},
-    {"question":"Which fundamental right protects against discrimination?","options":["Right to Equality","Right to Freedom","Right against Exploitation","Right to Education"],"answer":"Right to Equality","explanation":"Article 14-18 of the Constitution guarantee the Right to Equality, prohibiting discrimination."},
-    {"question":"What is the approximate population of India?","options":["Over 1.4 billion","500 million","2 billion","800 million"],"answer":"Over 1.4 billion","explanation":"India's population is over 1.4 billion, making it the most populous country in the world."},
-    {"question":"Which planet is closest to the Sun?","options":["Mercury","Venus","Earth","Mars"],"answer":"Mercury","explanation":"Mercury is the closest planet to the Sun at an average distance of about 58 million km."},
-    {"question":"What is a democracy?","options":["Government by the people","Government by a king","Military rule","Rule by religious leaders"],"answer":"Government by the people","explanation":"Democracy is a system of government where citizens exercise power through voting and elected representatives."},
-    {"question":"Which mountain range separates India from China?","options":["Himalayas","Aravalli","Western Ghats","Vindhyas"],"answer":"Himalayas","explanation":"The Himalayan mountain range forms a natural boundary between India and China/Tibet."},
-    {"question":"What was the Indus Valley Civilization known for?","options":["Advanced urban planning","Ironworking","Gunpowder","Navigation"],"answer":"Advanced urban planning","explanation":"The Indus Valley Civilization (Harappan) had sophisticated urban planning with grid streets and drainage systems."},
-    {"question":"Which river is often called the lifeline of Egypt?","options":["Ganga","Nile","Amazon","Yangtze"],"answer":"Nile"},
-    {"question":"Who is known as the Father of the Indian Constitution?","options":["Mahatma Gandhi","Jawaharlal Nehru","Dr. B. R. Ambedkar","Sardar Patel"],"answer":"Dr. B. R. Ambedkar"},
-    {"question":"Which planet is known as the Red Planet?","options":["Venus","Jupiter","Mars","Saturn"],"answer":"Mars"},
-    {"question":"What is the capital of India?","options":["Mumbai","Kolkata","Chennai","New Delhi"],"answer":"New Delhi"},
-    {"question":"The Earth is divided into how many major continents?","options":["5","6","7","8"],"answer":"7"},
-    {"question":"Which is the largest continent in the world?","options":["Africa","Europe","Asia","Australia"],"answer":"Asia"},
-    {"question":"What is the imaginary line that divides the Earth into Northern and Southern Hemispheres?","options":["Prime Meridian","Tropic of Cancer","Equator","Arctic Circle"],"answer":"Equator"},
-    {"question":"Which ancient civilization developed along the Indus River?","options":["Egyptian Civilization","Mesopotamian Civilization","Indus Valley Civilization","Chinese Civilization"],"answer":"Indus Valley Civilization"},
-    {"question":"Who were the first farmers in ancient times?","options":["Hunters","Gatherers","Early Humans","Nomads"],"answer":"Early Humans"},
-    {"question":"Which metal was widely used during the Bronze Age?","options":["Iron","Copper","Bronze","Gold"],"answer":"Bronze"},
-    {"question":"What is a family consisting of parents and their children called?","options":["Joint Family","Nuclear Family","Extended Family","Large Family"],"answer":"Nuclear Family"},
-    {"question":"Which level of government works at the village level in India?","options":["State Government","Central Government","Panchayat","Parliament"],"answer":"Panchayat"},
-    {"question":"Who is the head of a Gram Panchayat?","options":["Governor","Chief Minister","Sarpanch","President"],"answer":"Sarpanch"},
-    {"question":"Which direction does the Sun rise from?","options":["North","South","East","West"],"answer":"East"},
-    {"question":"Which ocean is the largest in the world?","options":["Atlantic Ocean","Indian Ocean","Arctic Ocean","Pacific Ocean"],"answer":"Pacific Ocean"},
-    {"question":"Which state of India is known as the 'Land of Five Rivers'?","options":["Haryana","Punjab","Rajasthan","Uttar Pradesh"],"answer":"Punjab"},
-    {"question":"What do we call people who move from one place to another in search of food and shelter?","options":["Settlers","Nomads","Farmers","Traders"],"answer":"Nomads"},
-    {"question":"Which instrument is used to show directions?","options":["Thermometer","Barometer","Compass","Clock"],"answer":"Compass"},
-    {"question":"Which festival celebrates the harvest season in Punjab?","options":["Pongal","Baisakhi","Onam","Lohri"],"answer":"Baisakhi"},
-    {"question":"What is the term for a drawing of the Earth's surface on a flat sheet?","options":["Globe","Map","Atlas","Sketch"],"answer":"Map"},
-    {"question":"What were ancient manuscripts written on?","options":["Palm leaves","Paper sheets","Clay tablets","Copper plates"],"answer":"Palm leaves","explanation":"In ancient times, manuscripts were written by hand on palm leaves or on the specially prepared bark of a tree known as birch, which grows in the Himalayas."},
-    {"question":"Why did hunter-gatherers move from place to place in ancient times?","options":["In search of food and water","To escape wild animals","To build cities","To trade metals"],"answer":"In search of food and water","explanation":"Hunter-gatherers moved constantly in search of food and water as local plant and animal resources would get exhausted, and water sources could dry up seasonally."},
-    {"question":"At which Neolithic site in Kashmir have pit-houses (dwellings dug into the ground) been discovered?","options":["Burzahom","Mehrgarh","Chirand","Hallur"],"answer":"Burzahom","explanation":"At Burzahom in Kashmir, people built pit-houses, which were dug into the ground, with steps leading into them. These likely provided shelter during cold weather."},
-    {"question":"Where was the famous 'Great Bath' found in the Indus Valley Civilization?","options":["Mohenjodaro","Harappa","Lothal","Kalibangan"],"answer":"Mohenjodaro","explanation":"A very special tank, which archaeologists call the Great Bath, was built in the citadel area of Mohenjodaro, lined with bricks and plaster."},
-    {"question":"Which of the following metals was NOT known to the Harappan people?","options":["Iron","Copper","Gold","Bronze"],"answer":"Iron","explanation":"The Harappans used copper, bronze, gold, and silver, but the use of iron was not known during the Harappan period. Iron came much later."},
-    {"question":"Which is the oldest Veda, composed about 3500 years ago?","options":["Rigveda","Samaveda","Yajurveda","Atharvaveda"],"answer":"Rigveda","explanation":"The oldest Veda is the Rigveda, composed about 3500 years ago. It includes more than a thousand hymns called 'sukta' or 'well-said'."},
-    {"question":"Which was the most powerful Mahajanapada in ancient India?","options":["Magadha","Kosala","Vatsa","Avanti"],"answer":"Magadha","explanation":"Magadha became the most powerful Mahajanapada because major rivers like the Ganga and Son flowed through it, providing water, transport, and fertile soil."},
-    {"question":"What was the capital of the Vajji Mahajanapada, which had a Gana or Sangha form of government?","options":["Vaishali","Rajgriha","Pataliputra","Ujjain"],"answer":"Vaishali","explanation":"Vajji, with its capital at Vaishali (Bihar), was under a different form of government known as Gana or Sangha, where decisions were made collectively."},
-    {"question":"Under which tree did Siddhartha (Gautama Buddha) attain enlightenment at Bodh Gaya?","options":["Peepal tree","Banyan tree","Mango tree","Sal tree"],"answer":"Peepal tree","explanation":"Buddha meditated for days under a peepal (fig) tree at Bodh Gaya in Bihar, where he finally attained enlightenment."},
-    {"question":"Who was the 24th and last Tirthankara of the Jainas?","options":["Vardhamana Mahavira","Rishabhadeva","Parshvanatha","Neminatha"],"answer":"Vardhamana Mahavira","explanation":"Vardhamana Mahavira was the 24th and last Tirthankara of the Jainas, spreading his spiritual messages around 2500 years ago."},
-    {"question":"Which war made Emperor Ashoka decide to give up violence and war forever?","options":["Kalinga War","Battle of Panipat","Battle of Plassey","Battle of Hydaspes"],"answer":"Kalinga War","explanation":"Ashoka was so horrified by the bloodshed and misery in the Kalinga War that he decided to give up fighting wars and adopted Buddhism."},
-    {"question":"Which is the third nearest planet to the Sun in our solar system?","options":["Earth","Venus","Mars","Mercury"],"answer":"Earth","explanation":"Earth is the third nearest planet to the Sun. In terms of size, it is the fifth largest planet in our solar system."},
-    {"question":"Why do stars and the Sun shine with their own light?","options":["They have their own heat and light","They reflect light from the Moon","They reflect light from Earth","They are made of glass"],"answer":"They have their own heat and light","explanation":"Stars are giant celestial bodies made of hot gases that generate and emit their own heat and light in large quantities."},
-    {"question":"What is the coordinate value of the Prime Meridian?","options":["0° longitude","0° latitude","82.5° East longitude","90° West longitude"],"answer":"0° longitude","explanation":"The Prime Meridian is the reference line for measuring longitudes. It has a value of 0° longitude and passes through Greenwich, London."},
-    {"question":"In which hemisphere is the Antarctic Circle located?","options":["Southern Hemisphere","Northern Hemisphere","Eastern Hemisphere","Western Hemisphere"],"answer":"Southern Hemisphere","explanation":"The Antarctic Circle is located at 66.5° South of the Equator, which lies entirely within the Southern Hemisphere."},
-    {"question":"How many days are there in a leap year?","options":["366 days","365 days","364 days","368 days"],"answer":"366 days","explanation":"A leap year occurs every four years when the extra quarter of a day (6 hours) over four years accumulates to a full day (24 hours), added to February 29th."},
-    {"question":"When does the Summer Solstice occur in the Northern Hemisphere?","options":["21st June","22nd December","21st March","23rd September"],"answer":"21st June","explanation":"On 21st June, the Northern Hemisphere is tilted towards the Sun, causing the longest day and the shortest night of the year, known as the Summer Solstice."},
-    {"question":"What is a map showing natural features of the Earth like mountains, rivers, and plains called?","options":["Physical map","Political map","Thematic map","Topographic map"],"answer":"Physical map","explanation":"Maps showing natural physical features of the Earth, such as relief, mountains, plateaus, plains, and rivers, are called physical or relief maps."},
-    {"question":"Which map focuses on specific information like road networks, rainfall, or forest distribution?","options":["Thematic map","Physical map","Political map","Cadastral map"],"answer":"Thematic map","explanation":"Thematic maps are designed to show a particular theme or specific information, such as average rainfall or road networks."},
-    {"question":"Which gas is the second most abundant in the Earth's atmosphere?","options":["Oxygen","Nitrogen","Argon","Carbon dioxide"],"answer":"Oxygen","explanation":"Nitrogen makes up about 78% of the atmosphere, and Oxygen is the second most abundant gas at about 21%."},
-    {"question":"What is a narrow strip of land joining two larger landmasses called?","options":["Isthmus","Strait","Peninsula","Gulf"],"answer":"Isthmus","explanation":"An isthmus is a narrow strip of land connecting two larger landmasses, such as the Isthmus of Panama joining North and South America."},
-    {"question":"Which water body lies to the east of the Indian peninsula?","options":["Bay of Bengal","Arabian Sea","Indian Ocean","Red Sea"],"answer":"Bay of Bengal","explanation":"The Bay of Bengal lies to the east of India, the Arabian Sea to the west, and the Indian Ocean to the south."},
-    {"question":"Which longitude is taken as the Standard Meridian of India for calculating IST?","options":["82°30' E","82°30' W","82° E","0°"],"answer":"82°30' E","explanation":"The longitude of 82°30' E passing through Mirzapur is treated as the Standard Meridian of India. Its local time represents Indian Standard Time (IST)."},
-    {"question":"What is it called when we fix people into a rigid, generalized image or role?","options":["Stereotype","Prejudice","Discrimination","Equality"],"answer":"Stereotype","explanation":"When we fix people into one image or assume everyone of a particular group behaves exactly the same way, we create a stereotype."},
-    {"question":"Who was the leader of the Dalits and fought for their civil rights in India?","options":["Dr. B.R. Ambedkar","Mahatma Gandhi","Jawaharlal Nehru","Rabindranath Tagore"],"answer":"Dr. B.R. Ambedkar","explanation":"Dr. B.R. Ambedkar is known as the Father of the Indian Constitution and was a prominent leader of the Dalits, campaigning against caste discrimination."},
-    {"question":"Who holds the final decision-making power in a monarchy government system?","options":["King or Queen","The People","Elected Representatives","The Prime Minister"],"answer":"King or Queen","explanation":"In a monarchy, the king or queen has the absolute power to make decisions and run the government, and they are not answerable to the people."},
-    {"question":"What was the historic movement in Europe and the USA that fought for women's right to vote?","options":["Women's Suffrage Movement","Civil Rights Movement","Anti-Apartheid Movement","Labor Movement"],"answer":"Women's Suffrage Movement","explanation":"The Suffrage Movement fought for the right of women to vote, gaining immense momentum during World War I."},
-    {"question":"Who is eligible to be a member of the Gram Sabha in rural local government?","options":["Any villager aged 18 or above who has the right to vote","Only the Sarpanch and Ward members","Only landowning farmers","Only male heads of households"],"answer":"Any villager aged 18 or above who has the right to vote","explanation":"The Gram Sabha is a meeting of all adults (18+) who live in the area covered by a Panchayat and who are registered voters."},
-    {"question":"Who is responsible for measuring land and keeping land records at the village level?","options":["Patwari","Tehsildar","SHO","Sarpanch"],"answer":"Patwari","explanation":"The Patwari (also known as Lekhpal, Kanungo, or Village Officer) is responsible for measuring land plots and maintaining village land records."},
-    {"question":"Who is the administrative head of a Municipal Corporation in a large city?","options":["Municipal Commissioner","Mayor","Ward Councillor","District Magistrate"],"answer":"Municipal Commissioner","explanation":"While the Mayor is the political head, the Municipal Commissioner is the administrative head appointed by the state government to implement decisions."}
+    {
+        "question": "What is the study of the Earth's physical features called?",
+        "options": [
+            "Geography",
+            "History",
+            "Civics",
+            "Economics"
+        ],
+        "answer": "Geography",
+        "explanation": "Geography is the study of Earth's landscapes, environments, and the relationships between people and their environments."
+    },
+    {
+        "question": "Which is the longest river in India?",
+        "options": [
+            "Ganga",
+            "Yamuna",
+            "Godavari",
+            "Brahmaputra"
+        ],
+        "answer": "Ganga",
+        "explanation": "The Ganga (Ganges) is the longest river in India, flowing about 2,525 km."
+    },
+    {
+        "question": "Who is known as the Father of the Nation in India?",
+        "options": [
+            "Mahatma Gandhi",
+            "Jawaharlal Nehru",
+            "Subhas Chandra Bose",
+            "B.R. Ambedkar"
+        ],
+        "answer": "Mahatma Gandhi",
+        "explanation": "Mahatma Gandhi is called the Father of the Nation for his role in India's independence movement."
+    },
+    {
+        "question": "What are the three levels of government in India?",
+        "options": [
+            "Central, State, Local",
+            "Central, Provincial, District",
+            "Federal, State, City",
+            "National, Regional, Block"
+        ],
+        "answer": "Central, State, Local",
+        "explanation": "India has a three-tier government system: Central (Union), State, and Local (Panchayat/Municipality)."
+    },
+    {
+        "question": "Which continent is the largest by area?",
+        "options": [
+            "Asia",
+            "Africa",
+            "North America",
+            "Europe"
+        ],
+        "answer": "Asia",
+        "explanation": "Asia is the largest continent, covering about 44.58 million km²."
+    },
+    {
+        "question": "What is the national emblem of India?",
+        "options": [
+            "Lion Capital of Ashoka",
+            "Lotus",
+            "Peacock",
+            "Tiger"
+        ],
+        "answer": "Lion Capital of Ashoka",
+        "explanation": "The Lion Capital of Ashoka at Sarnath is India's national emblem, adopted in 1950."
+    },
+    {
+        "question": "What are the imaginary lines running from North to South Pole called?",
+        "options": [
+            "Longitudes",
+            "Latitudes",
+            "Meridians",
+            "Tropics"
+        ],
+        "answer": "Longitudes",
+        "explanation": "Longitudes (meridians) are imaginary vertical lines running from pole to pole."
+    },
+    {
+        "question": "Which Indian movement started in 1942 with the slogan 'Do or Die'?",
+        "options": [
+            "Quit India Movement",
+            "Non-Cooperation Movement",
+            "Civil Disobedience Movement",
+            "Swadeshi Movement"
+        ],
+        "answer": "Quit India Movement",
+        "explanation": "Gandhi launched the Quit India Movement in 1942 with the slogan 'Do or Die' demanding British withdrawal."
+    },
+    {
+        "question": "What is the capital of Rajasthan?",
+        "options": [
+            "Jaipur",
+            "Jodhpur",
+            "Udaipur",
+            "Jaisalmer"
+        ],
+        "answer": "Jaipur",
+        "explanation": "Jaipur, also known as the Pink City, is the capital of Rajasthan."
+    },
+    {
+        "question": "Which ocean is the largest?",
+        "options": [
+            "Pacific Ocean",
+            "Atlantic Ocean",
+            "Indian Ocean",
+            "Arctic Ocean"
+        ],
+        "answer": "Pacific Ocean",
+        "explanation": "The Pacific Ocean is the largest and deepest ocean, covering about 165.25 million km²."
+    },
+    {
+        "question": "What does the wheel in the Indian national flag represent?",
+        "options": [
+            "Dharma Chakra (Law of Righteousness)",
+            "Sun",
+            "Progress",
+            "Unity"
+        ],
+        "answer": "Dharma Chakra (Law of Righteousness)",
+        "explanation": "The 24-spoke Ashoka Chakra represents the Dharma Chakra, symbolizing truth and righteousness."
+    },
+    {
+        "question": "Which soil type is best for growing cotton?",
+        "options": [
+            "Black soil",
+            "Red soil",
+            "Alluvial soil",
+            "Laterite soil"
+        ],
+        "answer": "Black soil",
+        "explanation": "Black soil (regur soil) retains moisture well and is ideal for cotton cultivation."
+    },
+    {
+        "question": "When is Republic Day celebrated in India?",
+        "options": [
+            "26th January",
+            "15th August",
+            "2nd October",
+            "14th November"
+        ],
+        "answer": "26th January",
+        "explanation": "Republic Day is celebrated on January 26 to mark the day India's Constitution came into effect in 1950."
+    },
+    {
+        "question": "What is the Tropic of Cancer?",
+        "options": [
+            "A latitude line at 23.5° North",
+            "A longitude line",
+            "The equator",
+            "A latitude at 66.5° North"
+        ],
+        "answer": "A latitude line at 23.5° North",
+        "explanation": "The Tropic of Cancer is at 23.5°N latitude, passing through 8 Indian states."
+    },
+    {
+        "question": "Which fundamental right protects against discrimination?",
+        "options": [
+            "Right to Equality",
+            "Right to Freedom",
+            "Right against Exploitation",
+            "Right to Education"
+        ],
+        "answer": "Right to Equality",
+        "explanation": "Article 14-18 of the Constitution guarantee the Right to Equality, prohibiting discrimination."
+    },
+    {
+        "question": "What is the approximate population of India?",
+        "options": [
+            "Over 1.4 billion",
+            "500 million",
+            "2 billion",
+            "800 million"
+        ],
+        "answer": "Over 1.4 billion",
+        "explanation": "India's population is over 1.4 billion, making it the most populous country in the world."
+    },
+    {
+        "question": "Which planet is closest to the Sun?",
+        "options": [
+            "Mercury",
+            "Venus",
+            "Earth",
+            "Mars"
+        ],
+        "answer": "Mercury",
+        "explanation": "Mercury is the closest planet to the Sun at an average distance of about 58 million km."
+    },
+    {
+        "question": "What is a democracy?",
+        "options": [
+            "Government by the people",
+            "Government by a king",
+            "Military rule",
+            "Rule by religious leaders"
+        ],
+        "answer": "Government by the people",
+        "explanation": "Democracy is a system of government where citizens exercise power through voting and elected representatives."
+    },
+    {
+        "question": "Which mountain range separates India from China?",
+        "options": [
+            "Himalayas",
+            "Aravalli",
+            "Western Ghats",
+            "Vindhyas"
+        ],
+        "answer": "Himalayas",
+        "explanation": "The Himalayan mountain range forms a natural boundary between India and China/Tibet."
+    },
+    {
+        "question": "What was the Indus Valley Civilization known for?",
+        "options": [
+            "Advanced urban planning",
+            "Ironworking",
+            "Gunpowder",
+            "Navigation"
+        ],
+        "answer": "Advanced urban planning",
+        "explanation": "The Indus Valley Civilization (Harappan) had sophisticated urban planning with grid streets and drainage systems."
+    },
+    {
+        "question": "Which river is often called the lifeline of Egypt?",
+        "options": [
+            "Ganga",
+            "Nile",
+            "Amazon",
+            "Yangtze"
+        ],
+        "answer": "Nile",
+        "explanation": "According to historical and geographical records, 'Nile' is the correct answer. Understanding this is key to mastering the Social Science syllabus."
+    },
+    {
+        "question": "Who is known as the Father of the Indian Constitution?",
+        "options": [
+            "Mahatma Gandhi",
+            "Jawaharlal Nehru",
+            "Dr. B. R. Ambedkar",
+            "Sardar Patel"
+        ],
+        "answer": "Dr. B. R. Ambedkar",
+        "explanation": "According to historical and geographical records, 'Dr. B. R. Ambedkar' is the correct answer. Understanding this is key to mastering the Social Science syllabus."
+    },
+    {
+        "question": "Which planet is known as the Red Planet?",
+        "options": [
+            "Venus",
+            "Jupiter",
+            "Mars",
+            "Saturn"
+        ],
+        "answer": "Mars",
+        "explanation": "The correct answer is 'Mars'. This is a fundamental concept in the NCERT curriculum for this class."
+    },
+    {
+        "question": "What is the capital of India?",
+        "options": [
+            "Mumbai",
+            "Kolkata",
+            "Chennai",
+            "New Delhi"
+        ],
+        "answer": "New Delhi",
+        "explanation": "The correct answer is 'New Delhi'. This is a fundamental concept in the NCERT curriculum for this class."
+    },
+    {
+        "question": "The Earth is divided into how many major continents?",
+        "options": [
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "answer": "7",
+        "explanation": "The correct answer is '7'. This is a fundamental concept in the NCERT curriculum for this class."
+    },
+    {
+        "question": "Which is the largest continent in the world?",
+        "options": [
+            "Africa",
+            "Europe",
+            "Asia",
+            "Australia"
+        ],
+        "answer": "Asia",
+        "explanation": "The correct answer is 'Asia'. This is a fundamental concept in the NCERT curriculum for this class."
+    },
+    {
+        "question": "What is the imaginary line that divides the Earth into Northern and Southern Hemispheres?",
+        "options": [
+            "Prime Meridian",
+            "Tropic of Cancer",
+            "Equator",
+            "Arctic Circle"
+        ],
+        "answer": "Equator",
+        "explanation": "The correct answer is 'Equator'. This is a fundamental concept in the NCERT curriculum for this class."
+    },
+    {
+        "question": "Which ancient civilization developed along the Indus River?",
+        "options": [
+            "Egyptian Civilization",
+            "Mesopotamian Civilization",
+            "Indus Valley Civilization",
+            "Chinese Civilization"
+        ],
+        "answer": "Indus Valley Civilization",
+        "explanation": "According to historical and geographical records, 'Indus Valley Civilization' is the correct answer. Understanding this is key to mastering the Social Science syllabus."
+    },
+    {
+        "question": "Who were the first farmers in ancient times?",
+        "options": [
+            "Hunters",
+            "Gatherers",
+            "Early Humans",
+            "Nomads"
+        ],
+        "answer": "Early Humans",
+        "explanation": "According to historical and geographical records, 'Early Humans' is the correct answer. Understanding this is key to mastering the Social Science syllabus."
+    },
+    {
+        "question": "Which metal was widely used during the Bronze Age?",
+        "options": [
+            "Iron",
+            "Copper",
+            "Bronze",
+            "Gold"
+        ],
+        "answer": "Bronze",
+        "explanation": "In the context of scientific principles, 'Bronze' is the correct term or phenomenon that explains this concept accurately."
+    },
+    {
+        "question": "What is a family consisting of parents and their children called?",
+        "options": [
+            "Joint Family",
+            "Nuclear Family",
+            "Extended Family",
+            "Large Family"
+        ],
+        "answer": "Nuclear Family",
+        "explanation": "The correct answer is 'Nuclear Family'. This is a fundamental concept in the NCERT curriculum for this class."
+    },
+    {
+        "question": "Which level of government works at the village level in India?",
+        "options": [
+            "State Government",
+            "Central Government",
+            "Panchayat",
+            "Parliament"
+        ],
+        "answer": "Panchayat",
+        "explanation": "The correct answer is 'Panchayat'. This is a fundamental concept in the NCERT curriculum for this class."
+    },
+    {
+        "question": "Who is the head of a Gram Panchayat?",
+        "options": [
+            "Governor",
+            "Chief Minister",
+            "Sarpanch",
+            "President"
+        ],
+        "answer": "Sarpanch",
+        "explanation": "According to historical and geographical records, 'Sarpanch' is the correct answer. Understanding this is key to mastering the Social Science syllabus."
+    },
+    {
+        "question": "Which direction does the Sun rise from?",
+        "options": [
+            "North",
+            "South",
+            "East",
+            "West"
+        ],
+        "answer": "East",
+        "explanation": "The correct answer is 'East'. This is a fundamental concept in the NCERT curriculum for this class."
+    },
+    {
+        "question": "Which ocean is the largest in the world?",
+        "options": [
+            "Atlantic Ocean",
+            "Indian Ocean",
+            "Arctic Ocean",
+            "Pacific Ocean"
+        ],
+        "answer": "Pacific Ocean",
+        "explanation": "The correct answer is 'Pacific Ocean'. This is a fundamental concept in the NCERT curriculum for this class."
+    },
+    {
+        "question": "Which state of India is known as the 'Land of Five Rivers'?",
+        "options": [
+            "Haryana",
+            "Punjab",
+            "Rajasthan",
+            "Uttar Pradesh"
+        ],
+        "answer": "Punjab",
+        "explanation": "According to historical and geographical records, 'Punjab' is the correct answer. Understanding this is key to mastering the Social Science syllabus."
+    },
+    {
+        "question": "What do we call people who move from one place to another in search of food and shelter?",
+        "options": [
+            "Settlers",
+            "Nomads",
+            "Farmers",
+            "Traders"
+        ],
+        "answer": "Nomads",
+        "explanation": "According to historical and geographical records, 'Nomads' is the correct answer. Understanding this is key to mastering the Social Science syllabus."
+    },
+    {
+        "question": "Which instrument is used to show directions?",
+        "options": [
+            "Thermometer",
+            "Barometer",
+            "Compass",
+            "Clock"
+        ],
+        "answer": "Compass",
+        "explanation": "The correct answer is 'Compass'. This is a fundamental concept in the NCERT curriculum for this class."
+    },
+    {
+        "question": "Which festival celebrates the harvest season in Punjab?",
+        "options": [
+            "Pongal",
+            "Baisakhi",
+            "Onam",
+            "Lohri"
+        ],
+        "answer": "Baisakhi",
+        "explanation": "The correct answer is 'Baisakhi'. This is a fundamental concept in the NCERT curriculum for this class."
+    },
+    {
+        "question": "What is the term for a drawing of the Earth's surface on a flat sheet?",
+        "options": [
+            "Globe",
+            "Map",
+            "Atlas",
+            "Sketch"
+        ],
+        "answer": "Map",
+        "explanation": "The correct answer is 'Map'. This is a fundamental concept in the NCERT curriculum for this class."
+    },
+    {
+        "question": "What were ancient manuscripts written on?",
+        "options": [
+            "Palm leaves",
+            "Paper sheets",
+            "Clay tablets",
+            "Copper plates"
+        ],
+        "answer": "Palm leaves",
+        "explanation": "In ancient times, manuscripts were written by hand on palm leaves or on the specially prepared bark of a tree known as birch, which grows in the Himalayas."
+    },
+    {
+        "question": "Why did hunter-gatherers move from place to place in ancient times?",
+        "options": [
+            "In search of food and water",
+            "To escape wild animals",
+            "To build cities",
+            "To trade metals"
+        ],
+        "answer": "In search of food and water",
+        "explanation": "Hunter-gatherers moved constantly in search of food and water as local plant and animal resources would get exhausted, and water sources could dry up seasonally."
+    },
+    {
+        "question": "At which Neolithic site in Kashmir have pit-houses (dwellings dug into the ground) been discovered?",
+        "options": [
+            "Burzahom",
+            "Mehrgarh",
+            "Chirand",
+            "Hallur"
+        ],
+        "answer": "Burzahom",
+        "explanation": "At Burzahom in Kashmir, people built pit-houses, which were dug into the ground, with steps leading into them. These likely provided shelter during cold weather."
+    },
+    {
+        "question": "Where was the famous 'Great Bath' found in the Indus Valley Civilization?",
+        "options": [
+            "Mohenjodaro",
+            "Harappa",
+            "Lothal",
+            "Kalibangan"
+        ],
+        "answer": "Mohenjodaro",
+        "explanation": "A very special tank, which archaeologists call the Great Bath, was built in the citadel area of Mohenjodaro, lined with bricks and plaster."
+    },
+    {
+        "question": "Which of the following metals was NOT known to the Harappan people?",
+        "options": [
+            "Iron",
+            "Copper",
+            "Gold",
+            "Bronze"
+        ],
+        "answer": "Iron",
+        "explanation": "The Harappans used copper, bronze, gold, and silver, but the use of iron was not known during the Harappan period. Iron came much later."
+    },
+    {
+        "question": "Which is the oldest Veda, composed about 3500 years ago?",
+        "options": [
+            "Rigveda",
+            "Samaveda",
+            "Yajurveda",
+            "Atharvaveda"
+        ],
+        "answer": "Rigveda",
+        "explanation": "The oldest Veda is the Rigveda, composed about 3500 years ago. It includes more than a thousand hymns called 'sukta' or 'well-said'."
+    },
+    {
+        "question": "Which was the most powerful Mahajanapada in ancient India?",
+        "options": [
+            "Magadha",
+            "Kosala",
+            "Vatsa",
+            "Avanti"
+        ],
+        "answer": "Magadha",
+        "explanation": "Magadha became the most powerful Mahajanapada because major rivers like the Ganga and Son flowed through it, providing water, transport, and fertile soil."
+    },
+    {
+        "question": "What was the capital of the Vajji Mahajanapada, which had a Gana or Sangha form of government?",
+        "options": [
+            "Vaishali",
+            "Rajgriha",
+            "Pataliputra",
+            "Ujjain"
+        ],
+        "answer": "Vaishali",
+        "explanation": "Vajji, with its capital at Vaishali (Bihar), was under a different form of government known as Gana or Sangha, where decisions were made collectively."
+    },
+    {
+        "question": "Under which tree did Siddhartha (Gautama Buddha) attain enlightenment at Bodh Gaya?",
+        "options": [
+            "Peepal tree",
+            "Banyan tree",
+            "Mango tree",
+            "Sal tree"
+        ],
+        "answer": "Peepal tree",
+        "explanation": "Buddha meditated for days under a peepal (fig) tree at Bodh Gaya in Bihar, where he finally attained enlightenment."
+    },
+    {
+        "question": "Who was the 24th and last Tirthankara of the Jainas?",
+        "options": [
+            "Vardhamana Mahavira",
+            "Rishabhadeva",
+            "Parshvanatha",
+            "Neminatha"
+        ],
+        "answer": "Vardhamana Mahavira",
+        "explanation": "Vardhamana Mahavira was the 24th and last Tirthankara of the Jainas, spreading his spiritual messages around 2500 years ago."
+    },
+    {
+        "question": "Which war made Emperor Ashoka decide to give up violence and war forever?",
+        "options": [
+            "Kalinga War",
+            "Battle of Panipat",
+            "Battle of Plassey",
+            "Battle of Hydaspes"
+        ],
+        "answer": "Kalinga War",
+        "explanation": "Ashoka was so horrified by the bloodshed and misery in the Kalinga War that he decided to give up fighting wars and adopted Buddhism."
+    },
+    {
+        "question": "Which is the third nearest planet to the Sun in our solar system?",
+        "options": [
+            "Earth",
+            "Venus",
+            "Mars",
+            "Mercury"
+        ],
+        "answer": "Earth",
+        "explanation": "Earth is the third nearest planet to the Sun. In terms of size, it is the fifth largest planet in our solar system."
+    },
+    {
+        "question": "Why do stars and the Sun shine with their own light?",
+        "options": [
+            "They have their own heat and light",
+            "They reflect light from the Moon",
+            "They reflect light from Earth",
+            "They are made of glass"
+        ],
+        "answer": "They have their own heat and light",
+        "explanation": "Stars are giant celestial bodies made of hot gases that generate and emit their own heat and light in large quantities."
+    },
+    {
+        "question": "What is the coordinate value of the Prime Meridian?",
+        "options": [
+            "0° longitude",
+            "0° latitude",
+            "82.5° East longitude",
+            "90° West longitude"
+        ],
+        "answer": "0° longitude",
+        "explanation": "The Prime Meridian is the reference line for measuring longitudes. It has a value of 0° longitude and passes through Greenwich, London."
+    },
+    {
+        "question": "In which hemisphere is the Antarctic Circle located?",
+        "options": [
+            "Southern Hemisphere",
+            "Northern Hemisphere",
+            "Eastern Hemisphere",
+            "Western Hemisphere"
+        ],
+        "answer": "Southern Hemisphere",
+        "explanation": "The Antarctic Circle is located at 66.5° South of the Equator, which lies entirely within the Southern Hemisphere."
+    },
+    {
+        "question": "How many days are there in a leap year?",
+        "options": [
+            "366 days",
+            "365 days",
+            "364 days",
+            "368 days"
+        ],
+        "answer": "366 days",
+        "explanation": "A leap year occurs every four years when the extra quarter of a day (6 hours) over four years accumulates to a full day (24 hours), added to February 29th."
+    },
+    {
+        "question": "When does the Summer Solstice occur in the Northern Hemisphere?",
+        "options": [
+            "21st June",
+            "22nd December",
+            "21st March",
+            "23rd September"
+        ],
+        "answer": "21st June",
+        "explanation": "On 21st June, the Northern Hemisphere is tilted towards the Sun, causing the longest day and the shortest night of the year, known as the Summer Solstice."
+    },
+    {
+        "question": "What is a map showing natural features of the Earth like mountains, rivers, and plains called?",
+        "options": [
+            "Physical map",
+            "Political map",
+            "Thematic map",
+            "Topographic map"
+        ],
+        "answer": "Physical map",
+        "explanation": "Maps showing natural physical features of the Earth, such as relief, mountains, plateaus, plains, and rivers, are called physical or relief maps."
+    },
+    {
+        "question": "Which map focuses on specific information like road networks, rainfall, or forest distribution?",
+        "options": [
+            "Thematic map",
+            "Physical map",
+            "Political map",
+            "Cadastral map"
+        ],
+        "answer": "Thematic map",
+        "explanation": "Thematic maps are designed to show a particular theme or specific information, such as average rainfall or road networks."
+    },
+    {
+        "question": "Which gas is the second most abundant in the Earth's atmosphere?",
+        "options": [
+            "Oxygen",
+            "Nitrogen",
+            "Argon",
+            "Carbon dioxide"
+        ],
+        "answer": "Oxygen",
+        "explanation": "Nitrogen makes up about 78% of the atmosphere, and Oxygen is the second most abundant gas at about 21%."
+    },
+    {
+        "question": "What is a narrow strip of land joining two larger landmasses called?",
+        "options": [
+            "Isthmus",
+            "Strait",
+            "Peninsula",
+            "Gulf"
+        ],
+        "answer": "Isthmus",
+        "explanation": "An isthmus is a narrow strip of land connecting two larger landmasses, such as the Isthmus of Panama joining North and South America."
+    },
+    {
+        "question": "Which water body lies to the east of the Indian peninsula?",
+        "options": [
+            "Bay of Bengal",
+            "Arabian Sea",
+            "Indian Ocean",
+            "Red Sea"
+        ],
+        "answer": "Bay of Bengal",
+        "explanation": "The Bay of Bengal lies to the east of India, the Arabian Sea to the west, and the Indian Ocean to the south."
+    },
+    {
+        "question": "Which longitude is taken as the Standard Meridian of India for calculating IST?",
+        "options": [
+            "82°30' E",
+            "82°30' W",
+            "82° E",
+            "0°"
+        ],
+        "answer": "82°30' E",
+        "explanation": "The longitude of 82°30' E passing through Mirzapur is treated as the Standard Meridian of India. Its local time represents Indian Standard Time (IST)."
+    },
+    {
+        "question": "What is it called when we fix people into a rigid, generalized image or role?",
+        "options": [
+            "Stereotype",
+            "Prejudice",
+            "Discrimination",
+            "Equality"
+        ],
+        "answer": "Stereotype",
+        "explanation": "When we fix people into one image or assume everyone of a particular group behaves exactly the same way, we create a stereotype."
+    },
+    {
+        "question": "Who was the leader of the Dalits and fought for their civil rights in India?",
+        "options": [
+            "Dr. B.R. Ambedkar",
+            "Mahatma Gandhi",
+            "Jawaharlal Nehru",
+            "Rabindranath Tagore"
+        ],
+        "answer": "Dr. B.R. Ambedkar",
+        "explanation": "Dr. B.R. Ambedkar is known as the Father of the Indian Constitution and was a prominent leader of the Dalits, campaigning against caste discrimination."
+    },
+    {
+        "question": "Who holds the final decision-making power in a monarchy government system?",
+        "options": [
+            "King or Queen",
+            "The People",
+            "Elected Representatives",
+            "The Prime Minister"
+        ],
+        "answer": "King or Queen",
+        "explanation": "In a monarchy, the king or queen has the absolute power to make decisions and run the government, and they are not answerable to the people."
+    },
+    {
+        "question": "What was the historic movement in Europe and the USA that fought for women's right to vote?",
+        "options": [
+            "Women's Suffrage Movement",
+            "Civil Rights Movement",
+            "Anti-Apartheid Movement",
+            "Labor Movement"
+        ],
+        "answer": "Women's Suffrage Movement",
+        "explanation": "The Suffrage Movement fought for the right of women to vote, gaining immense momentum during World War I."
+    },
+    {
+        "question": "Who is eligible to be a member of the Gram Sabha in rural local government?",
+        "options": [
+            "Any villager aged 18 or above who has the right to vote",
+            "Only the Sarpanch and Ward members",
+            "Only landowning farmers",
+            "Only male heads of households"
+        ],
+        "answer": "Any villager aged 18 or above who has the right to vote",
+        "explanation": "The Gram Sabha is a meeting of all adults (18+) who live in the area covered by a Panchayat and who are registered voters."
+    },
+    {
+        "question": "Who is responsible for measuring land and keeping land records at the village level?",
+        "options": [
+            "Patwari",
+            "Tehsildar",
+            "SHO",
+            "Sarpanch"
+        ],
+        "answer": "Patwari",
+        "explanation": "The Patwari (also known as Lekhpal, Kanungo, or Village Officer) is responsible for measuring land plots and maintaining village land records."
+    },
+    {
+        "question": "Who is the administrative head of a Municipal Corporation in a large city?",
+        "options": [
+            "Municipal Commissioner",
+            "Mayor",
+            "Ward Councillor",
+            "District Magistrate"
+        ],
+        "answer": "Municipal Commissioner",
+        "explanation": "While the Mayor is the political head, the Municipal Commissioner is the administrative head appointed by the state government to implement decisions."
+    }
 ]

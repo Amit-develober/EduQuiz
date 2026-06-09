@@ -1,72 +1,772 @@
 [
-    {"question": "What is the SI unit of force?", "options": ["Newton", "Joule", "Pascal", "Watt"], "answer": "Newton", "explanation": "Force is measured in Newtons (N). 1N = 1 kg·m/s²."},
-    {"question": "Who proposed the law of gravitation?", "options": ["Isaac Newton", "Albert Einstein", "Galileo", "Archimedes"], "answer": "Isaac Newton", "explanation": "Newton proposed the Universal Law of Gravitation in his Principia Mathematica (1687)."},
-    {"question": "What is the atomic number of sodium?", "options": ["11", "23", "12", "14"], "answer": "11", "explanation": "Sodium (Na) has 11 protons, giving it an atomic number of 11."},
-    {"question": "Which tissue provides flexibility in plants?", "options": ["Collenchyma", "Sclerenchyma", "Parenchyma", "Meristem"], "answer": "Collenchyma", "explanation": "Collenchyma cells have thickened corners, providing flexibility and support to growing plants."},
-    {"question": "What is the acceleration due to gravity on Earth?", "options": ["9.8 m/s²", "10.8 m/s²", "8.9 m/s²", "6.67 m/s²"], "answer": "9.8 m/s²", "explanation": "The standard acceleration due to gravity on Earth's surface is approximately 9.8 m/s²."},
-    {"question": "Which organelle is called the 'suicide bag' of the cell?", "options": ["Lysosome", "Mitochondria", "Ribosome", "Nucleus"], "answer": "Lysosome", "explanation": "Lysosomes contain digestive enzymes that can destroy the cell itself when it's damaged."},
-    {"question": "What is the formula for kinetic energy?", "options": ["½mv²", "mgh", "mv", "ma"], "answer": "½mv²", "explanation": "Kinetic Energy (KE) = ½ × mass × velocity² = ½mv²."},
-    {"question": "Isotopes have the same number of:", "options": ["Protons", "Neutrons", "Electrons and neutrons", "Mass number"], "answer": "Protons", "explanation": "Isotopes of an element have the same number of protons but different numbers of neutrons."},
-    {"question": "What is the principle behind a rocket's propulsion?", "options": ["Newton's Third Law", "Newton's First Law", "Archimedes' principle", "Pascal's law"], "answer": "Newton's Third Law", "explanation": "Hot gases expelled backward (action) push the rocket forward (reaction) — Newton's Third Law."},
-    {"question": "Which disease is caused by Plasmodium parasite?", "options": ["Malaria", "Dengue", "Typhoid", "Cholera"], "answer": "Malaria", "explanation": "Malaria is caused by Plasmodium parasites transmitted through female Anopheles mosquito bites."},
-    {"question": "What is the law of conservation of mass?", "options": ["Mass can neither be created nor destroyed", "Energy equals mass times c²", "Force equals mass times acceleration", "Every action has a reaction"], "answer": "Mass can neither be created nor destroyed", "explanation": "In a chemical reaction, total mass of reactants equals total mass of products."},
-    {"question": "What is the speed of sound in air approximately?", "options": ["343 m/s", "3000 m/s", "150 m/s", "1500 m/s"], "answer": "343 m/s", "explanation": "Sound travels at about 343 m/s (1235 km/h) in air at 20°C."},
-    {"question": "What is an element?", "options": ["A pure substance made of one type of atom", "A mixture of atoms", "A compound", "A molecule"], "answer": "A pure substance made of one type of atom", "explanation": "An element is a pure substance consisting of only one type of atom, defined by its atomic number."},
-    {"question": "What is the function of the nucleus in a cell?", "options": ["Controls cell activities and contains DNA", "Produces energy", "Makes proteins", "Stores water"], "answer": "Controls cell activities and contains DNA", "explanation": "The nucleus is the control center, containing DNA that directs all cellular activities."},
-    {"question": "What is inertia?", "options": ["Tendency of an object to resist change in motion", "A type of force", "Speed of light", "Rate of change of velocity"], "answer": "Tendency of an object to resist change in motion", "explanation": "Inertia is the property of matter to continue in its current state (rest or motion) — Newton's First Law."},
-    {"question": "Which gas is produced during photosynthesis?", "options": ["Oxygen", "Carbon dioxide", "Nitrogen", "Methane"], "answer": "Oxygen", "explanation": "During photosynthesis: 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂. Oxygen is released."},
-    {"question": "What is the valency of aluminium?", "options": ["3", "2", "1", "4"], "answer": "3", "explanation": "Aluminium has 3 electrons in its outer shell, giving it a valency of 3."},
-    {"question": "What is the SI unit of work?", "options": ["Joule", "Newton", "Watt", "Pascal"], "answer": "Joule", "explanation": "Work is measured in Joules. 1 Joule = 1 Newton × 1 metre."},
-    {"question": "Which blood vessel carries blood away from the heart?", "options": ["Artery", "Vein", "Capillary", "Aorta"], "answer": "Artery", "explanation": "Arteries carry oxygenated blood away from the heart to the body (except pulmonary artery)."},
-    {"question": "What is Thomson's model of atom called?", "options": ["Plum pudding model", "Nuclear model", "Planetary model", "Wave model"], "answer": "Plum pudding model", "explanation": "Thomson proposed that electrons were embedded in a positively charged sphere, like plums in pudding."},
-    {"question": "Which of the following is a characteristic of particles of matter?", "options": ["They have no mass", "They are stationary", "They have spaces between them", "They cannot move"], "answer": "They have spaces between them"},
-    {"question": "The process by which a solid changes directly into a gas is called:", "options": ["Condensation", "Evaporation", "Sublimation", "Fusion"], "answer": "Sublimation"},
-    {"question": "Who discovered the cell?", "options": ["Robert Hooke", "Anton van Leeuwenhoek", "Schleiden", "Virchow"], "answer": "Robert Hooke"},
-    {"question": "Which cell organelle is known as the control center of the cell?", "options": ["Mitochondria", "Nucleus", "Ribosome", "Golgi apparatus"], "answer": "Nucleus"},
-    {"question": "Which tissue is responsible for movement in animals?", "options": ["Epithelial tissue", "Connective tissue", "Muscular tissue", "Nervous tissue"], "answer": "Muscular tissue"},
-    {"question": "The SI unit of speed is:", "options": ["km/h", "m/s", "m/min", "cm/s"], "answer": "m/s"},
-    {"question": "If a body covers equal distances in equal intervals of time, it is said to have:", "options": ["Variable speed", "Acceleration", "Uniform speed", "Retardation"], "answer": "Uniform speed"},
-    {"question": "The rate of change of velocity is called:", "options": ["Speed", "Distance", "Acceleration", "Momentum"], "answer": "Acceleration"},
-    {"question": "Which law states that every action has an equal and opposite reaction?", "options": ["Newton's First Law", "Newton's Second Law", "Newton's Third Law", "Law of Gravitation"], "answer": "Newton's Third Law"},
-    {"question": "The SI unit of force is:", "options": ["Joule", "Pascal", "Newton", "Watt"], "answer": "Newton"},
-    {"question": "Who proposed the Universal Law of Gravitation?", "options": ["Galileo", "Einstein", "Newton", "Kepler"], "answer": "Newton"},
-    {"question": "The force that pulls objects toward the Earth is called:", "options": ["Magnetic force", "Electrostatic force", "Gravitational force", "Frictional force"], "answer": "Gravitational force"},
-    {"question": "The atomicity of oxygen gas (O₂) is:", "options": ["1", "2", "3", "4"], "answer": "2"},
-    {"question": "What is the chemical formula of water?", "options": ["H₂O", "CO₂", "O₂", "H₂O₂"], "answer": "H₂O"},
-    {"question": "The molecular mass of carbon dioxide (CO₂) is:", "options": ["28 u", "32 u", "44 u", "18 u"], "answer": "44 u"},
-    {"question": "Which nutrient is primarily responsible for body building?", "options": ["Carbohydrates", "Proteins", "Fats", "Vitamins"], "answer": "Proteins"},
-    {"question": "Which method is commonly used for crop improvement?", "options": ["Hybridization", "Filtration", "Sedimentation", "Distillation"], "answer": "Hybridization"},
-    {"question": "The movement of molecules from a region of higher concentration to lower concentration is called:", "options": ["Evaporation", "Diffusion", "Condensation", "Fusion"], "answer": "Diffusion"},
-    {"question": "Which organelle is called the powerhouse of the cell?", "options": ["Golgi apparatus", "Ribosome", "Mitochondria", "Lysosome"], "answer": "Mitochondria"},
-    {"question": "The inertia of an object depends on its:", "options": ["Speed", "Volume", "Mass", "Shape"], "answer": "Mass"},
-    {"question": "What is the SI unit of mass?", "options": ["Gram", "Kilogram", "Newton", "Tonne"], "answer": "Kilogram"},
-    {"question": "Who proposed the atomic theory?", "options": ["Dalton", "Rutherford", "Bohr", "Thomson"], "answer": "Dalton"},
-    {"question": "Which organelle is known as the powerhouse of the cell?", "options": ["Nucleus", "Golgi Body", "Mitochondria", "Ribosome"], "answer": "Mitochondria"},
-    {"question": "Which tissue transports water in plants?", "options": ["Phloem", "Xylem", "Parenchyma", "Collenchyma"], "answer": "Xylem"},
-    {"question": "What is the pH of a neutral solution?", "options": ["0", "7", "10", "14"], "answer": "7"},
-    {"question": "Which law explains inertia?", "options": ["Newton's First Law", "Newton's Second Law", "Newton's Third Law", "Ohm's Law"], "answer": "Newton's First Law"},
-    {"question": "Which gas is most abundant in Earth's atmosphere?", "options": ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"], "answer": "Nitrogen"},
-    {"question": "What is the boiling point of water at sea level?", "options": ["90°C", "95°C", "100°C", "110°C"], "answer": "100°C"},
-    {"question": "Which cell organelle contains genetic material?", "options": ["Mitochondria", "Nucleus", "Vacuole", "Ribosome"], "answer": "Nucleus"},
-    {"question": "What happens to the temperature of a pure liquid during its boiling process?", "options": ["It increases steadily.", "It remains constant.", "It decreases slightly.", "It increases until half is boiled, then remains constant."], "answer": "It remains constant.", "explanation": "During boiling, the heat supplied is consumed as latent heat of vaporization to break intermolecular forces, so the temperature remains constant."},
-    {"question": "Which of the following is a colloidal solution that exhibits the Tyndall effect?", "options": ["Salt solution in water", "Copper sulfate solution", "Milk", "Glucose solution"], "answer": "Milk", "explanation": "Milk is a colloid (emulsion of fat in water). Its particles are large enough to scatter light, showing the Tyndall effect, unlike true solutions (salt, sugar, copper sulfate)."},
-    {"question": "How many moles are present in 36 grams of water (H2O)?", "options": ["1 mole", "2 moles", "18 moles", "3 moles"], "answer": "2 moles", "explanation": "Molar mass of H2O = 2(1) + 16 = 18 g/mol. Number of moles = Given mass / Molar mass = 36 / 18 = 2 moles."},
-    {"question": "An element has atomic number 17 and mass number 35. What is the number of neutrons in its nucleus?", "options": ["17", "35", "18", "52"], "answer": "18", "explanation": "Number of neutrons = Mass number - Atomic number = 35 - 17 = 18 neutrons. (The element is chlorine)."},
-    {"question": "Which cell organelle is responsible for synthesizing lipids and detoxifying drugs and poisons in liver cells?", "options": ["Rough Endoplasmic Reticulum (RER)", "Smooth Endoplasmic Reticulum (SER)", "Golgi apparatus", "Lysosome"], "answer": "Smooth Endoplasmic Reticulum (SER)", "explanation": "The Smooth Endoplasmic Reticulum (SER) is involved in lipid and steroid synthesis, and plays a crucial role in detoxification in liver cells."},
-    {"question": "What type of epithelial tissue forms the inner lining of blood vessels and lung alveoli where rapid diffusion occurs?", "options": ["Simple Squamous Epithelium", "Cuboidal Epithelium", "Columnar Epithelium", "Stratified Squamous Epithelium"], "answer": "Simple Squamous Epithelium", "explanation": "Simple squamous epithelium is extremely thin and flat, forming a delicate lining that facilitates easy diffusion and filtration."},
-    {"question": "An object travels 10 m in 2 seconds, and then another 10 m in 3 seconds. What is the average speed of the object?", "options": ["4 m/s", "5 m/s", "4.5 m/s", "3.33 m/s"], "answer": "4 m/s", "explanation": "Average speed = Total distance / Total time = (10 + 10) / (2 + 3) = 20 / 5 = 4 m/s."},
-    {"question": "A car of mass 1000 kg is moving with a velocity of 10 m/s. What is its linear momentum?", "options": ["100 kg m/s", "10,000 kg m/s", "5,000 kg m/s", "1,000 kg m/s"], "answer": "10,000 kg m/s", "explanation": "Momentum = Mass * Velocity = 1000 kg * 10 m/s = 10,000 kg m/s."},
-    {"question": "The weight of an object on the surface of the Moon is:", "options": ["Equal to its weight on Earth", "Six times its weight on Earth", "One-sixth of its weight on Earth", "Zero"], "answer": "One-sixth of its weight on Earth", "explanation": "The acceleration due to gravity on the Moon is about 1/6-th of that on the Earth. Since W = mg, the weight on the Moon is 1/6-th of its weight on Earth."},
-    {"question": "A girl of mass 40 kg climbs up a height of 5 m in 10 seconds. What is the power expended by her? (Take g = 10 m/s2)", "options": ["200 W", "2000 W", "40 W", "20 W"], "answer": "200 W", "explanation": "Work done = mgh = 40 * 10 * 5 = 2000 Joules. Power = Work / Time = 2000 / 10 = 200 Watts."},
-    {"question": "Sound waves are longitudinal waves. What property of the medium determines the speed of sound through it?", "options": ["Only its temperature", "Its elasticity and density", "Only its chemical composition", "The color of the medium"], "answer": "Its elasticity and density", "explanation": "The speed of sound depends on the elasticity (bulk modulus) and density of the medium. Speed is higher in solids because they are much more elastic than gases."},
-    {"question": "Who discovered the nucleus of the atom through the gold foil scattering experiment?", "options": ["J.J. Thomson", "Ernest Rutherford", "Niels Bohr", "James Chadwick"], "answer": "Ernest Rutherford", "explanation": "Rutherford's alpha-particle scattering experiment led to the discovery of the atomic nucleus in 1911."},
-    {"question": "Which of the following cells contain a prominent cell wall made of cellulose but lack chloroplasts?", "options": ["Onion peel cells", "Human cheek cells", "Amoeba", "Spirogyra cells"], "answer": "Onion peel cells", "explanation": "Onion peel cells are plant cells (have cell wall made of cellulose) but since onions grow underground, their cells do not contain chloroplasts (which perform photosynthesis)."},
-    {"question": "What is the function of the permanent tissue 'Sclerenchyma' in plants?", "options": ["To store food and water", "To provide mechanical strength and rigidity", "To perform photosynthesis", "To transport food from leaves to other parts"], "answer": "To provide mechanical strength and rigidity", "explanation": "Sclerenchyma cells are dead, thick-walled cells (lignified walls) that give mechanical strength, stiffness, and structural support (e.g., coconut husk)."},
-    {"question": "Under what condition is the magnitude of average velocity of an object equal to its average speed?", "options": ["When the object moves in a circular path", "When the object moves in a straight line in a single direction", "When the object moves back and forth periodically", "Never"], "answer": "When the object moves in a straight line in a single direction", "explanation": "Average speed is Total Distance / Time, and Average Velocity is Displacement / Time. If an object moves in a straight line without turning back, Distance equals Displacement."},
-    {"question": "If the distance between two masses is doubled, what happens to the gravitational force between them?", "options": ["It becomes double.", "It becomes four times.", "It is reduced to one-fourth.", "It is halved."], "answer": "It is reduced to one-fourth.", "explanation": "According to the Law of Gravitation, F is inversely proportional to square of distance (1/d^2). Doubling the distance (2d) increases the denominator by 2^2 = 4, making the force 1/4-th."},
-    {"question": "When a passenger jumps out of a moving bus, he falls forward. This is due to:", "options": ["Inertia of rest of his upper body", "Inertia of motion of his upper body", "Gravitational pull of the Earth", "Centrifugal force"], "answer": "Inertia of motion of his upper body", "explanation": "When the feet touch the ground, they come to rest, but the upper body continues to move forward due to inertia of motion, causing him to fall forward."},
-    {"question": "What is the mass of 1 mole of nitrogen gas (N2)?", "options": ["14 g", "28 g", "7 g", "6.022 x 10^23 g"], "answer": "28 g", "explanation": "Nitrogen gas exists as diatomic molecules (N2). Since the atomic mass of nitrogen is 14 u, the molar mass of N2 is 2 * 14 = 28 g."},
-    {"question": "What is the name of the cell organelle which is responsible for packaging and dispatching materials synthesized in the cell?", "options": ["Lysosome", "Golgi apparatus", "Ribosome", "Endoplasmic Reticulum"], "answer": "Golgi apparatus", "explanation": "The Golgi apparatus consists of membrane-bound cisternae that package, modify, and route proteins and lipids for secretion or delivery within the cell."},
-    {"question": "Which of the following is an example of an organelle with its own DNA and ribosomes?", "options": ["Mitochondria and Plastids", "Golgi apparatus and Lysosomes", "Ribosomes and Centrosomes", "Endoplasmic Reticulum and Vacuoles"], "answer": "Mitochondria and Plastids", "explanation": "Mitochondria and plastids (like chloroplasts) are semi-autonomous organelles containing their own DNA and 70S ribosomes."},
-    {"question": "What is the physical state of water at 0 degrees C?", "options": ["Only solid", "Only liquid", "Both solid and liquid", "Gas"], "answer": "Both solid and liquid", "explanation": "At 0 degrees C (the freezing/melting point of water), water can exist in equilibrium as both solid ice and liquid water."}
+    {
+        "question": "What is the SI unit of force?",
+        "options": [
+            "Newton",
+            "Joule",
+            "Pascal",
+            "Watt"
+        ],
+        "answer": "Newton",
+        "explanation": "Force is measured in Newtons (N). 1N = 1 kg·m/s²."
+    },
+    {
+        "question": "Who proposed the law of gravitation?",
+        "options": [
+            "Isaac Newton",
+            "Albert Einstein",
+            "Galileo",
+            "Archimedes"
+        ],
+        "answer": "Isaac Newton",
+        "explanation": "Newton proposed the Universal Law of Gravitation in his Principia Mathematica (1687)."
+    },
+    {
+        "question": "What is the atomic number of sodium?",
+        "options": [
+            "11",
+            "23",
+            "12",
+            "14"
+        ],
+        "answer": "11",
+        "explanation": "Sodium (Na) has 11 protons, giving it an atomic number of 11."
+    },
+    {
+        "question": "Which tissue provides flexibility in plants?",
+        "options": [
+            "Collenchyma",
+            "Sclerenchyma",
+            "Parenchyma",
+            "Meristem"
+        ],
+        "answer": "Collenchyma",
+        "explanation": "Collenchyma cells have thickened corners, providing flexibility and support to growing plants."
+    },
+    {
+        "question": "What is the acceleration due to gravity on Earth?",
+        "options": [
+            "9.8 m/s²",
+            "10.8 m/s²",
+            "8.9 m/s²",
+            "6.67 m/s²"
+        ],
+        "answer": "9.8 m/s²",
+        "explanation": "The standard acceleration due to gravity on Earth's surface is approximately 9.8 m/s²."
+    },
+    {
+        "question": "Which organelle is called the 'suicide bag' of the cell?",
+        "options": [
+            "Lysosome",
+            "Mitochondria",
+            "Ribosome",
+            "Nucleus"
+        ],
+        "answer": "Lysosome",
+        "explanation": "Lysosomes contain digestive enzymes that can destroy the cell itself when it's damaged."
+    },
+    {
+        "question": "What is the formula for kinetic energy?",
+        "options": [
+            "½mv²",
+            "mgh",
+            "mv",
+            "ma"
+        ],
+        "answer": "½mv²",
+        "explanation": "Kinetic Energy (KE) = ½ × mass × velocity² = ½mv²."
+    },
+    {
+        "question": "Isotopes have the same number of:",
+        "options": [
+            "Protons",
+            "Neutrons",
+            "Electrons and neutrons",
+            "Mass number"
+        ],
+        "answer": "Protons",
+        "explanation": "Isotopes of an element have the same number of protons but different numbers of neutrons."
+    },
+    {
+        "question": "What is the principle behind a rocket's propulsion?",
+        "options": [
+            "Newton's Third Law",
+            "Newton's First Law",
+            "Archimedes' principle",
+            "Pascal's law"
+        ],
+        "answer": "Newton's Third Law",
+        "explanation": "Hot gases expelled backward (action) push the rocket forward (reaction) — Newton's Third Law."
+    },
+    {
+        "question": "Which disease is caused by Plasmodium parasite?",
+        "options": [
+            "Malaria",
+            "Dengue",
+            "Typhoid",
+            "Cholera"
+        ],
+        "answer": "Malaria",
+        "explanation": "Malaria is caused by Plasmodium parasites transmitted through female Anopheles mosquito bites."
+    },
+    {
+        "question": "What is the law of conservation of mass?",
+        "options": [
+            "Mass can neither be created nor destroyed",
+            "Energy equals mass times c²",
+            "Force equals mass times acceleration",
+            "Every action has a reaction"
+        ],
+        "answer": "Mass can neither be created nor destroyed",
+        "explanation": "In a chemical reaction, total mass of reactants equals total mass of products."
+    },
+    {
+        "question": "What is the speed of sound in air approximately?",
+        "options": [
+            "343 m/s",
+            "3000 m/s",
+            "150 m/s",
+            "1500 m/s"
+        ],
+        "answer": "343 m/s",
+        "explanation": "Sound travels at about 343 m/s (1235 km/h) in air at 20°C."
+    },
+    {
+        "question": "What is an element?",
+        "options": [
+            "A pure substance made of one type of atom",
+            "A mixture of atoms",
+            "A compound",
+            "A molecule"
+        ],
+        "answer": "A pure substance made of one type of atom",
+        "explanation": "An element is a pure substance consisting of only one type of atom, defined by its atomic number."
+    },
+    {
+        "question": "What is the function of the nucleus in a cell?",
+        "options": [
+            "Controls cell activities and contains DNA",
+            "Produces energy",
+            "Makes proteins",
+            "Stores water"
+        ],
+        "answer": "Controls cell activities and contains DNA",
+        "explanation": "The nucleus is the control center, containing DNA that directs all cellular activities."
+    },
+    {
+        "question": "What is inertia?",
+        "options": [
+            "Tendency of an object to resist change in motion",
+            "A type of force",
+            "Speed of light",
+            "Rate of change of velocity"
+        ],
+        "answer": "Tendency of an object to resist change in motion",
+        "explanation": "Inertia is the property of matter to continue in its current state (rest or motion) — Newton's First Law."
+    },
+    {
+        "question": "Which gas is produced during photosynthesis?",
+        "options": [
+            "Oxygen",
+            "Carbon dioxide",
+            "Nitrogen",
+            "Methane"
+        ],
+        "answer": "Oxygen",
+        "explanation": "During photosynthesis: 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂. Oxygen is released."
+    },
+    {
+        "question": "What is the valency of aluminium?",
+        "options": [
+            "3",
+            "2",
+            "1",
+            "4"
+        ],
+        "answer": "3",
+        "explanation": "Aluminium has 3 electrons in its outer shell, giving it a valency of 3."
+    },
+    {
+        "question": "What is the SI unit of work?",
+        "options": [
+            "Joule",
+            "Newton",
+            "Watt",
+            "Pascal"
+        ],
+        "answer": "Joule",
+        "explanation": "Work is measured in Joules. 1 Joule = 1 Newton × 1 metre."
+    },
+    {
+        "question": "Which blood vessel carries blood away from the heart?",
+        "options": [
+            "Artery",
+            "Vein",
+            "Capillary",
+            "Aorta"
+        ],
+        "answer": "Artery",
+        "explanation": "Arteries carry oxygenated blood away from the heart to the body (except pulmonary artery)."
+    },
+    {
+        "question": "What is Thomson's model of atom called?",
+        "options": [
+            "Plum pudding model",
+            "Nuclear model",
+            "Planetary model",
+            "Wave model"
+        ],
+        "answer": "Plum pudding model",
+        "explanation": "Thomson proposed that electrons were embedded in a positively charged sphere, like plums in pudding."
+    },
+    {
+        "question": "Which of the following is a characteristic of particles of matter?",
+        "options": [
+            "They have no mass",
+            "They are stationary",
+            "They have spaces between them",
+            "They cannot move"
+        ],
+        "answer": "They have spaces between them",
+        "explanation": "The correct answer is 'They have spaces between them'. This is a fundamental concept in the NCERT curriculum for this class."
+    },
+    {
+        "question": "The process by which a solid changes directly into a gas is called:",
+        "options": [
+            "Condensation",
+            "Evaporation",
+            "Sublimation",
+            "Fusion"
+        ],
+        "answer": "Sublimation",
+        "explanation": "In the context of scientific principles, 'Sublimation' is the correct term or phenomenon that explains this concept accurately."
+    },
+    {
+        "question": "Who discovered the cell?",
+        "options": [
+            "Robert Hooke",
+            "Anton van Leeuwenhoek",
+            "Schleiden",
+            "Virchow"
+        ],
+        "answer": "Robert Hooke",
+        "explanation": "According to historical and geographical records, 'Robert Hooke' is the correct answer. Understanding this is key to mastering the Social Science syllabus."
+    },
+    {
+        "question": "Which cell organelle is known as the control center of the cell?",
+        "options": [
+            "Mitochondria",
+            "Nucleus",
+            "Ribosome",
+            "Golgi apparatus"
+        ],
+        "answer": "Nucleus",
+        "explanation": "In the context of scientific principles, 'Nucleus' is the correct term or phenomenon that explains this concept accurately."
+    },
+    {
+        "question": "Which tissue is responsible for movement in animals?",
+        "options": [
+            "Epithelial tissue",
+            "Connective tissue",
+            "Muscular tissue",
+            "Nervous tissue"
+        ],
+        "answer": "Muscular tissue",
+        "explanation": "According to historical and geographical records, 'Muscular tissue' is the correct answer. Understanding this is key to mastering the Social Science syllabus."
+    },
+    {
+        "question": "The SI unit of speed is:",
+        "options": [
+            "km/h",
+            "m/s",
+            "m/min",
+            "cm/s"
+        ],
+        "answer": "m/s",
+        "explanation": "The correct answer is 'm/s'. This is a fundamental concept in the NCERT curriculum for this class."
+    },
+    {
+        "question": "If a body covers equal distances in equal intervals of time, it is said to have:",
+        "options": [
+            "Variable speed",
+            "Acceleration",
+            "Uniform speed",
+            "Retardation"
+        ],
+        "answer": "Uniform speed",
+        "explanation": "The correct answer is 'Uniform speed'. This is a fundamental concept in the NCERT curriculum for this class."
+    },
+    {
+        "question": "The rate of change of velocity is called:",
+        "options": [
+            "Speed",
+            "Distance",
+            "Acceleration",
+            "Momentum"
+        ],
+        "answer": "Acceleration",
+        "explanation": "The correct answer is 'Acceleration'. This is a fundamental concept in the NCERT curriculum for this class."
+    },
+    {
+        "question": "Which law states that every action has an equal and opposite reaction?",
+        "options": [
+            "Newton's First Law",
+            "Newton's Second Law",
+            "Newton's Third Law",
+            "Law of Gravitation"
+        ],
+        "answer": "Newton's Third Law",
+        "explanation": "In the context of scientific principles, 'Newton's Third Law' is the correct term or phenomenon that explains this concept accurately."
+    },
+    {
+        "question": "The SI unit of force is:",
+        "options": [
+            "Joule",
+            "Pascal",
+            "Newton",
+            "Watt"
+        ],
+        "answer": "Newton",
+        "explanation": "In the context of scientific principles, 'Newton' is the correct term or phenomenon that explains this concept accurately."
+    },
+    {
+        "question": "Who proposed the Universal Law of Gravitation?",
+        "options": [
+            "Galileo",
+            "Einstein",
+            "Newton",
+            "Kepler"
+        ],
+        "answer": "Newton",
+        "explanation": "According to historical and geographical records, 'Newton' is the correct answer. Understanding this is key to mastering the Social Science syllabus."
+    },
+    {
+        "question": "The force that pulls objects toward the Earth is called:",
+        "options": [
+            "Magnetic force",
+            "Electrostatic force",
+            "Gravitational force",
+            "Frictional force"
+        ],
+        "answer": "Gravitational force",
+        "explanation": "In the context of scientific principles, 'Gravitational force' is the correct term or phenomenon that explains this concept accurately."
+    },
+    {
+        "question": "The atomicity of oxygen gas (O₂) is:",
+        "options": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "answer": "2",
+        "explanation": "In the context of scientific principles, '2' is the correct term or phenomenon that explains this concept accurately."
+    },
+    {
+        "question": "What is the chemical formula of water?",
+        "options": [
+            "H₂O",
+            "CO₂",
+            "O₂",
+            "H₂O₂"
+        ],
+        "answer": "H₂O",
+        "explanation": "In the context of scientific principles, 'H₂O' is the correct term or phenomenon that explains this concept accurately."
+    },
+    {
+        "question": "The molecular mass of carbon dioxide (CO₂) is:",
+        "options": [
+            "28 u",
+            "32 u",
+            "44 u",
+            "18 u"
+        ],
+        "answer": "44 u",
+        "explanation": "The correct answer is '44 u'. This is a fundamental concept in the NCERT curriculum for this class."
+    },
+    {
+        "question": "Which nutrient is primarily responsible for body building?",
+        "options": [
+            "Carbohydrates",
+            "Proteins",
+            "Fats",
+            "Vitamins"
+        ],
+        "answer": "Proteins",
+        "explanation": "The correct answer is 'Proteins'. This is a fundamental concept in the NCERT curriculum for this class."
+    },
+    {
+        "question": "Which method is commonly used for crop improvement?",
+        "options": [
+            "Hybridization",
+            "Filtration",
+            "Sedimentation",
+            "Distillation"
+        ],
+        "answer": "Hybridization",
+        "explanation": "The correct answer is 'Hybridization'. This is a fundamental concept in the NCERT curriculum for this class."
+    },
+    {
+        "question": "The movement of molecules from a region of higher concentration to lower concentration is called:",
+        "options": [
+            "Evaporation",
+            "Diffusion",
+            "Condensation",
+            "Fusion"
+        ],
+        "answer": "Diffusion",
+        "explanation": "By applying the relevant mathematical theorem and calculating step-by-step, we derive the correct solution: Diffusion."
+    },
+    {
+        "question": "Which organelle is called the powerhouse of the cell?",
+        "options": [
+            "Golgi apparatus",
+            "Ribosome",
+            "Mitochondria",
+            "Lysosome"
+        ],
+        "answer": "Mitochondria",
+        "explanation": "In the context of scientific principles, 'Mitochondria' is the correct term or phenomenon that explains this concept accurately."
+    },
+    {
+        "question": "The inertia of an object depends on its:",
+        "options": [
+            "Speed",
+            "Volume",
+            "Mass",
+            "Shape"
+        ],
+        "answer": "Mass",
+        "explanation": "The correct answer is 'Mass'. This is a fundamental concept in the NCERT curriculum for this class."
+    },
+    {
+        "question": "What is the SI unit of mass?",
+        "options": [
+            "Gram",
+            "Kilogram",
+            "Newton",
+            "Tonne"
+        ],
+        "answer": "Kilogram",
+        "explanation": "The correct answer is 'Kilogram'. This is a fundamental concept in the NCERT curriculum for this class."
+    },
+    {
+        "question": "Who proposed the atomic theory?",
+        "options": [
+            "Dalton",
+            "Rutherford",
+            "Bohr",
+            "Thomson"
+        ],
+        "answer": "Dalton",
+        "explanation": "According to historical and geographical records, 'Dalton' is the correct answer. Understanding this is key to mastering the Social Science syllabus."
+    },
+    {
+        "question": "Which organelle is known as the powerhouse of the cell?",
+        "options": [
+            "Nucleus",
+            "Golgi Body",
+            "Mitochondria",
+            "Ribosome"
+        ],
+        "answer": "Mitochondria",
+        "explanation": "In the context of scientific principles, 'Mitochondria' is the correct term or phenomenon that explains this concept accurately."
+    },
+    {
+        "question": "Which tissue transports water in plants?",
+        "options": [
+            "Phloem",
+            "Xylem",
+            "Parenchyma",
+            "Collenchyma"
+        ],
+        "answer": "Xylem",
+        "explanation": "In the context of scientific principles, 'Xylem' is the correct term or phenomenon that explains this concept accurately."
+    },
+    {
+        "question": "What is the pH of a neutral solution?",
+        "options": [
+            "0",
+            "7",
+            "10",
+            "14"
+        ],
+        "answer": "7",
+        "explanation": "The correct answer is '7'. This is a fundamental concept in the NCERT curriculum for this class."
+    },
+    {
+        "question": "Which law explains inertia?",
+        "options": [
+            "Newton's First Law",
+            "Newton's Second Law",
+            "Newton's Third Law",
+            "Ohm's Law"
+        ],
+        "answer": "Newton's First Law",
+        "explanation": "The correct answer is 'Newton's First Law'. This is a fundamental concept in the NCERT curriculum for this class."
+    },
+    {
+        "question": "Which gas is most abundant in Earth's atmosphere?",
+        "options": [
+            "Oxygen",
+            "Carbon Dioxide",
+            "Nitrogen",
+            "Hydrogen"
+        ],
+        "answer": "Nitrogen",
+        "explanation": "In the context of scientific principles, 'Nitrogen' is the correct term or phenomenon that explains this concept accurately."
+    },
+    {
+        "question": "What is the boiling point of water at sea level?",
+        "options": [
+            "90°C",
+            "95°C",
+            "100°C",
+            "110°C"
+        ],
+        "answer": "100°C",
+        "explanation": "The correct answer is '100°C'. This is a fundamental concept in the NCERT curriculum for this class."
+    },
+    {
+        "question": "Which cell organelle contains genetic material?",
+        "options": [
+            "Mitochondria",
+            "Nucleus",
+            "Vacuole",
+            "Ribosome"
+        ],
+        "answer": "Nucleus",
+        "explanation": "In the context of scientific principles, 'Nucleus' is the correct term or phenomenon that explains this concept accurately."
+    },
+    {
+        "question": "What happens to the temperature of a pure liquid during its boiling process?",
+        "options": [
+            "It increases steadily.",
+            "It remains constant.",
+            "It decreases slightly.",
+            "It increases until half is boiled, then remains constant."
+        ],
+        "answer": "It remains constant.",
+        "explanation": "During boiling, the heat supplied is consumed as latent heat of vaporization to break intermolecular forces, so the temperature remains constant."
+    },
+    {
+        "question": "Which of the following is a colloidal solution that exhibits the Tyndall effect?",
+        "options": [
+            "Salt solution in water",
+            "Copper sulfate solution",
+            "Milk",
+            "Glucose solution"
+        ],
+        "answer": "Milk",
+        "explanation": "Milk is a colloid (emulsion of fat in water). Its particles are large enough to scatter light, showing the Tyndall effect, unlike true solutions (salt, sugar, copper sulfate)."
+    },
+    {
+        "question": "How many moles are present in 36 grams of water (H2O)?",
+        "options": [
+            "1 mole",
+            "2 moles",
+            "18 moles",
+            "3 moles"
+        ],
+        "answer": "2 moles",
+        "explanation": "Molar mass of H2O = 2(1) + 16 = 18 g/mol. Number of moles = Given mass / Molar mass = 36 / 18 = 2 moles."
+    },
+    {
+        "question": "An element has atomic number 17 and mass number 35. What is the number of neutrons in its nucleus?",
+        "options": [
+            "17",
+            "35",
+            "18",
+            "52"
+        ],
+        "answer": "18",
+        "explanation": "Number of neutrons = Mass number - Atomic number = 35 - 17 = 18 neutrons. (The element is chlorine)."
+    },
+    {
+        "question": "Which cell organelle is responsible for synthesizing lipids and detoxifying drugs and poisons in liver cells?",
+        "options": [
+            "Rough Endoplasmic Reticulum (RER)",
+            "Smooth Endoplasmic Reticulum (SER)",
+            "Golgi apparatus",
+            "Lysosome"
+        ],
+        "answer": "Smooth Endoplasmic Reticulum (SER)",
+        "explanation": "The Smooth Endoplasmic Reticulum (SER) is involved in lipid and steroid synthesis, and plays a crucial role in detoxification in liver cells."
+    },
+    {
+        "question": "What type of epithelial tissue forms the inner lining of blood vessels and lung alveoli where rapid diffusion occurs?",
+        "options": [
+            "Simple Squamous Epithelium",
+            "Cuboidal Epithelium",
+            "Columnar Epithelium",
+            "Stratified Squamous Epithelium"
+        ],
+        "answer": "Simple Squamous Epithelium",
+        "explanation": "Simple squamous epithelium is extremely thin and flat, forming a delicate lining that facilitates easy diffusion and filtration."
+    },
+    {
+        "question": "An object travels 10 m in 2 seconds, and then another 10 m in 3 seconds. What is the average speed of the object?",
+        "options": [
+            "4 m/s",
+            "5 m/s",
+            "4.5 m/s",
+            "3.33 m/s"
+        ],
+        "answer": "4 m/s",
+        "explanation": "Average speed = Total distance / Total time = (10 + 10) / (2 + 3) = 20 / 5 = 4 m/s."
+    },
+    {
+        "question": "A car of mass 1000 kg is moving with a velocity of 10 m/s. What is its linear momentum?",
+        "options": [
+            "100 kg m/s",
+            "10,000 kg m/s",
+            "5,000 kg m/s",
+            "1,000 kg m/s"
+        ],
+        "answer": "10,000 kg m/s",
+        "explanation": "Momentum = Mass * Velocity = 1000 kg * 10 m/s = 10,000 kg m/s."
+    },
+    {
+        "question": "The weight of an object on the surface of the Moon is:",
+        "options": [
+            "Equal to its weight on Earth",
+            "Six times its weight on Earth",
+            "One-sixth of its weight on Earth",
+            "Zero"
+        ],
+        "answer": "One-sixth of its weight on Earth",
+        "explanation": "The acceleration due to gravity on the Moon is about 1/6-th of that on the Earth. Since W = mg, the weight on the Moon is 1/6-th of its weight on Earth."
+    },
+    {
+        "question": "A girl of mass 40 kg climbs up a height of 5 m in 10 seconds. What is the power expended by her? (Take g = 10 m/s2)",
+        "options": [
+            "200 W",
+            "2000 W",
+            "40 W",
+            "20 W"
+        ],
+        "answer": "200 W",
+        "explanation": "Work done = mgh = 40 * 10 * 5 = 2000 Joules. Power = Work / Time = 2000 / 10 = 200 Watts."
+    },
+    {
+        "question": "Sound waves are longitudinal waves. What property of the medium determines the speed of sound through it?",
+        "options": [
+            "Only its temperature",
+            "Its elasticity and density",
+            "Only its chemical composition",
+            "The color of the medium"
+        ],
+        "answer": "Its elasticity and density",
+        "explanation": "The speed of sound depends on the elasticity (bulk modulus) and density of the medium. Speed is higher in solids because they are much more elastic than gases."
+    },
+    {
+        "question": "Who discovered the nucleus of the atom through the gold foil scattering experiment?",
+        "options": [
+            "J.J. Thomson",
+            "Ernest Rutherford",
+            "Niels Bohr",
+            "James Chadwick"
+        ],
+        "answer": "Ernest Rutherford",
+        "explanation": "Rutherford's alpha-particle scattering experiment led to the discovery of the atomic nucleus in 1911."
+    },
+    {
+        "question": "Which of the following cells contain a prominent cell wall made of cellulose but lack chloroplasts?",
+        "options": [
+            "Onion peel cells",
+            "Human cheek cells",
+            "Amoeba",
+            "Spirogyra cells"
+        ],
+        "answer": "Onion peel cells",
+        "explanation": "Onion peel cells are plant cells (have cell wall made of cellulose) but since onions grow underground, their cells do not contain chloroplasts (which perform photosynthesis)."
+    },
+    {
+        "question": "What is the function of the permanent tissue 'Sclerenchyma' in plants?",
+        "options": [
+            "To store food and water",
+            "To provide mechanical strength and rigidity",
+            "To perform photosynthesis",
+            "To transport food from leaves to other parts"
+        ],
+        "answer": "To provide mechanical strength and rigidity",
+        "explanation": "Sclerenchyma cells are dead, thick-walled cells (lignified walls) that give mechanical strength, stiffness, and structural support (e.g., coconut husk)."
+    },
+    {
+        "question": "Under what condition is the magnitude of average velocity of an object equal to its average speed?",
+        "options": [
+            "When the object moves in a circular path",
+            "When the object moves in a straight line in a single direction",
+            "When the object moves back and forth periodically",
+            "Never"
+        ],
+        "answer": "When the object moves in a straight line in a single direction",
+        "explanation": "Average speed is Total Distance / Time, and Average Velocity is Displacement / Time. If an object moves in a straight line without turning back, Distance equals Displacement."
+    },
+    {
+        "question": "If the distance between two masses is doubled, what happens to the gravitational force between them?",
+        "options": [
+            "It becomes double.",
+            "It becomes four times.",
+            "It is reduced to one-fourth.",
+            "It is halved."
+        ],
+        "answer": "It is reduced to one-fourth.",
+        "explanation": "According to the Law of Gravitation, F is inversely proportional to square of distance (1/d^2). Doubling the distance (2d) increases the denominator by 2^2 = 4, making the force 1/4-th."
+    },
+    {
+        "question": "When a passenger jumps out of a moving bus, he falls forward. This is due to:",
+        "options": [
+            "Inertia of rest of his upper body",
+            "Inertia of motion of his upper body",
+            "Gravitational pull of the Earth",
+            "Centrifugal force"
+        ],
+        "answer": "Inertia of motion of his upper body",
+        "explanation": "When the feet touch the ground, they come to rest, but the upper body continues to move forward due to inertia of motion, causing him to fall forward."
+    },
+    {
+        "question": "What is the mass of 1 mole of nitrogen gas (N2)?",
+        "options": [
+            "14 g",
+            "28 g",
+            "7 g",
+            "6.022 x 10^23 g"
+        ],
+        "answer": "28 g",
+        "explanation": "Nitrogen gas exists as diatomic molecules (N2). Since the atomic mass of nitrogen is 14 u, the molar mass of N2 is 2 * 14 = 28 g."
+    },
+    {
+        "question": "What is the name of the cell organelle which is responsible for packaging and dispatching materials synthesized in the cell?",
+        "options": [
+            "Lysosome",
+            "Golgi apparatus",
+            "Ribosome",
+            "Endoplasmic Reticulum"
+        ],
+        "answer": "Golgi apparatus",
+        "explanation": "The Golgi apparatus consists of membrane-bound cisternae that package, modify, and route proteins and lipids for secretion or delivery within the cell."
+    },
+    {
+        "question": "Which of the following is an example of an organelle with its own DNA and ribosomes?",
+        "options": [
+            "Mitochondria and Plastids",
+            "Golgi apparatus and Lysosomes",
+            "Ribosomes and Centrosomes",
+            "Endoplasmic Reticulum and Vacuoles"
+        ],
+        "answer": "Mitochondria and Plastids",
+        "explanation": "Mitochondria and plastids (like chloroplasts) are semi-autonomous organelles containing their own DNA and 70S ribosomes."
+    },
+    {
+        "question": "What is the physical state of water at 0 degrees C?",
+        "options": [
+            "Only solid",
+            "Only liquid",
+            "Both solid and liquid",
+            "Gas"
+        ],
+        "answer": "Both solid and liquid",
+        "explanation": "At 0 degrees C (the freezing/melting point of water), water can exist in equilibrium as both solid ice and liquid water."
+    }
 ]

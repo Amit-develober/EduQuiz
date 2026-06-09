@@ -1,0 +1,36 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Default deny all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Rules for the "users" collection (Leaderboard)
+    match /users/{userId} {
+      
+      // Anyone can read the users collection (to view the leaderboard)
+      allow read: if true;
+      
+      // Users can only create or update their OWN document
+      allow create: if request.auth != null && request.auth.uid == userId;
+      
+      allow update: if request.auth != null && request.auth.uid == userId
+                    // Prevent God-Mode Cheat: Max XP increase per save is 200 XP
+                    // This stops console hackers from giving themselves 9,999,999 XP
+                    && (
+                      !request.resource.data.diff(resource.data).affectedKeys().hasAny(['xp'])
+                      || (request.resource.data.xp - resource.data.xp) <= 200
+                      || request.resource.data.xp <= resource.data.xp // Allow XP loss (penalties)
+                    )
+                    // Ensure accuracy is a valid percentage
+                    && request.resource.data.accuracy >= 0 
+                    && request.resource.data.accuracy <= 100;
+                    
+      // Users cannot delete their profile or others
+      allow delete: if false;
+    }
+  }
+}
