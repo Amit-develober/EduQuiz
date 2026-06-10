@@ -68,5 +68,15 @@
     {"question":"Which of the following ratios is equivalent to 2:3?","options":["4:9","6:9","8:15","3:2"],"answer":"6:9","explanation":"Multiplying both terms of 2:3 by 3 gives 6:9."},
     {"question":"The area of a rectangle is 48 cm². If its width is 6 cm, what is its length?","options":["8 cm","12 cm","14 cm","16 cm"],"answer":"8 cm","explanation":"Area = length × width, so length = Area / width = 48 / 6 = 8 cm."},
     {"question":"Express 35 mm in centimetres.","options":["0.35 cm","3.5 cm","350 cm","0.035 cm"],"answer":"3.5 cm","explanation":"Since 10 mm = 1 cm, 35 mm = 35 / 10 = 3.5 cm."},
-    {"question":"Find the sum of the first four prime numbers.","options":["10","15","17","26"],"answer":"17","explanation":"The first four prime numbers are 2, 3, 5, and 7. Sum = 2 + 3 + 5 + 7 = 17."}
+    {"question":"Find the sum of the first four prime numbers.","options":["10","15","17","26"],"answer":"17","explanation":"The first four prime numbers are 2, 3, 5, and 7. Sum = 2 + 3 + 5 + 7 = 17."},
+    {"question":"What is the smallest prime number?","options":["0","1","2","3"],"answer":"2","explanation":"2 is the smallest and the only even prime number."},
+    {"question":"Convert 3/5 into a decimal.","options":["0.3","0.6","0.5","0.8"],"answer":"0.6","explanation":"3 divided by 5 is 0.6."},
+    {"question":"How many millimeters are there in a centimeter?","options":["10","100","1000","1"],"answer":"10","explanation":"1 cm = 10 mm."},
+    {"question":"What is the perimeter of a rectangle with length 5cm and breadth 3cm?","options":["15 cm","16 cm","8 cm","10 cm"],"answer":"16 cm","explanation":"Perimeter = 2 * (length + breadth) = 2 * (5 + 3) = 16 cm."},
+    {"question":"Which of the following is an improper fraction?","options":["1/2","3/4","5/3","7/8"],"answer":"5/3","explanation":"An improper fraction has a numerator greater than or equal to its denominator."},
+    {"question":"Calculate: 12 x 8 - 10","options":["86","96","76","106"],"answer":"86","explanation":"According to BODMAS, multiplication is first: 12 x 8 = 96. Then 96 - 10 = 86."},
+    {"question":"What is the place value of 7 in 4782?","options":["7","70","700","7000"],"answer":"700","explanation":"7 is in the hundreds place, so its place value is 700."},
+    {"question":"What is 20% of 150?","options":["20","30","40","50"],"answer":"30","explanation":"20% of 150 = (20/100) * 150 = 30."},
+    {"question":"What is the HCF of 12 and 16?","options":["2","4","6","8"],"answer":"4","explanation":"Factors of 12: 1, 2, 3, 4, 6, 12. Factors of 16: 1, 2, 4, 8, 16. Highest Common Factor is 4."},
+    {"question":"How many degrees are in a straight angle?","options":["90°","180°","270°","360°"],"answer":"180°","explanation":"A straight angle is a straight line, which measures exactly 180°."}
 ]

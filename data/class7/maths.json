@@ -68,5 +68,15 @@
     {"question": "If two complementary angles are in the ratio 2:3, find the smaller angle.", "options": ["36°", "54°", "45°", "30°"], "answer": "36°", "explanation": "Let angles be 2x and 3x. 2x + 3x = 90° => 5x = 90° => x = 18°. Smaller angle = 2 × 18° = 36°."},
     {"question": "Evaluate: (-48) ÷ [(-16) + 12].", "options": ["12", "-12", "6", "-6"], "answer": "12", "explanation": "[(-16) + 12] = -4. So, (-48) ÷ (-4) = 12."},
     {"question": "Find the mean of the first five prime numbers.", "options": ["5.6", "5", "6", "4.8"], "answer": "5.6", "explanation": "First five primes: 2, 3, 5, 7, 11. Sum = 28. Mean = 28/5 = 5.6."},
-    {"question": "A letter is chosen at random from the word 'MATHEMATICS'. What is the probability that it is a vowel?", "options": ["4/11", "3/11", "5/11", "2/11"], "answer": "4/11", "explanation": "Total letters = 11. Vowels are A, E, A, I (4 vowels). Probability = 4/11."}
+    {"question": "A letter is chosen at random from the word 'MATHEMATICS'. What is the probability that it is a vowel?", "options": ["4/11", "3/11", "5/11", "2/11"], "answer": "4/11", "explanation": "Total letters = 11. Vowels are A, E, A, I (4 vowels). Probability = 4/11."},
+    {"question": "What is the value of (-10) + 15?", "options": ["-5", "5", "-25", "25"], "answer": "5", "explanation": "(-10) + 15 is the same as 15 - 10 = 5."},
+    {"question": "Calculate: 5² - 4²", "options": ["1", "9", "3", "2"], "answer": "9", "explanation": "5² = 25 and 4² = 16. 25 - 16 = 9."},
+    {"question": "Solve for y: 2y + 4 = 12", "options": ["2", "4", "6", "8"], "answer": "4", "explanation": "2y = 12 - 4 = 8. So, y = 8 / 2 = 4."},
+    {"question": "What is the area of a circle with a radius of 10 cm? (Use π ≈ 3.14)", "options": ["31.4 cm²", "314 cm²", "62.8 cm²", "100 cm²"], "answer": "314 cm²", "explanation": "Area = πr² ≈ 3.14 * (10)² = 314 cm²."},
+    {"question": "What is the simple interest on ₹2000 at 5% per annum for 3 years?", "options": ["₹100", "₹200", "₹300", "₹400"], "answer": "₹300", "explanation": "SI = (P * R * T) / 100 = (2000 * 5 * 3) / 100 = 300."},
+    {"question": "If two angles are complementary, their sum is:", "options": ["90°", "180°", "360°", "45°"], "answer": "90°", "explanation": "Complementary angles add up to 90 degrees."},
+    {"question": "Express 75% as a fraction in its simplest form.", "options": ["3/4", "1/4", "1/2", "2/3"], "answer": "3/4", "explanation": "75% = 75/100. Dividing both by 25 gives 3/4."},
+    {"question": "What is the mode of the numbers 2, 4, 4, 6, 8, 4?", "options": ["2", "4", "6", "8"], "answer": "4", "explanation": "The mode is the number that appears most frequently, which is 4."},
+    {"question": "Simplify: 3x + 5y - 2x + y", "options": ["x + 6y", "5x + 6y", "x + 4y", "5x + 4y"], "answer": "x + 6y", "explanation": "Combine like terms: (3x - 2x) + (5y + y) = x + 6y."},
+    {"question": "A triangle has sides 3cm, 4cm, and 5cm. Is it a right-angled triangle?", "options": ["Yes", "No", "Cannot be determined", "Only if it is isosceles"], "answer": "Yes", "explanation": "It satisfies Pythagoras' theorem: 3² + 4² = 9 + 16 = 25 = 5², so it is a right-angled triangle."}
 ]

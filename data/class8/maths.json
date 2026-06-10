@@ -68,5 +68,15 @@
     {"question": "If 5% of a number is 42, find the number.", "options": ["840", "420", "84", "8400"], "answer": "840", "explanation": "0.05 × x = 42 => x = 42 / 0.05 = 840."},
     {"question": "Factorise: y² - 7y + 12.", "options": ["(y-3)(y-4)", "(y-2)(y-6)", "(y+3)(y+4)", "(y-1)(y-12)"], "answer": "(y-3)(y-4)", "explanation": "We need factors of 12 that sum to -7, which are -3 and -4. So, y² - 7y + 12 = (y-3)(y-4)."},
     {"question": "If the area of a circle is 154 cm², find its circumference. (Take π = 22/7)", "options": ["44 cm", "22 cm", "88 cm", "66 cm"], "answer": "44 cm", "explanation": "Area = πr² = 154 => (22/7)r² = 154 => r² = 49 => r = 7 cm. Circumference = 2πr = 2 × (22/7) × 7 = 44 cm."},
-    {"question": "Evaluate: (1.2)³.", "options": ["1.728", "17.28", "0.1728", "1.44"], "answer": "1.728", "explanation": "1.2 × 1.2 × 1.2 = 1.44 × 1.2 = 1.728."}
+    {"question": "Evaluate: (1.2)³.", "options": ["1.728", "17.28", "0.1728", "1.44"], "answer": "1.728", "explanation": "1.2 × 1.2 × 1.2 = 1.44 × 1.2 = 1.728."},
+    {"question": "What is the cube root of 64?", "options": ["2", "4", "6", "8"], "answer": "4", "explanation": "4 * 4 * 4 = 64, so the cube root is 4."},
+    {"question": "Solve the linear equation: 3(x - 2) = 15", "options": ["3", "5", "7", "9"], "answer": "7", "explanation": "Divide by 3: x - 2 = 5. Add 2: x = 7."},
+    {"question": "What is the sum of the exterior angles of any polygon?", "options": ["180°", "360°", "540°", "720°"], "answer": "360°", "explanation": "The sum of the exterior angles of any convex polygon is always 360°."},
+    {"question": "Factorize: a² - 16", "options": ["(a-4)(a-4)", "(a+4)(a+4)", "(a-4)(a+4)", "(a-16)(a+1)"], "answer": "(a-4)(a+4)", "explanation": "Using the difference of squares identity: a² - b² = (a - b)(a + b). Here b = 4."},
+    {"question": "What is the value of 5⁰?", "options": ["0", "1", "5", "Undefined"], "answer": "1", "explanation": "Any non-zero number raised to the power of 0 is 1."},
+    {"question": "A shirt is marked at ₹500 and sold for ₹400. What is the discount percentage?", "options": ["10%", "15%", "20%", "25%"], "answer": "20%", "explanation": "Discount = 500 - 400 = 100. Percentage = (100 / 500) * 100 = 20%."},
+    {"question": "What is the standard form of 0.000035?", "options": ["3.5 x 10⁻⁴", "3.5 x 10⁻⁵", "3.5 x 10⁻⁶", "35 x 10⁻⁶"], "answer": "3.5 x 10⁻⁵", "explanation": "Move the decimal point 5 places to the right to get 3.5. So, 3.5 x 10⁻⁵."},
+    {"question": "Find the compound interest on ₹1000 for 1 year at 10% per annum compounded annually.", "options": ["₹100", "₹110", "₹10", "₹50"], "answer": "₹100", "explanation": "For 1 year compounded annually, CI = SI = (1000 * 10 * 1) / 100 = ₹100."},
+    {"question": "Two numbers are in the ratio 5:3. If they differ by 18, what are the numbers?", "options": ["45 and 27", "50 and 32", "40 and 22", "35 and 17"], "answer": "45 and 27", "explanation": "Let numbers be 5x and 3x. 5x - 3x = 18 => 2x = 18 => x = 9. Numbers are 45 and 27."},
+    {"question": "What is the area of a rhombus whose diagonals are 10 cm and 8 cm?", "options": ["80 cm²", "40 cm²", "20 cm²", "60 cm²"], "answer": "40 cm²", "explanation": "Area = (1/2) * d1 * d2 = (1/2) * 10 * 8 = 40 cm²."}
 ]
