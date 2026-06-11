@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard — EduQuiz</title>
+    <!-- Prevent indexing of admin page -->
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="assets/eduquiz_logo.png">
+
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+        .admin-container {
+            padding: var(--space-4xl) 0;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .auth-card {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .dashboard-card {
+            display: none; /* Hidden until authenticated */
+            text-align: left;
+        }
+
+        .messages-stats {
+            display: flex;
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+            flex-wrap: wrap;
+        }
+
+        .stat-box {
+            flex: 1;
+            min-width: 150px;
+            background: rgba(108, 92, 231, 0.1);
+            border: 1px solid rgba(108, 92, 231, 0.2);
+            padding: var(--space-lg);
+            border-radius: var(--radius-md);
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: var(--fs-3xl);
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: var(--space-xs);
+        }
+
+        .stat-label {
+            font-size: var(--fs-sm);
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .error-message {
+            color: var(--error);
+            background: rgba(239, 68, 68, 0.1);
+            padding: var(--space-md);
+            border-radius: var(--radius-sm);
+            margin-top: var(--space-md);
+            display: none;
+            font-size: var(--fs-sm);
+        }
+
+        .table-preview {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: var(--space-xl);
+            font-size: var(--fs-sm);
+        }
+        
+        .table-preview th, .table-preview td {
+            padding: 12px;
+            border-bottom: 1px solid var(--bg-glass-border);
+            text-align: left;
+        }
+
+        .table-preview th {
+            font-weight: 600;
+            color: var(--text-secondary);
+            background: rgba(0,0,0,0.02);
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(108, 92, 231, 0.2);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: var(--space-xl) auto;
+            display: none;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar (Simplified for Admin) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html#/home" class="nav-logo">
+                <img src="assets/eduquiz_logo.png" alt="EduQuiz Logo" class="logo-image">
+                <span class="logo-text">Edu<span class="logo-highlight">Admin</span></span>
+            </a>
+            <div class="nav-links">
+                <button id="logout-btn" class="btn btn-ghost btn-sm" style="display: none;">
+                    <i data-feather="log-out" style="width: 14px; height: 14px;"></i> Logout
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="admin-container">
+            
+            <!-- Auth Section -->
+            <div class="glass-card-static auth-card" id="auth-section">
+                <i data-feather="lock" style="width: 48px; height: 48px; color: var(--primary); margin-bottom: var(--space-md);"></i>
+                <h2>Admin Login</h2>
+                <p class="text-muted" style="margin-bottom: var(--space-xl);">Sign in with your authorized Google account to access the dashboard.</p>
+                
+                <button id="login-btn" class="btn btn-primary btn-block">
+                    <i data-feather="log-in"></i> Sign in with Google
+                </button>
+                <div id="auth-error" class="error-message"></div>
+            </div>
+
+            <!-- Dashboard Section -->
+            <div class="glass-card-static dashboard-card" id="dashboard-section">
+                <div class="flex-between" style="margin-bottom: var(--space-xl);">
+                    <h2>Contact Messages</h2>
+                    <button id="download-csv-btn" class="btn btn-success">
+                        <i data-feather="download"></i> Download CSV
+                    </button>
+                </div>
+
+                <div class="messages-stats">
+                    <div class="stat-box">
+                        <div class="stat-value" id="stat-total">-</div>
+                        <div class="stat-label">Total Messages</div>
+                    </div>
+                </div>
+
+                <div class="spinner" id="loading-spinner"></div>
+                <div id="dashboard-error" class="error-message"></div>
+
+                <div style="overflow-x: auto;">
+                    <table class="table-preview" id="messages-table" style="display: none;">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Name</th>
+                                <th>Mobile</th>
+                                <th>School</th>
+                                <th>Message Snippet</th>
+                            </tr>
+                        </thead>
+                        <tbody id="messages-tbody">
+                            <!-- Preview populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
+
+    <script>
+        // Initialize Firebase
+        if (!firebase.apps.length) {
+            firebase.initializeApp(window.firebaseConfig);
+        }
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+
+        // The exact UID allowed to view this page
+        const ADMIN_UID = 'mA0yscnrpTTAuCUcSMm9fiUgpRD3';
+
+        // DOM Elements
+        const authSection = document.getElementById('auth-section');
+        const dashboardSection = document.getElementById('dashboard-section');
+        const loginBtn = document.getElementById('login-btn');
+        const logoutBtn = document.getElementById('logout-btn');
+        const downloadCsvBtn = document.getElementById('download-csv-btn');
+        const authError = document.getElementById('auth-error');
+        const dashboardError = document.getElementById('dashboard-error');
+        const loadingSpinner = document.getElementById('loading-spinner');
+        const statTotal = document.getElementById('stat-total');
+        const messagesTable = document.getElementById('messages-table');
+        const messagesTbody = document.getElementById('messages-tbody');
+
+        let allMessagesData = [];
+
+        // ===== Auth State Listener =====
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                // User is signed in. Check if they are the admin.
+                if (user.uid === ADMIN_UID) {
+                    showDashboard();
+                } else {
+                    // Unauthorized user. Log them out and show error.
+                    auth.signOut().then(() => {
+                        authError.textContent = "Access Denied: You are not an authorized admin.";
+                        authError.style.display = 'block';
+                        showAuth();
+                    });
+                }
+            } else {
+                // No user signed in.
+                showAuth();
+            }
+        });
+
+        // ===== Login Handler =====
+        loginBtn.addEventListener('click', () => {
+            authError.style.display = 'none';
+            loginBtn.innerHTML = '<span class="spinner-sm" style="display:inline-block; width:16px; height:16px; border:2px solid #fff; border-top-color:transparent; border-radius:50%; animation:spin 1s linear infinite;"></span> Signing in...';
+            loginBtn.disabled = true;
+
+            const provider = new firebase.auth.GoogleAuthProvider();
+            auth.signInWithPopup(provider).catch((error) => {
+                console.error("Auth error:", error);
+                authError.textContent = "Login failed: " + error.message;
+                authError.style.display = 'block';
+                loginBtn.innerHTML = '<i data-feather="log-in"></i> Sign in with Google';
+                loginBtn.disabled = false;
+                feather.replace();
+            });
+        });
+
+        // ===== Logout Handler =====
+        logoutBtn.addEventListener('click', () => {
+            auth.signOut();
+        });
+
+        // ===== UI Toggles =====
+        function showAuth() {
+            authSection.style.display = 'block';
+            dashboardSection.style.display = 'none';
+            logoutBtn.style.display = 'none';
+            loginBtn.innerHTML = '<i data-feather="log-in"></i> Sign in with Google';
+            loginBtn.disabled = false;
+            feather.replace();
+        }
+
+        function showDashboard() {
+            authSection.style.display = 'none';
+            dashboardSection.style.display = 'block';
+            logoutBtn.style.display = 'flex';
+            loadMessages();
+        }
+
+        // ===== Load Messages =====
+        async function loadMessages() {
+            loadingSpinner.style.display = 'block';
+            dashboardError.style.display = 'none';
+            messagesTable.style.display = 'none';
+
+            try {
+                // Fetch all messages, ordered by newest first
+                const snapshot = await db.collection('contactMessages')
+                                        .orderBy('timestamp', 'desc')
+                                        .get();
+                
+                allMessagesData = [];
+                messagesTbody.innerHTML = '';
+                
+                statTotal.textContent = snapshot.size;
+
+                snapshot.forEach(doc => {
+                    const data = doc.data();
+                    allMessagesData.push({
+                        id: doc.id,
+                        ...data
+                    });
+
+                    // Add row to preview table (only show max 50 in preview)
+                    if (allMessagesData.length <= 50) {
+                        const tr = document.createElement('tr');
+                        const dateStr = data.dateTimeLocal || new Date(data.dateTime).toLocaleString();
+                        const msgSnippet = data.message.length > 50 ? data.message.substring(0, 50) + '...' : data.message;
+                        
+                        tr.innerHTML = `
+                            <td>${dateStr}</td>
+                            <td>${data.name || 'N/A'}</td>
+                            <td>${data.mobile || 'N/A'}</td>
+                            <td>${data.school || 'N/A'}</td>
+                            <td title="${data.message.replace(/"/g, '&quot;')}">${msgSnippet}</td>
+                        `;
+                        messagesTbody.appendChild(tr);
+                    }
+                });
+
+                loadingSpinner.style.display = 'none';
+                if (allMessagesData.length > 0) {
+                    messagesTable.style.display = 'table';
+                } else {
+                    dashboardError.textContent = "No messages found.";
+                    dashboardError.style.display = 'block';
+                }
+
+            } catch (error) {
+                console.error("Error fetching messages:", error);
+                loadingSpinner.style.display = 'none';
+                dashboardError.textContent = "Error loading messages. Check your permissions or network connection.";
+                dashboardError.style.display = 'block';
+            }
+        }
+
+        // ===== CSV Export Logic =====
+        downloadCsvBtn.addEventListener('click', () => {
+            if (allMessagesData.length === 0) return;
+
+            // Define CSV headers
+            const headers = ['Date', 'Name', 'Mobile', 'School Name', 'Message', 'User Agent'];
+            
+            // Map data to CSV rows
+            const csvRows = [headers.join(',')]; // Add header row
+
+            allMessagesData.forEach(msg => {
+                // Escape quotes and wrap fields in quotes to handle commas within the data
+                const escapeCsv = (str) => {
+                    if (!str) return '""';
+                    return '"' + String(str).replace(/"/g, '""') + '"';
+                };
+
+                const dateVal = msg.dateTimeLocal || msg.dateTime || 'N/A';
+                
+                const row = [
+                    escapeCsv(dateVal),
+                    escapeCsv(msg.name),
+                    escapeCsv(msg.mobile),
+                    escapeCsv(msg.school),
+                    escapeCsv(msg.message),
+                    escapeCsv(msg.userAgent)
+                ];
+                
+                csvRows.push(row.join(','));
+            });
+
+            // Create Blob and trigger download
+            const csvString = csvRows.join('\n');
+            const blob = new Blob([csvString], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            
+            const link = document.createElement("a");
+            link.setAttribute("href", url);
+            const today = new Date().toISOString().split('T')[0];
+            link.setAttribute("download", `eduquiz_messages_${today}.csv`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+
+        if (typeof feather !== 'undefined') {
+            feather.replace();
+        }
+    </script>
+</body>
+</html>

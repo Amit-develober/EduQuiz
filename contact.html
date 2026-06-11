@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us — EduQuiz</title>
+    <meta name="description" content="Get in touch with the EduQuiz team. Send us your feedback, questions, or suggestions.">
+    <meta name="robots" content="index, follow">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="assets/eduquiz_logo.png">
+
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+        .contact-page-container {
+            padding: var(--space-4xl) 0;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .contact-hero {
+            text-align: center;
+            margin-bottom: var(--space-2xl);
+            padding: var(--space-xl) 0;
+        }
+        .contact-hero-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, rgba(108, 92, 231, 0.15), rgba(6, 182, 212, 0.15));
+            border-radius: var(--radius-lg);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-md);
+            color: var(--primary);
+        }
+        .contact-hero h1 {
+            font-size: var(--fs-4xl);
+            margin-bottom: var(--space-sm);
+        }
+        .contact-hero p {
+            font-size: var(--fs-lg);
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Form Styles */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-lg);
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .form-group label {
+            font-weight: 600;
+            font-size: var(--fs-sm);
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .form-group label .required {
+            color: var(--error);
+            font-weight: 700;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            font-size: var(--fs-base);
+            font-family: var(--font-body);
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            border: 2px solid var(--bg-glass-border);
+            border-radius: var(--radius-md);
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            box-sizing: border-box;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(108, 92, 231, 0.12);
+        }
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--text-muted);
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .form-group .input-hint {
+            font-size: var(--fs-xs);
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+        .form-group .input-error {
+            font-size: var(--fs-xs);
+            color: var(--error);
+            margin-top: 2px;
+            display: none;
+        }
+        .form-group.error input,
+        .form-group.error textarea {
+            border-color: var(--error);
+        }
+        .form-group.error .input-error {
+            display: block;
+        }
+
+        /* Row layout for name + mobile */
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-md);
+        }
+
+        /* Date/Time Display */
+        .datetime-display {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            padding: 14px 18px;
+            background: linear-gradient(135deg, rgba(108, 92, 231, 0.06), rgba(6, 182, 212, 0.06));
+            border: 2px solid var(--bg-glass-border);
+            border-radius: var(--radius-md);
+            font-size: var(--fs-base);
+            color: var(--text-secondary);
+        }
+        .datetime-display .datetime-icon {
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+        .datetime-display .datetime-text {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .datetime-display .datetime-label {
+            font-size: var(--fs-xs);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+        .datetime-display .datetime-value {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: var(--fs-base);
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 16px 24px;
+            font-size: var(--fs-lg);
+            font-weight: 700;
+            font-family: var(--font-heading);
+            color: #fff;
+            background: linear-gradient(135deg, var(--primary), var(--info));
+            border: none;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .submit-btn:hover::before {
+            opacity: 1;
+        }
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(108, 92, 231, 0.35);
+        }
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .submit-btn .spinner-sm {
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            display: none;
+        }
+        .submit-btn.loading .spinner-sm {
+            display: inline-block;
+        }
+        .submit-btn.loading .btn-text {
+            display: none;
+        }
+        .submit-btn.loading .btn-loading-text {
+            display: inline;
+        }
+        .btn-loading-text {
+            display: none;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Success State */
+        .success-card {
+            display: none;
+            text-align: center;
+            padding: var(--space-3xl) var(--space-xl);
+            animation: fadeInUp 0.5s ease;
+        }
+        .success-card.visible {
+            display: block;
+        }
+        .success-emoji {
+            font-size: 64px;
+            margin-bottom: var(--space-md);
+            display: inline-block;
+            animation: bounceIn 0.6s ease;
+        }
+        .success-card h2 {
+            font-size: var(--fs-2xl);
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+        }
+        .success-card p {
+            color: var(--text-secondary);
+            font-size: var(--fs-base);
+            margin-bottom: var(--space-xl);
+            line-height: 1.6;
+        }
+        .success-card .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            font-weight: 600;
+            font-size: var(--fs-base);
+            color: #fff;
+            background: var(--primary);
+            border: none;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .success-card .btn-back:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes bounceIn {
+            0% { transform: scale(0); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        /* Info strip */
+        .info-strip {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: 12px 16px;
+            background: rgba(108, 92, 231, 0.06);
+            border-radius: var(--radius-md);
+            font-size: var(--fs-sm);
+            color: var(--text-secondary);
+            margin-bottom: var(--space-md);
+            border-left: 4px solid var(--primary);
+        }
+        .info-strip svg {
+            flex-shrink: 0;
+            color: var(--primary);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: var(--space-xl);
+        }
+        .back-link:hover {
+            color: var(--primary-light);
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .contact-hero h1 {
+                font-size: var(--fs-2xl);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html#/home" class="nav-logo" aria-label="EduQuiz Home">
+                <img src="assets/eduquiz_logo.png" alt="EduQuiz Logo" class="logo-image">
+                <span class="logo-text">Edu<span class="logo-highlight">Quiz</span></span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html#/home" class="nav-link"><i data-feather="home" class="nav-icon"></i> Home</a>
+                <a href="study-hub.html" class="nav-link"><i data-feather="book-open" class="nav-icon"></i> Study Hub</a>
+                <a href="about.html" class="nav-link"><i data-feather="info" class="nav-icon"></i> About</a>
+                <a href="contact.html" class="nav-link active"><i data-feather="mail" class="nav-icon"></i> Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="contact-page-container">
+            <a href="index.html#/home" class="back-link">
+                <i data-feather="arrow-left"></i> Back to EduQuiz
+            </a>
+
+            <div class="glass-card-static">
+                <!-- Hero -->
+                <div class="contact-hero">
+                    <div class="contact-hero-icon">
+                        <i data-feather="send" style="width: 28px; height: 28px;"></i>
+                    </div>
+                    <h1>Contact <span class="text-gradient">Us</span></h1>
+                    <p>Have feedback, a question, or a suggestion? We'd love to hear from you!</p>
+                </div>
+
+                <!-- Info Strip -->
+                <div class="info-strip">
+                    <i data-feather="info" style="width: 16px; height: 16px;"></i>
+                    <span>Your message will be sent directly to the EduQuiz team. We'll get back to you as soon as possible.</span>
+                </div>
+
+                <!-- Contact Form -->
+                <form class="contact-form" id="contact-form" novalidate>
+                    <div class="form-row">
+                        <div class="form-group" id="name-group">
+                            <label for="contact-name">
+                                <i data-feather="user" style="width: 14px; height: 14px;"></i>
+                                Full Name <span class="required">*</span>
+                            </label>
+                            <input type="text" id="contact-name" placeholder="Enter your full name" maxlength="50" required autocomplete="name">
+                            <span class="input-error" id="name-error">Please enter your name</span>
+                        </div>
+                        <div class="form-group" id="mobile-group">
+                            <label for="contact-mobile">
+                                <i data-feather="phone" style="width: 14px; height: 14px;"></i>
+                                Mobile Number <span class="required">*</span>
+                            </label>
+                            <input type="tel" id="contact-mobile" placeholder="e.g. 9876543210" maxlength="15" required autocomplete="tel">
+                            <span class="input-error" id="mobile-error">Please enter a valid mobile number</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="school-group">
+                        <label for="contact-school">
+                            <i data-feather="home" style="width: 14px; height: 14px;"></i>
+                            School Name <span class="required">*</span>
+                        </label>
+                        <input type="text" id="contact-school" placeholder="Enter your school name" maxlength="100" required>
+                        <span class="input-error" id="school-error">Please enter your school name</span>
+                    </div>
+
+                    <div class="form-group" id="message-group">
+                        <label for="contact-message">
+                            <i data-feather="message-square" style="width: 14px; height: 14px;"></i>
+                            Message <span class="required">*</span>
+                        </label>
+                        <textarea id="contact-message" placeholder="Type your message, feedback, or question here..." maxlength="1000" required></textarea>
+                        <span class="input-hint"><span id="char-count">0</span> / 1000 characters</span>
+                        <span class="input-error" id="message-error">Please enter your message</span>
+                    </div>
+
+                    <!-- Auto-detected Date & Time -->
+                    <div class="form-group">
+                        <label>
+                            <i data-feather="clock" style="width: 14px; height: 14px;"></i>
+                            Date & Time
+                        </label>
+                        <div class="datetime-display">
+                            <div class="datetime-icon">
+                                <i data-feather="calendar" style="width: 22px; height: 22px;"></i>
+                            </div>
+                            <div class="datetime-text">
+                                <span class="datetime-label">Auto-detected</span>
+                                <span class="datetime-value" id="current-datetime">Detecting...</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="submit-btn">
+                        <span class="spinner-sm"></span>
+                        <span class="btn-text"><i data-feather="send" style="width: 18px; height: 18px;"></i> Send Message</span>
+                        <span class="btn-loading-text">Sending...</span>
+                    </button>
+                </form>
+
+                <!-- Success State (shown after submit) -->
+                <div class="success-card" id="success-card">
+                    <span class="success-emoji">✅</span>
+                    <h2>Message Sent!</h2>
+                    <p>Thank you for reaching out. We've received your message and will get back to you soon.</p>
+                    <a href="index.html#/home" class="btn-back">
+                        <i data-feather="home" style="width: 16px; height: 16px;"></i> Back to Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+                <p>&copy; 2026 EduQuiz. Made with <i data-feather="heart" style="width: 14px; height: 14px; vertical-align: middle; color: var(--error);"></i> for students of India.</p>
+                <div style="margin-top: 15px; display: flex; gap: 20px; justify-content: center; font-size: 0.9rem;">
+                    <a href="privacy.html" style="text-decoration: underline;">Privacy Policy</a>
+                    <a href="terms.html" style="text-decoration: underline;">Terms of Service</a>
+                    <a href="admin.html" style="text-decoration: underline; color: var(--text-muted);">Admin</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
+
+    <script>
+        // ===== Initialize Firebase =====
+        if (!firebase.apps.length) {
+            firebase.initializeApp(window.firebaseConfig);
+        }
+        const db = firebase.firestore();
+
+        // ===== Feather Icons =====
+        if (typeof feather !== 'undefined') {
+            feather.replace();
+        }
+
+        // ===== Auto-detect Date & Time =====
+        function updateDateTime() {
+            const now = new Date();
+            const options = {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: true
+            };
+            const formatted = now.toLocaleString('en-IN', options);
+            document.getElementById('current-datetime').textContent = formatted;
+        }
+        updateDateTime();
+        setInterval(updateDateTime, 1000); // Update every second (live clock)
+
+        // ===== Character Counter =====
+        const messageInput = document.getElementById('contact-message');
+        const charCount = document.getElementById('char-count');
+        messageInput.addEventListener('input', () => {
+            charCount.textContent = messageInput.value.length;
+        });
+
+        // ===== Clear errors on input =====
+        document.querySelectorAll('.form-group input, .form-group textarea').forEach(el => {
+            el.addEventListener('input', () => {
+                el.closest('.form-group').classList.remove('error');
+            });
+        });
+
+        // ===== Form Validation =====
+        function validateForm() {
+            let isValid = true;
+
+            const name = document.getElementById('contact-name').value.trim();
+            const mobile = document.getElementById('contact-mobile').value.trim();
+            const school = document.getElementById('contact-school').value.trim();
+            const message = document.getElementById('contact-message').value.trim();
+
+            // Name
+            if (!name || name.length < 2) {
+                document.getElementById('name-group').classList.add('error');
+                document.getElementById('name-error').textContent = name.length === 0 ? 'Please enter your name' : 'Name must be at least 2 characters';
+                isValid = false;
+            }
+
+            // Mobile — allow Indian (10 digits) and international formats
+            const mobileClean = mobile.replace(/[\s\-\+\(\)]/g, '');
+            if (!mobileClean || !/^\d{10,15}$/.test(mobileClean)) {
+                document.getElementById('mobile-group').classList.add('error');
+                document.getElementById('mobile-error').textContent = mobile.length === 0 ? 'Please enter your mobile number' : 'Enter a valid 10-15 digit mobile number';
+                isValid = false;
+            }
+
+            // School
+            if (!school || school.length < 3) {
+                document.getElementById('school-group').classList.add('error');
+                document.getElementById('school-error').textContent = school.length === 0 ? 'Please enter your school name' : 'School name must be at least 3 characters';
+                isValid = false;
+            }
+
+            // Message
+            if (!message || message.length < 10) {
+                document.getElementById('message-group').classList.add('error');
+                document.getElementById('message-error').textContent = message.length === 0 ? 'Please enter your message' : 'Message must be at least 10 characters';
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        // ===== Form Submit =====
+        const form = document.getElementById('contact-form');
+        const submitBtn = document.getElementById('submit-btn');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            if (!validateForm()) return;
+
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.classList.add('loading');
+
+            const now = new Date();
+
+            const formData = {
+                name: document.getElementById('contact-name').value.trim(),
+                mobile: document.getElementById('contact-mobile').value.trim(),
+                school: document.getElementById('contact-school').value.trim(),
+                message: document.getElementById('contact-message').value.trim(),
+                dateTime: now.toISOString(),
+                dateTimeLocal: now.toLocaleString('en-IN', {
+                    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
+                    hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true
+                }),
+                timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                userAgent: navigator.userAgent,
+                status: 'unread'
+            };
+
+            try {
+                await db.collection('contactMessages').add(formData);
+
+                // Show success
+                form.style.display = 'none';
+                document.querySelector('.info-strip').style.display = 'none';
+                document.getElementById('success-card').classList.add('visible');
+
+                // Re-initialize feather icons for success card
+                if (typeof feather !== 'undefined') feather.replace();
+
+            } catch (error) {
+                console.error('Error sending message:', error);
+                alert('Something went wrong. Please try again or email us at hello@eduquiz.app');
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('loading');
+            }
+        });
+    </script>
+</body>
+</html>

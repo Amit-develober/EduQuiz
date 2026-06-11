@@ -28,9 +28,27 @@ service cloud.firestore {
                     // Ensure accuracy is a valid percentage
                     && request.resource.data.accuracy >= 0 
                     && request.resource.data.accuracy <= 100;
-                    
-      // Users cannot delete their profile or others
       allow delete: if false;
+    }
+    // Rules for "contactMessages" collection (Contact Form submissions)
+    match /contactMessages/{messageId} {
+      // Anyone can submit a message
+      allow create: if true
+                    && request.resource.data.keys().hasAll(['name', 'mobile', 'school', 'message', 'dateTime'])
+                    && request.resource.data.name is string
+                    && request.resource.data.name.size() >= 2
+                    && request.resource.data.name.size() <= 50
+                    && request.resource.data.mobile is string
+                    && request.resource.data.school is string
+                    && request.resource.data.message is string
+                    && request.resource.data.message.size() >= 10
+                    && request.resource.data.message.size() <= 1000;
+      
+      // ONLY the authorized Admin UID can read/download messages
+      allow read: if request.auth != null && request.auth.uid == 'mA0yscnrpTTAuCUcSMm9fiUgpRD3';
+      
+      // Nobody can update or delete from the client
+      allow update, delete: if false;
     }
   }
 }

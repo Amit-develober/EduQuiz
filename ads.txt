@@ -1,3 +1,5 @@
 # EduQuiz ads.txt
-# Replace the publisher ID with your actual Google AdSense publisher ID
+# IMPORTANT: Replace pub-0000000000000000 with your actual Google AdSense publisher ID
+# You will get this ID after your AdSense application is approved
+# Format: google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
 google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0

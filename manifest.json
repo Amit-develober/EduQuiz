@@ -2,7 +2,7 @@
     "name": "EduQuiz",
     "short_name": "EduQuiz",
     "description": "Interactive educational quiz platform for Class 6-10 students",
-    "start_url": "/index.html",
+    "start_url": "/EduQuiz/index.html",
     "display": "standalone",
     "background_color": "#f0f8ff",
     "theme_color": "#2563eb",

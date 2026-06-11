@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap (update domain when custom domain is configured)
+Sitemap: https://amit-develober.github.io/EduQuiz/sitemap.xml
