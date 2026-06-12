@@ -23,18 +23,28 @@ const QuizEngine = (() => {
     // ── Question Loading ──
 
     /**
-     * Load questions from JSON file for given class and subject.
+     * Load questions from Firestore for given class and subject.
+     * Document path: questions/class{N}_{subject}
+     * Each document has a 'questions' array field.
      */
     async function loadQuestions(cls, subj) {
         classNum = cls;
         subject = subj;
 
         try {
-            const response = await fetch(`data/class${cls}/${subj}.json`);
-            if (!response.ok) {
-                throw new Error(`Data not found for Class ${cls} ${subj}`);
+            // Get Firestore instance (already initialized by firebase-db.js)
+            const db = window.firebase.firestore();
+            const docId = `class${cls}_${subj}`;
+            const doc = await db.collection('questions').doc(docId).get();
+
+            if (!doc.exists) {
+                throw new Error(`Questions not found for Class ${cls} ${subj}`);
             }
-            const data = await response.json();
+
+            const data = doc.data().questions;
+            if (!data || data.length === 0) {
+                throw new Error(`No questions available for Class ${cls} ${subj}`);
+            }
             return data;
         } catch (err) {
             console.error('QuizEngine: Failed to load questions', err);

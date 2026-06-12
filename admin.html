@@ -21,7 +21,7 @@
     <style>
         .admin-container {
             padding: var(--space-4xl) 0;
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
             text-align: center;
         }
@@ -29,6 +29,27 @@
         .auth-card {
             max-width: 400px;
             margin: 0 auto;
+        }
+
+        .dashboard-grid {
+            text-align: left;
+        }
+
+        .dashboard-col {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .dashboard-col.active {
+            display: block;
+        }
+
+        .admin-tab {
+            cursor: pointer;
+        }
+        .admin-tab.active {
+            color: var(--primary);
+            font-weight: 700;
         }
 
         .dashboard-card {
@@ -125,8 +146,11 @@
                 <span class="logo-text">Edu<span class="logo-highlight">Admin</span></span>
             </a>
             <div class="nav-links">
-                <button id="logout-btn" class="btn btn-ghost btn-sm" style="display: none;">
-                    <i data-feather="log-out" style="width: 14px; height: 14px;"></i> Logout
+                <a href="#questions" id="nav-questions" class="nav-link admin-tab active" style="display: none;"><i data-feather="database"></i> Questions</a>
+                <a href="#messages" id="nav-messages" class="nav-link admin-tab" style="display: none;"><i data-feather="mail"></i> Messages</a>
+                <a href="index.html#/home" class="nav-link"><i data-feather="home"></i> Home</a>
+                <button id="logout-btn" class="btn btn-outline btn-sm" style="display: none;">
+                    <i data-feather="log-out"></i> Logout
                 </button>
             </div>
         </div>
@@ -149,38 +173,79 @@
 
             <!-- Dashboard Section -->
             <div class="glass-card-static dashboard-card" id="dashboard-section">
-                <div class="flex-between" style="margin-bottom: var(--space-xl);">
-                    <h2>Contact Messages</h2>
-                    <button id="download-csv-btn" class="btn btn-success">
-                        <i data-feather="download"></i> Download CSV
-                    </button>
-                </div>
+                <div class="dashboard-grid">
+                    
+                    <!-- Left Column: Question Bank -->
+                    <div class="dashboard-col active" id="col-questions">
+                        <div class="flex-between" style="margin-bottom: var(--space-md);">
+                            <h2>Question Bank Statistics</h2>
+                            <button id="refresh-questions-btn" class="btn btn-ghost">
+                                <i data-feather="refresh-cw"></i> Refresh
+                            </button>
+                        </div>
 
-                <div class="messages-stats">
-                    <div class="stat-box">
-                        <div class="stat-value" id="stat-total">-</div>
-                        <div class="stat-label">Total Messages</div>
+                        <div class="messages-stats">
+                            <div class="stat-box">
+                                <div class="stat-value" id="stat-total-questions">-</div>
+                                <div class="stat-label">Total Questions</div>
+                            </div>
+                        </div>
+
+                        <div style="overflow-x: auto; margin-bottom: var(--space-2xl);">
+                            <table class="table-preview" id="questions-table">
+                                <thead>
+                                    <tr>
+                                        <th>Class</th>
+                                        <th>Maths</th>
+                                        <th>Science</th>
+                                        <th>SST</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="questions-tbody">
+                                    <!-- Populated by JS -->
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                </div>
 
-                <div class="spinner" id="loading-spinner"></div>
-                <div id="dashboard-error" class="error-message"></div>
+                    <!-- Right Column: Contact Messages -->
+                    <div class="dashboard-col" id="col-messages">
+                        <div class="flex-between" style="margin-bottom: var(--space-xl);">
+                            <h2>Contact Messages</h2>
+                            <button id="download-csv-btn" class="btn btn-success">
+                                <i data-feather="download"></i> Download CSV
+                            </button>
+                        </div>
 
-                <div style="overflow-x: auto;">
-                    <table class="table-preview" id="messages-table" style="display: none;">
-                        <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Name</th>
-                                <th>Mobile</th>
-                                <th>School</th>
-                                <th>Message Snippet</th>
-                            </tr>
-                        </thead>
-                        <tbody id="messages-tbody">
-                            <!-- Preview populated by JS -->
-                        </tbody>
-                    </table>
+                        <div class="messages-stats">
+                            <div class="stat-box">
+                                <div class="stat-value" id="stat-total">-</div>
+                                <div class="stat-label">Total Messages</div>
+                            </div>
+                        </div>
+
+                        <div class="spinner" id="loading-spinner"></div>
+                        <div id="dashboard-error" class="error-message"></div>
+
+                        <div style="overflow-x: auto;">
+                            <table class="table-preview" id="messages-table" style="display: none;">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>School</th>
+                                        <th>Message Snippet</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="messages-tbody">
+                                    <!-- Preview populated by JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -217,7 +282,23 @@
         const messagesTable = document.getElementById('messages-table');
         const messagesTbody = document.getElementById('messages-tbody');
 
+        const refreshQuestionsBtn = document.getElementById('refresh-questions-btn');
+        const statTotalQuestions = document.getElementById('stat-total-questions');
+        const questionsTbody = document.getElementById('questions-tbody');
+
         let allMessagesData = [];
+
+        // Tab Switching
+        document.querySelectorAll('.admin-tab').forEach(tab => {
+            tab.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.dashboard-col').forEach(c => c.classList.remove('active'));
+                tab.classList.add('active');
+                const target = tab.getAttribute('href').substring(1);
+                document.getElementById('col-' + target).classList.add('active');
+            });
+        });
 
         // ===== Auth State Listener =====
         auth.onAuthStateChanged((user) => {
@@ -266,6 +347,8 @@
             authSection.style.display = 'block';
             dashboardSection.style.display = 'none';
             logoutBtn.style.display = 'none';
+            document.getElementById('nav-questions').style.display = 'none';
+            document.getElementById('nav-messages').style.display = 'none';
             loginBtn.innerHTML = '<i data-feather="log-in"></i> Sign in with Google';
             loginBtn.disabled = false;
             feather.replace();
@@ -274,9 +357,57 @@
         function showDashboard() {
             authSection.style.display = 'none';
             dashboardSection.style.display = 'block';
-            logoutBtn.style.display = 'flex';
+            logoutBtn.style.display = 'inline-flex';
+            document.getElementById('nav-questions').style.display = 'inline-flex';
+            document.getElementById('nav-messages').style.display = 'inline-flex';
             loadMessages();
+            loadQuestionStats();
         }
+
+        // ===== Load Question Stats (from Firestore) =====
+        async function loadQuestionStats() {
+            refreshQuestionsBtn.innerHTML = '<span class="spinner-sm" style="display:inline-block; width:16px; height:16px; border:2px solid var(--primary); border-top-color:transparent; border-radius:50%; animation:spin 1s linear infinite;"></span>';
+            refreshQuestionsBtn.disabled = true;
+            
+            const classes = [6, 7, 8, 9, 10];
+            const subjects = ['maths', 'science', 'sst'];
+            
+            let totalQuestionsOverall = 0;
+            questionsTbody.innerHTML = '';
+            
+            for (const cls of classes) {
+                const tr = document.createElement('tr');
+                let classTotal = 0;
+                let html = `<td><strong>Class ${cls}</strong></td>`;
+                
+                for (const subj of subjects) {
+                    try {
+                        const doc = await db.collection('questions').doc(`class${cls}_${subj}`).get();
+                        if (doc.exists && doc.data().questions) {
+                            const count = doc.data().questions.length;
+                            html += `<td>${count}</td>`;
+                            classTotal += count;
+                        } else {
+                            html += `<td style="color:var(--text-muted)">0</td>`;
+                        }
+                    } catch (err) {
+                        html += `<td style="color:var(--text-muted)">0</td>`;
+                    }
+                }
+                
+                html += `<td><strong>${classTotal}</strong></td>`;
+                tr.innerHTML = html;
+                questionsTbody.appendChild(tr);
+                totalQuestionsOverall += classTotal;
+            }
+            
+            statTotalQuestions.textContent = totalQuestionsOverall;
+            refreshQuestionsBtn.innerHTML = '<i data-feather="refresh-cw"></i> Refresh';
+            refreshQuestionsBtn.disabled = false;
+            if (typeof feather !== 'undefined') feather.replace();
+        }
+
+        refreshQuestionsBtn.addEventListener('click', loadQuestionStats);
 
         // ===== Load Messages =====
         async function loadMessages() {
@@ -311,9 +442,14 @@
                         tr.innerHTML = `
                             <td>${dateStr}</td>
                             <td>${data.name || 'N/A'}</td>
-                            <td>${data.mobile || 'N/A'}</td>
+                            <td>${data.email || 'N/A'}</td>
                             <td>${data.school || 'N/A'}</td>
                             <td title="${data.message.replace(/"/g, '&quot;')}">${msgSnippet}</td>
+                            <td>
+                                <button class="btn btn-sm btn-ghost delete-msg-btn" style="color: var(--error); padding: 4px;" data-id="${doc.id}">
+                                    <i data-feather="trash-2" style="width: 16px; height: 16px;"></i>
+                                </button>
+                            </td>
                         `;
                         messagesTbody.appendChild(tr);
                     }
@@ -322,6 +458,7 @@
                 loadingSpinner.style.display = 'none';
                 if (allMessagesData.length > 0) {
                     messagesTable.style.display = 'table';
+                    if (typeof feather !== 'undefined') feather.replace();
                 } else {
                     dashboardError.textContent = "No messages found.";
                     dashboardError.style.display = 'block';
@@ -335,12 +472,56 @@
             }
         }
 
+        // ===== Delete Message Logic =====
+        async function deleteMessage(docId, rowElement) {
+            if (!confirm("Are you sure you want to delete this message? This action cannot be undone.")) {
+                return;
+            }
+            
+            try {
+                await db.collection('contactMessages').doc(docId).delete();
+                
+                // Remove row from table
+                rowElement.remove();
+                
+                // Update total count
+                const currentTotal = parseInt(statTotal.textContent) || 0;
+                if (currentTotal > 0) {
+                    statTotal.textContent = currentTotal - 1;
+                }
+                
+                // Remove from allMessagesData array so it's not in the CSV export
+                allMessagesData = allMessagesData.filter(msg => msg.id !== docId);
+                
+                // If no messages left, handle empty state
+                if (allMessagesData.length === 0) {
+                    messagesTable.style.display = 'none';
+                    dashboardError.textContent = "No messages found.";
+                    dashboardError.style.display = 'block';
+                }
+                
+            } catch (error) {
+                console.error("Error deleting message:", error);
+                alert("Failed to delete message: " + error.message);
+            }
+        }
+
+        // Event delegation for delete buttons
+        messagesTbody.addEventListener('click', (e) => {
+            const deleteBtn = e.target.closest('.delete-msg-btn');
+            if (deleteBtn) {
+                const docId = deleteBtn.getAttribute('data-id');
+                const rowElement = deleteBtn.closest('tr');
+                deleteMessage(docId, rowElement);
+            }
+        });
+
         // ===== CSV Export Logic =====
         downloadCsvBtn.addEventListener('click', () => {
             if (allMessagesData.length === 0) return;
 
             // Define CSV headers
-            const headers = ['Date', 'Name', 'Mobile', 'School Name', 'Message', 'User Agent'];
+            const headers = ['Date', 'Name', 'Email', 'School Name', 'Message', 'User Agent'];
             
             // Map data to CSV rows
             const csvRows = [headers.join(',')]; // Add header row
@@ -357,7 +538,7 @@
                 const row = [
                     escapeCsv(dateVal),
                     escapeCsv(msg.name),
-                    escapeCsv(msg.mobile),
+                    escapeCsv(msg.email),
                     escapeCsv(msg.school),
                     escapeCsv(msg.message),
                     escapeCsv(msg.userAgent)
@@ -378,6 +559,28 @@
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
+        });
+
+        // ===== Tab Switching Logic =====
+        const navQuestions = document.getElementById('nav-questions');
+        const navMessages = document.getElementById('nav-messages');
+        const colQuestions = document.getElementById('col-questions');
+        const colMessages = document.getElementById('col-messages');
+
+        navQuestions.addEventListener('click', (e) => {
+            e.preventDefault();
+            navQuestions.classList.add('active');
+            navMessages.classList.remove('active');
+            colQuestions.classList.add('active');
+            colMessages.classList.remove('active');
+        });
+
+        navMessages.addEventListener('click', (e) => {
+            e.preventDefault();
+            navMessages.classList.add('active');
+            navQuestions.classList.remove('active');
+            colMessages.classList.add('active');
+            colQuestions.classList.remove('active');
         });
 
         if (typeof feather !== 'undefined') {

@@ -236,16 +236,27 @@
         .success-card {
             display: none;
             text-align: center;
-            padding: var(--space-3xl) var(--space-xl);
+            padding: var(--space-2xl);
             animation: fadeInUp 0.5s ease;
+            background: #fff;
+            border: 1px solid rgba(0,0,0,0.05);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            margin-top: var(--space-md);
         }
         .success-card.visible {
             display: block;
         }
-        .success-emoji {
-            font-size: 64px;
+        .success-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(0, 184, 148, 0.1);
+            color: var(--success);
             margin-bottom: var(--space-md);
-            display: inline-block;
             animation: bounceIn 0.6s ease;
         }
         .success-card h2 {
@@ -380,13 +391,13 @@
                             <input type="text" id="contact-name" placeholder="Enter your full name" maxlength="50" required autocomplete="name">
                             <span class="input-error" id="name-error">Please enter your name</span>
                         </div>
-                        <div class="form-group" id="mobile-group">
-                            <label for="contact-mobile">
-                                <i data-feather="phone" style="width: 14px; height: 14px;"></i>
-                                Mobile Number <span class="required">*</span>
+                        <div class="form-group" id="email-group">
+                            <label for="contact-email">
+                                <i data-feather="mail" style="width: 14px; height: 14px;"></i>
+                                Email Address <span class="required">*</span>
                             </label>
-                            <input type="tel" id="contact-mobile" placeholder="e.g. 9876543210" maxlength="15" required autocomplete="tel">
-                            <span class="input-error" id="mobile-error">Please enter a valid mobile number</span>
+                            <input type="email" id="contact-email" placeholder="e.g. name@example.com" maxlength="100" required autocomplete="email">
+                            <span class="input-error" id="email-error">Please enter a valid email address</span>
                         </div>
                     </div>
 
@@ -435,11 +446,13 @@
 
                 <!-- Success State (shown after submit) -->
                 <div class="success-card" id="success-card">
-                    <span class="success-emoji">✅</span>
+                    <div class="success-icon">
+                        <i data-feather="check-circle" style="width: 40px; height: 40px;"></i>
+                    </div>
                     <h2>Message Sent!</h2>
                     <p>Thank you for reaching out. We've received your message and will get back to you soon.</p>
-                    <a href="index.html#/home" class="btn-back">
-                        <i data-feather="home" style="width: 16px; height: 16px;"></i> Back to Home
+                    <a href="index.html#/home" class="btn btn-primary" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
+                        <i data-feather="home" style="width: 18px; height: 18px;"></i> Back to Home
                     </a>
                 </div>
             </div>
@@ -515,7 +528,7 @@
             let isValid = true;
 
             const name = document.getElementById('contact-name').value.trim();
-            const mobile = document.getElementById('contact-mobile').value.trim();
+            const email = document.getElementById('contact-email').value.trim();
             const school = document.getElementById('contact-school').value.trim();
             const message = document.getElementById('contact-message').value.trim();
 
@@ -526,11 +539,11 @@
                 isValid = false;
             }
 
-            // Mobile — allow Indian (10 digits) and international formats
-            const mobileClean = mobile.replace(/[\s\-\+\(\)]/g, '');
-            if (!mobileClean || !/^\d{10,15}$/.test(mobileClean)) {
-                document.getElementById('mobile-group').classList.add('error');
-                document.getElementById('mobile-error').textContent = mobile.length === 0 ? 'Please enter your mobile number' : 'Enter a valid 10-15 digit mobile number';
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email || !emailRegex.test(email)) {
+                document.getElementById('email-group').classList.add('error');
+                document.getElementById('email-error').textContent = email.length === 0 ? 'Please enter your email address' : 'Enter a valid email address';
                 isValid = false;
             }
 
@@ -568,7 +581,7 @@
 
             const formData = {
                 name: document.getElementById('contact-name').value.trim(),
-                mobile: document.getElementById('contact-mobile').value.trim(),
+                email: document.getElementById('contact-email').value.trim(),
                 school: document.getElementById('contact-school').value.trim(),
                 message: document.getElementById('contact-message').value.trim(),
                 dateTime: now.toISOString(),
