@@ -69,9 +69,16 @@ const QuizEngine = (() => {
 
         // Shuffle options within each question (keep track of correct answer)
         questions = questions.map((q, idx) => {
+            // Support both old format ('answer' string) and new format ('correctIndex')
+            let correctAnswerStr = q.answer;
+            if (correctAnswerStr === undefined && q.correctIndex !== undefined && q.options) {
+                correctAnswerStr = q.options[q.correctIndex];
+            }
+
             const shuffledOptions = UIUtils.shuffleArray([...q.options]);
             return {
                 ...q,
+                answer: correctAnswerStr,
                 options: shuffledOptions,
             };
         });
