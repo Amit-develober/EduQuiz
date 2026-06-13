@@ -334,6 +334,13 @@
         if (!modal) return;
         modal.style.display = '';
 
+        const closeBtn = document.getElementById('welcome-modal-close');
+        if (closeBtn) {
+            closeBtn.onclick = () => {
+                modal.style.display = 'none';
+            };
+        }
+
         let isLogin = true; // Track current mode (Login vs SignUp)
 
         const tabLogin = document.getElementById('tab-login');
