@@ -214,7 +214,7 @@
                     const navEl = document.getElementById('navbar');
                     if (appEl) appEl.style.display = '';
                     if (navEl) navEl.style.display = '';
-                    updateNavProfile();
+                    updateNavProfile(true); // Pass true to hide local storage data in guest mode
                     if (sessionListenerUnsubscribe) {
                         sessionListenerUnsubscribe();
                         sessionListenerUnsubscribe = null;
@@ -234,7 +234,7 @@
             if (Storage.isFirstVisit()) {
                 showWelcomeModal();
             } else {
-                updateNavProfile();
+                updateNavProfile(true);
             }
             if (typeof Router !== 'undefined') Router.init();
             const loader = document.getElementById('initial-loader');
@@ -493,6 +493,14 @@
                     FirebaseDB.syncUserProfile(newProfile);
                 }
 
+                // Sync to Firebase Auth so the profile name persists across devices for email logins
+                if (user && typeof user.updateProfile === 'function') {
+                    user.updateProfile({
+                        displayName: username,
+                        photoURL: selectedAvatar
+                    }).catch(console.error);
+                }
+
                 // Close modal and show app
                 modal.style.display = 'none';
                 const appEl = document.getElementById('app');
@@ -528,7 +536,7 @@
 
     // ── Update Nav Profile Info ──
 
-    function updateNavProfile() {
+    function updateNavProfile(isGuest = false) {
         const profile = Storage.getProfile();
         const streak = Storage.getStreak();
 
@@ -536,10 +544,10 @@
         const streakEl = document.getElementById('nav-streak-value');
         const avatarEl = document.getElementById('nav-profile-avatar');
 
-        if (xpEl) xpEl.textContent = profile.xp || 0;
-        if (streakEl) streakEl.textContent = streak.current || 0;
+        if (xpEl) xpEl.textContent = isGuest ? 0 : (profile.xp || 0);
+        if (streakEl) streakEl.textContent = isGuest ? 0 : (streak.current || 0);
         if (avatarEl) {
-            if (profile.username && profile.avatar) {
+            if (!isGuest && profile.username && profile.avatar) {
                 avatarEl.innerHTML = UIUtils.renderAvatar(profile.avatar);
                 avatarEl.style.fontSize = '18px'; // Make emoji readable
             } else {

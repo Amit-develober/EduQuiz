@@ -81,7 +81,7 @@ const QuizEngine = (() => {
                 questionText = q.text;
             }
 
-            const shuffledOptions = UIUtils.shuffleArray([...q.options]);
+            const shuffledOptions = q.options ? UIUtils.shuffleArray([...q.options]) : [];
             return {
                 ...q,
                 question: questionText,
@@ -214,6 +214,8 @@ const QuizEngine = (() => {
 
     function startTimer(onTick, onTimeUp) {
         if (timerInterval) clearInterval(timerInterval);
+
+        if (onTick) onTick(timeRemaining);
 
         timerInterval = setInterval(() => {
             timeRemaining--;

@@ -81,6 +81,7 @@ const LeaderboardPage = (() => {
         // Check if current user is in top 3
         const userInTop3 = top3.some((u) => u.isCurrentUser);
         const userInRest = rest.find((u) => u.isCurrentUser);
+        const hasPlayed = typeof Storage !== 'undefined' && Storage.getProfile().xp > 0;
 
         return `
             <div class="leaderboard-page">
@@ -109,8 +110,8 @@ const LeaderboardPage = (() => {
                     </div>
                 ` : (!userInTop3 && !userInRest ? `
                     <div style="text-align: center; margin-top: var(--space-2xl);">
-                        <p class="text-secondary" style="margin-bottom: var(--space-md);">Take quizzes to appear on the leaderboard!</p>
-                        <button class="btn btn-primary" onclick="Router.navigate('/class')" id="lb-start-btn">Start a Quiz</button>
+                        <p class="text-secondary" style="margin-bottom: var(--space-md);">${hasPlayed ? 'Keep learning to climb the leaderboard!' : 'Take quizzes to appear on the leaderboard!'}</p>
+                        <button class="btn btn-primary" onclick="Router.navigate('/class')" id="lb-start-btn">${hasPlayed ? 'Continue Learning' : 'Start a Quiz'}</button>
                     </div>
                 ` : '')}
             </div>

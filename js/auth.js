@@ -32,6 +32,7 @@ try {
 } catch (error) {
     console.error("Firebase initialization error:", error);
     // Provide stub functions so the app doesn't break if Firebase config is missing
+    window.firebaseAuth = { currentUser: null, signOut: async () => {} };
     window.signInWithGoogle = async function() {
         alert("Firebase is not configured! Please add your firebaseConfig in js/auth.js");
         throw new Error("Firebase not configured");
