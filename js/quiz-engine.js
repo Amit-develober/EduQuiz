@@ -75,9 +75,16 @@ const QuizEngine = (() => {
                 correctAnswerStr = q.options[q.correctIndex];
             }
 
+            // Support both old format ('question' string) and new format ('text' string)
+            let questionText = q.question;
+            if (questionText === undefined && q.text !== undefined) {
+                questionText = q.text;
+            }
+
             const shuffledOptions = UIUtils.shuffleArray([...q.options]);
             return {
                 ...q,
+                question: questionText,
                 answer: correctAnswerStr,
                 options: shuffledOptions,
             };
