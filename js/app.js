@@ -74,6 +74,16 @@
         // Auth State Listener
         if (window.subscribeToAuthChanges) {
             window.subscribeToAuthChanges(async (user) => {
+                // Clear recent quiz history on login/logout transitions
+                const currentUid = user ? user.uid : 'guest';
+                const lastUid = sessionStorage.getItem('mm_last_uid');
+                if (lastUid !== null && lastUid !== currentUid) {
+                    if (typeof Storage !== 'undefined' && Storage.clearHistory) {
+                        Storage.clearHistory();
+                    }
+                }
+                sessionStorage.setItem('mm_last_uid', currentUid);
+
                 if (user) {
                     // Prevent Admin account from being used as a Player account
                     if (user.uid === 'Cs9Nx9oOWKd5vDO6xwGqFMSCk652') {

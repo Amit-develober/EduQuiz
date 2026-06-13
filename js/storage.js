@@ -23,7 +23,8 @@ const Storage = (() => {
 
     function get(key, fallback = null) {
         try {
-            const raw = localStorage.getItem(key);
+            const storage = key === KEYS.HISTORY ? sessionStorage : localStorage;
+            const raw = storage.getItem(key);
             return raw ? JSON.parse(raw) : fallback;
         } catch {
             return fallback;
@@ -32,7 +33,8 @@ const Storage = (() => {
 
     function set(key, value) {
         try {
-            localStorage.setItem(key, JSON.stringify(value));
+            const storage = key === KEYS.HISTORY ? sessionStorage : localStorage;
+            storage.setItem(key, JSON.stringify(value));
         } catch (e) {
             console.warn('Storage write failed:', e);
         }
@@ -272,7 +274,23 @@ const Storage = (() => {
     // ── Clear Data ──
 
     function clearAll() {
-        Object.values(KEYS).forEach((key) => localStorage.removeItem(key));
+        Object.values(KEYS).forEach((key) => {
+            localStorage.removeItem(key);
+            sessionStorage.removeItem(key);
+        });
+    }
+
+    function clearHistory() {
+        sessionStorage.removeItem(KEYS.HISTORY);
+    }
+
+    // Clean up legacy history from localStorage if it exists
+    try {
+        if (localStorage.getItem(KEYS.HISTORY)) {
+            localStorage.removeItem(KEYS.HISTORY);
+        }
+    } catch (e) {
+        console.warn('Legacy history cleanup failed:', e);
     }
 
     // ── Public API ──
@@ -294,5 +312,6 @@ const Storage = (() => {
         getGlobalStats,
         clearAll,
         getSessionId,
+        clearHistory,
     };
 })();
