@@ -6,7 +6,7 @@ service cloud.firestore {
     // Questions collection — anyone can read quiz questions, only admin can write
     match /questions/{docId} {
       allow read: if true;
-      allow write: if request.auth != null && request.auth.uid == 'mA0yscnrpTTAuCUcSMm9fiUgpRD3';
+      allow write: if request.auth != null && request.auth.uid == 'Cs9Nx9oOWKd5vDO6xwGqFMSCk652';
     }
 
     // Default deny all
@@ -51,11 +51,11 @@ service cloud.firestore {
                     && request.resource.data.message.size() <= 1000;
       
       // ONLY the authorized Admin UID can read/download messages
-      allow read: if request.auth != null && request.auth.uid == 'mA0yscnrpTTAuCUcSMm9fiUgpRD3';
+      allow read: if request.auth != null && request.auth.uid == 'Cs9Nx9oOWKd5vDO6xwGqFMSCk652';
       
       // Nobody can update from the client. Admin can delete.
       allow update: if false;
-      allow delete: if request.auth != null && request.auth.uid == 'mA0yscnrpTTAuCUcSMm9fiUgpRD3';
+      allow delete: if request.auth != null && request.auth.uid == 'Cs9Nx9oOWKd5vDO6xwGqFMSCk652';
     }
   }
 }

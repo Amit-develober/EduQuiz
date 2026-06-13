@@ -179,11 +179,16 @@
                 <img src="assets/eduquiz_logo.png" alt="EduQuiz Logo" class="logo-image">
                 <span class="logo-text">Edu<span class="logo-highlight">Quiz</span></span>
             </a>
-            <div class="nav-links">
+            <div class="nav-links" id="nav-links">
                 <a href="index.html#/home" class="nav-link"><i data-feather="home" class="nav-icon"></i> Home</a>
                 <a href="study-hub.html" class="nav-link"><i data-feather="book-open" class="nav-icon"></i> Study Hub</a>
                 <a href="about.html" class="nav-link active"><i data-feather="info" class="nav-icon"></i> About</a>
                 <a href="contact.html" class="nav-link"><i data-feather="mail" class="nav-icon"></i> Contact</a>
+            </div>
+            <div class="nav-actions">
+                <button class="nav-hamburger" id="nav-hamburger" onclick="this.classList.toggle('active'); document.getElementById('nav-links').classList.toggle('open');" aria-label="Toggle Menu">
+                    <span></span><span></span><span></span>
+                </button>
             </div>
         </div>
     </nav>

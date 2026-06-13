@@ -8,6 +8,7 @@
     'use strict';
 
     let dailyChallengeToastShown = false;
+    let isRouterInitialized = false;
 
     function showDailyChallengeToast() {
         if (!dailyChallengeToastShown) {
@@ -73,10 +74,14 @@
         // Auth State Listener
         if (window.subscribeToAuthChanges) {
             window.subscribeToAuthChanges(async (user) => {
-                const loader = document.getElementById('initial-loader');
-                if (loader) loader.style.display = 'none';
-
                 if (user) {
+                    // Prevent Admin account from being used as a Player account
+                    if (user.uid === 'Cs9Nx9oOWKd5vDO6xwGqFMSCk652') {
+                        if (window.firebaseAuth) window.firebaseAuth.signOut();
+                        alert("Access Denied: This email/account is reserved exclusively for the Admin Panel and cannot be used to play the game.");
+                        return;
+                    }
+
                     // User is signed in.
                     const modal = document.getElementById('welcome-modal');
                     if (modal) modal.style.display = 'none';
@@ -133,6 +138,14 @@
                             updateNavProfile();
                             showDailyChallengeToast();
                             setupSessionListener(user);
+                            if (isRouterInitialized) {
+                                if (typeof Router !== 'undefined') Router.handleRouteChange();
+                            } else {
+                                if (typeof Router !== 'undefined') Router.init();
+                                isRouterInitialized = true;
+                                const loader = document.getElementById('initial-loader');
+                                if (loader) loader.style.display = 'none';
+                            }
                         } else {
                             // No profile exists in database. Check if they are a new user
                             const isNewUser = user.metadata && user.metadata.creationTime === user.metadata.lastSignInTime;
@@ -141,6 +154,8 @@
                             if (isNewUser || !dbProfile || !dbProfile.username) {
                                 if (appEl) appEl.style.display = 'none';
                                 if (navEl) navEl.style.display = 'none';
+                                const loader = document.getElementById('initial-loader');
+                                if (loader) loader.style.display = 'none';
                                 showProfileSetupModal(user);
                             } else {
                                 // Fallback: Create a default profile
@@ -163,6 +178,14 @@
                                 updateNavProfile();
                                 showDailyChallengeToast();
                                 setupSessionListener(user);
+                                if (isRouterInitialized) {
+                                    if (typeof Router !== 'undefined') Router.handleRouteChange();
+                                } else {
+                                    if (typeof Router !== 'undefined') Router.init();
+                                    isRouterInitialized = true;
+                                    const loader = document.getElementById('initial-loader');
+                                    if (loader) loader.style.display = 'none';
+                                }
                             }
                         }
                     } else {
@@ -176,6 +199,14 @@
                             FirebaseDB.syncUserProfile(Storage.getProfile());
                         }
                         setupSessionListener(user);
+                        if (isRouterInitialized) {
+                            if (typeof Router !== 'undefined') Router.handleRouteChange();
+                        } else {
+                            if (typeof Router !== 'undefined') Router.init();
+                            isRouterInitialized = true;
+                            const loader = document.getElementById('initial-loader');
+                            if (loader) loader.style.display = 'none';
+                        }
                     }
                 } else {
                     // User is signed out (Guest Mode).
@@ -188,6 +219,14 @@
                         sessionListenerUnsubscribe();
                         sessionListenerUnsubscribe = null;
                     }
+                    if (isRouterInitialized) {
+                        if (typeof Router !== 'undefined') Router.handleRouteChange();
+                    } else {
+                        if (typeof Router !== 'undefined') Router.init();
+                        isRouterInitialized = true;
+                        const loader = document.getElementById('initial-loader');
+                        if (loader) loader.style.display = 'none';
+                    }
                 }
             });
         } else {
@@ -197,14 +236,10 @@
             } else {
                 updateNavProfile();
             }
+            if (typeof Router !== 'undefined') Router.init();
+            const loader = document.getElementById('initial-loader');
+            if (loader) loader.style.display = 'none';
         }
-
-        // Initialize router (will render the first page)
-        Router.init();
-
-        // Remove initial loader
-        const loader = document.getElementById('initial-loader');
-        if (loader) loader.style.display = 'none';
 
         // Initialize feather icons for static HTML
         if (typeof feather !== 'undefined') {
@@ -439,7 +474,7 @@
                 }
 
                 // Save profile
-                Storage.saveProfile({
+                const newProfile = {
                     username,
                     avatar: selectedAvatar,
                     classNum: parseInt(classNum),
@@ -450,7 +485,13 @@
                     totalQuestions: 0,
                     badges: [],
                     createdAt: new Date().toISOString(),
-                });
+                };
+                Storage.saveProfile(newProfile);
+
+                // Sync to database immediately so it's not lost
+                if (typeof FirebaseDB !== 'undefined') {
+                    FirebaseDB.syncUserProfile(newProfile);
+                }
 
                 // Close modal and show app
                 modal.style.display = 'none';
@@ -461,6 +502,13 @@
 
                 // Update nav
                 updateNavProfile();
+
+                if (isRouterInitialized) {
+                    if (typeof Router !== 'undefined') Router.handleRouteChange();
+                } else {
+                    if (typeof Router !== 'undefined') Router.init();
+                    isRouterInitialized = true;
+                }
 
                 // Welcome toast
                 UIUtils.showToast(`Welcome, ${username}!  Let's start learning!`, 'success', 4000);

@@ -145,12 +145,17 @@
                 <img src="assets/eduquiz_logo.png" alt="EduQuiz Logo" class="logo-image">
                 <span class="logo-text">Edu<span class="logo-highlight">Admin</span></span>
             </a>
-            <div class="nav-links">
+            <div class="nav-links" id="nav-links">
                 <a href="#questions" id="nav-questions" class="nav-link admin-tab active" style="display: none;"><i data-feather="database"></i> Questions</a>
                 <a href="#messages" id="nav-messages" class="nav-link admin-tab" style="display: none;"><i data-feather="mail"></i> Messages</a>
                 <a href="index.html#/home" class="nav-link"><i data-feather="home"></i> Home</a>
                 <button id="logout-btn" class="btn btn-outline btn-sm" style="display: none;">
                     <i data-feather="log-out"></i> Logout
+                </button>
+            </div>
+            <div class="nav-actions">
+                <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle Menu">
+                    <span></span><span></span><span></span>
                 </button>
             </div>
         </div>
@@ -163,10 +168,20 @@
             <div class="glass-card-static auth-card" id="auth-section">
                 <i data-feather="lock" style="width: 48px; height: 48px; color: var(--primary); margin-bottom: var(--space-md);"></i>
                 <h2>Admin Login</h2>
-                <p class="text-muted" style="margin-bottom: var(--space-xl);">Sign in with your authorized Google account to access the dashboard.</p>
+                <p class="text-muted" style="margin-bottom: var(--space-xl);">Enter your admin credentials to access the dashboard.</p>
                 
+                <div style="text-align: left; margin-bottom: var(--space-md);">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 500;">Email or Username</label>
+                    <input type="text" id="admin-email" class="form-control" placeholder="admin@eduquiz.com" style="width: 100%; padding: 12px; border-radius: var(--radius-sm); border: 1px solid rgba(108, 92, 231, 0.2); background: rgba(0,0,0,0.02); font-family: var(--font-body);">
+                </div>
+                
+                <div style="text-align: left; margin-bottom: var(--space-xl);">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 500;">Password</label>
+                    <input type="password" id="admin-password" class="form-control" placeholder="••••••••" style="width: 100%; padding: 12px; border-radius: var(--radius-sm); border: 1px solid rgba(108, 92, 231, 0.2); background: rgba(0,0,0,0.02); font-family: var(--font-body);">
+                </div>
+
                 <button id="login-btn" class="btn btn-primary btn-block">
-                    <i data-feather="log-in"></i> Sign in with Google
+                    <i data-feather="log-in"></i> Login
                 </button>
                 <div id="auth-error" class="error-message"></div>
             </div>
@@ -259,15 +274,14 @@
     <script src="js/firebase-config.js"></script>
 
     <script>
-        // Initialize Firebase
-        if (!firebase.apps.length) {
-            firebase.initializeApp(window.firebaseConfig);
-        }
-        const auth = firebase.auth();
-        const db = firebase.firestore();
+        // Initialize an independent Firebase App for the Admin Panel
+        // This prevents the Admin login from overlapping with the normal Player login
+        const adminApp = firebase.initializeApp(window.firebaseConfig, 'AdminPanel');
+        const auth = adminApp.auth();
+        const db = adminApp.firestore();
 
         // The exact UID allowed to view this page
-        const ADMIN_UID = 'mA0yscnrpTTAuCUcSMm9fiUgpRD3';
+        const ADMIN_UID = 'Cs9Nx9oOWKd5vDO6xwGqFMSCk652';
 
         // DOM Elements
         const authSection = document.getElementById('auth-section');
@@ -322,18 +336,26 @@
 
         // ===== Login Handler =====
         loginBtn.addEventListener('click', () => {
+            const email = document.getElementById('admin-email').value.trim();
+            const password = document.getElementById('admin-password').value;
+
+            if (!email || !password) {
+                authError.textContent = "Please enter both email and password.";
+                authError.style.display = 'block';
+                return;
+            }
+
             authError.style.display = 'none';
             loginBtn.innerHTML = '<span class="spinner-sm" style="display:inline-block; width:16px; height:16px; border:2px solid #fff; border-top-color:transparent; border-radius:50%; animation:spin 1s linear infinite;"></span> Signing in...';
             loginBtn.disabled = true;
 
-            const provider = new firebase.auth.GoogleAuthProvider();
-            auth.signInWithPopup(provider).catch((error) => {
+            auth.signInWithEmailAndPassword(email, password).catch((error) => {
                 console.error("Auth error:", error);
                 authError.textContent = "Login failed: " + error.message;
                 authError.style.display = 'block';
-                loginBtn.innerHTML = '<i data-feather="log-in"></i> Sign in with Google';
+                loginBtn.innerHTML = '<i data-feather="log-in"></i> Login';
                 loginBtn.disabled = false;
-                feather.replace();
+                if (typeof feather !== 'undefined') feather.replace();
             });
         });
 
@@ -349,7 +371,8 @@
             logoutBtn.style.display = 'none';
             document.getElementById('nav-questions').style.display = 'none';
             document.getElementById('nav-messages').style.display = 'none';
-            loginBtn.innerHTML = '<i data-feather="log-in"></i> Sign in with Google';
+            document.getElementById('admin-password').value = '';
+            loginBtn.innerHTML = '<i data-feather="log-in"></i> Login';
             loginBtn.disabled = false;
             feather.replace();
         }
@@ -582,6 +605,25 @@
             colMessages.classList.add('active');
             colQuestions.classList.remove('active');
         });
+
+        // ===== Mobile Menu Logic =====
+        const hamburger = document.getElementById('nav-hamburger');
+        const navLinks = document.getElementById('nav-links');
+        
+        if (hamburger && navLinks) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('open');
+            });
+
+            // Close mobile menu when clicking a link inside it
+            navLinks.querySelectorAll('.nav-link').forEach((link) => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('open');
+                });
+            });
+        }
 
         if (typeof feather !== 'undefined') {
             feather.replace();

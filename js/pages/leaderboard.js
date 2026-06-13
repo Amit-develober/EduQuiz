@@ -8,7 +8,20 @@ const LeaderboardPage = (() => {
         const isLoggedIn = !!(window.firebaseAuth && window.firebaseAuth.currentUser);
         let leaderboard = [];
         if (typeof FirebaseDB !== 'undefined') {
-            leaderboard = await FirebaseDB.getTopUsers();
+            const allUsers = await FirebaseDB.getTopUsers();
+            // Only show users who have actually earned XP
+            leaderboard = allUsers.filter(u => u.xp > 0);
+            
+            // Re-assign ranks to handle ties properly
+            let currentRank = 1;
+            for(let i=0; i<leaderboard.length; i++) {
+                if (i > 0 && leaderboard[i].xp === leaderboard[i-1].xp) {
+                    leaderboard[i].rank = leaderboard[i-1].rank;
+                } else {
+                    leaderboard[i].rank = currentRank;
+                }
+                currentRank++;
+            }
         }
         
         const top3 = leaderboard.slice(0, 3);
@@ -76,12 +89,7 @@ const LeaderboardPage = (() => {
                     <p>Top performing students</p>
                 </div>
 
-                <!-- Tabs -->
-                <div class="leaderboard-tabs">
-                    <button class="leaderboard-tab active" id="tab-all-time">All Time</button>
-                    <button class="leaderboard-tab" id="tab-weekly">This Week</button>
-                    <button class="leaderboard-tab" id="tab-monthly">This Month</button>
-                </div>
+                <!-- Tabs (Removed for now as they are not backed by DB logic yet) -->
 
                 <!-- Podium -->
                 ${podiumHTML}
@@ -110,16 +118,7 @@ const LeaderboardPage = (() => {
     }
 
     function init() {
-        // Tab switching (simulated — same data for all tabs in this version)
-        const tabs = document.querySelectorAll('.leaderboard-tab');
-        tabs.forEach((tab) => {
-            tab.addEventListener('click', () => {
-                tabs.forEach((t) => t.classList.remove('active'));
-                tab.classList.add('active');
-                // In production, would filter data by time period
-                UIUtils.showToast('Showing ' + tab.textContent.toLowerCase() + ' rankings', 'info', 2000);
-            });
-        });
+        // Removed fake tab switching logic
 
         // Removed JS-based entrance animations for better performance
     }
