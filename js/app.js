@@ -334,11 +334,14 @@
         if (!modal) return;
         modal.style.display = '';
 
+        // Initialize close button
         const closeBtn = document.getElementById('welcome-modal-close');
         if (closeBtn) {
-            closeBtn.onclick = () => {
+            const newCloseBtn = closeBtn.cloneNode(true);
+            closeBtn.parentNode.replaceChild(newCloseBtn, closeBtn);
+            newCloseBtn.addEventListener('click', () => {
                 modal.style.display = 'none';
-            };
+            });
         }
 
         let isLogin = true; // Track current mode (Login vs SignUp)

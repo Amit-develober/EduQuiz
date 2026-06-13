@@ -833,30 +833,31 @@ select.input-field option {
     animation: slideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.modal-close-btn {
+.modal-close {
     position: absolute;
-    top: 16px;
-    right: 16px;
-    font-size: 24px;
-    line-height: 1;
-    color: var(--text-secondary);
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: color var(--transition-fast), transform var(--transition-fast);
-    z-index: 10;
-    width: 32px;
-    height: 32px;
+    top: var(--space-md);
+    right: var(--space-md);
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-full);
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: var(--radius-full);
+    background: rgba(0, 0, 0, 0.05);
+    color: var(--text-secondary);
+    transition: all var(--transition-base);
+    z-index: 10;
 }
 
-.modal-close-btn:hover {
-    color: var(--error);
+.modal-close:hover {
     background: rgba(239, 68, 68, 0.1);
+    color: var(--error);
     transform: scale(1.1);
+}
+
+.modal-close svg {
+    width: 20px;
+    height: 20px;
 }
 
 .modal-header {
